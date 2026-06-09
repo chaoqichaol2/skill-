@@ -393,6 +393,13 @@ function reasonText(item) {
   return reasons.join('；') || '综合相关度较高';
 }
 
+function titleCaseName(text) {
+  return cleanOneLine(text)
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function cleanOneLine(text, maxLength = 180) {
   const value = String(text || '')
     .replace(/\s+/g, ' ')
@@ -401,6 +408,23 @@ function cleanOneLine(text, maxLength = 180) {
 
   if (!value) return '';
   return value.length > maxLength ? `${value.slice(0, maxLength - 1)}…` : value;
+}
+
+function extractSkillDescription(fileText) {
+  const text = String(fileText || '');
+  const frontmatter = text.match(/^---\s*\n([\s\S]*?)\n---/);
+  const frontmatterDescription = frontmatter?.[1]
+    ?.match(/^description:\s*["']?(.+?)["']?\s*$/m)?.[1];
+
+  if (frontmatterDescription) return cleanOneLine(frontmatterDescription, 240);
+
+  const useWhen = text.match(/Use (?:this )?skill when\s+(.{30,260})/i)?.[1];
+  if (useWhen) return cleanOneLine(`Use this skill when ${useWhen}`, 240);
+
+  const descriptionLine = text.match(/^description\s*[:：]\s*(.{20,240})$/im)?.[1];
+  if (descriptionLine) return cleanOneLine(descriptionLine, 240);
+
+  return '';
 }
 
 function firstUsefulParagraph(fileText) {
@@ -414,21 +438,60 @@ function firstUsefulParagraph(fileText) {
     .find((part) => part.length >= 24 && !part.startsWith('#') && !part.startsWith('```')) || '';
 }
 
+function inferUseCase(text) {
+  const lower = normalize(text);
+
+  if (lower.includes('figma')) return '处理 Figma 设计稿、变量、组件或从设计到代码的交接';
+  if (lower.includes('design system')) return '整理设计系统、组件规范和页面视觉一致性';
+  if (lower.includes('prototype') || lower.includes('wireframe')) return '生成或评审原型、线框图和交互流程';
+  if (lower.includes('brand') || lower.includes('branding')) return '沉淀品牌视觉、语气、素材和设计规范';
+  if (lower.includes('image generation') || lower.includes('creative asset')) return '生成图片、视觉素材或创意资产';
+  if (lower.includes('presentation') || lower.includes('slides')) return '制作或优化设计提案、汇报幻灯片';
+  if (lower.includes('frontend design') || lower.includes('front-end design')) return '把界面视觉和前端实现衔接起来';
+  if (lower.includes('ui/ux') || lower.includes('ux') || lower.includes('ui')) return '辅助界面、体验、布局和视觉细节设计';
+  if (lower.includes('product design')) return '支持产品设计流程，从需求理解到界面方案';
+  if (lower.includes('typography') || lower.includes('layout') || lower.includes('color palette')) return '优化字体、版式、配色等视觉表达';
+
+  return '';
+}
+
+function inferSkillKind(text) {
+  const lower = normalize(text);
+
+  if (lower.includes('mcp')) return 'MCP/工具集成';
+  if (lower.includes('agent')) return 'agent 工作流';
+  if (lower.includes('codex')) return 'Codex skill';
+  if (lower.includes('claude')) return 'Claude skill';
+  if (lower.includes('skill.md')) return 'AI 助手 skill';
+  if (lower.includes('prompt')) return '提示词/工作流';
+
+  return '设计工作流';
+}
+
 function summaryText(candidate, repo, fileText) {
-  const summary = cleanOneLine(candidate.webSummary)
+  const evidence = extractSkillDescription(fileText)
+    || cleanOneLine(candidate.webSummary)
     || cleanOneLine(repo.description)
     || firstUsefulParagraph(fileText);
+  const combinedText = buildCandidateText(candidate, repo, fileText);
+  const useCase = inferUseCase(`${combinedText}\n${evidence}`);
+  const kind = inferSkillKind(`${combinedText}\n${evidence}`);
+  const name = titleCaseName(candidate.webTitle || repo.name || candidate.repoFullName || candidate.path);
 
-  if (summary) return summary;
+  if (useCase) {
+    return `这是一个偏 ${kind} 的设计 skill，主要用于${useCase}。`;
+  }
 
-  const design = matchedTerms(buildCandidateText(candidate, repo, fileText), DESIGN_TERMS)
+  const design = matchedTerms(combinedText, DESIGN_TERMS)
     .slice(0, 3)
     .map((hit) => hit.term)
     .join('、');
 
-  return design
-    ? `围绕 ${design} 的设计相关 skill / workflow 候选，适合进一步查看其 README 或 SKILL.md。`
-    : '设计相关 skill / workflow 候选，建议打开链接确认适用场景和安装方式。';
+  if (design) {
+    return `这是一个和 ${design} 相关的 ${kind}，但公开信息不足，需要点开确认具体用法。`;
+  }
+
+  return `${name} 可能是设计相关 ${kind}，但当前公开信息不足，需要点开确认具体用途。`;
 }
 
 async function collectCandidates() {
@@ -507,6 +570,7 @@ async function enhanceWithDeepSeek(items) {
     updated_at: item.repo.pushed_at || item.repo.updated_at || item.webUpdatedAt || '',
     repo_description: item.repo.description || item.webSummary || '',
     summary: item.summary,
+    purpose_evidence: item.summary,
     matched_design_terms: item.designMatches.slice(0, 8).map((hit) => hit.term),
     matched_skill_terms: item.skillMatches.slice(0, 6).map((hit) => hit.term),
     rule_score: Number(item.totalScore.toFixed(1)),
@@ -517,7 +581,8 @@ async function enhanceWithDeepSeek(items) {
     '你是设计工具和 AI agent skill 的筛选编辑。请只基于给定候选做重排，不要新增候选，不要改链接。',
     '排序目标：优先真实 skill / workflow；优先和设计工作强相关；兼顾 GitHub stars/forks、近期更新和实际可用性。',
     '请返回 JSON 对象：{"items":[{"original_rank":数字,"ai_score":0到100数字,"summary":"一句中文简介","reason":"一句中文上榜原因"}]}。',
-    'summary 要说明这个 skill 大概做什么，控制在 60 字以内。',
+    'summary 必须使用中文，必须说明这个 skill 具体用来做什么，格式接近“用于……”，控制在 80 字以内。',
+    '不要直接翻译项目名，不要写“设计相关工具”这种空话；如果证据不足，写清“信息不足，需要点开确认”。',
     'reason 要解释为什么适合设计师或设计工作流，避免泛泛而谈。',
     JSON.stringify(candidates),
   ].join('\n');
