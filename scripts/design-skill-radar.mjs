@@ -12,6 +12,7 @@ const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-5';
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_MODEL = process.env.DEEPSEEK_MODEL || 'deepseek-chat';
 const DEEPSEEK_BASE_URL = process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com';
+const SHOW_WARNINGS = process.env.SHOW_WARNINGS === '1' || process.env.SHOW_WARNINGS === 'true';
 
 const DESIGN_TERMS = [
   ['figma', 24],
@@ -392,6 +393,44 @@ function reasonText(item) {
   return reasons.join('；') || '综合相关度较高';
 }
 
+function cleanOneLine(text, maxLength = 180) {
+  const value = String(text || '')
+    .replace(/\s+/g, ' ')
+    .replace(/^[-*#>\s]+/, '')
+    .trim();
+
+  if (!value) return '';
+  return value.length > maxLength ? `${value.slice(0, maxLength - 1)}…` : value;
+}
+
+function firstUsefulParagraph(fileText) {
+  return String(fileText || '')
+    .split(/\n{2,}/)
+    .filter((part) => {
+      const trimmed = part.trim();
+      return trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('```');
+    })
+    .map((part) => cleanOneLine(part))
+    .find((part) => part.length >= 24 && !part.startsWith('#') && !part.startsWith('```')) || '';
+}
+
+function summaryText(candidate, repo, fileText) {
+  const summary = cleanOneLine(candidate.webSummary)
+    || cleanOneLine(repo.description)
+    || firstUsefulParagraph(fileText);
+
+  if (summary) return summary;
+
+  const design = matchedTerms(buildCandidateText(candidate, repo, fileText), DESIGN_TERMS)
+    .slice(0, 3)
+    .map((hit) => hit.term)
+    .join('、');
+
+  return design
+    ? `围绕 ${design} 的设计相关 skill / workflow 候选，适合进一步查看其 README 或 SKILL.md。`
+    : '设计相关 skill / workflow 候选，建议打开链接确认适用场景和安装方式。';
+}
+
 async function collectCandidates() {
   const webResults = await collectOpenAIWebCandidates();
   const codeResults = [];
@@ -434,6 +473,7 @@ async function rankCandidates(candidates) {
       ...candidate,
       repo,
       title: extractTitle(candidate, repo, fileText),
+      summary: summaryText(candidate, repo, fileText),
       designMatches,
       skillMatches,
       designScore,
@@ -466,6 +506,7 @@ async function enhanceWithDeepSeek(items) {
     forks: item.repo.forks_count || 0,
     updated_at: item.repo.pushed_at || item.repo.updated_at || item.webUpdatedAt || '',
     repo_description: item.repo.description || item.webSummary || '',
+    summary: item.summary,
     matched_design_terms: item.designMatches.slice(0, 8).map((hit) => hit.term),
     matched_skill_terms: item.skillMatches.slice(0, 6).map((hit) => hit.term),
     rule_score: Number(item.totalScore.toFixed(1)),
@@ -475,7 +516,8 @@ async function enhanceWithDeepSeek(items) {
   const prompt = [
     '你是设计工具和 AI agent skill 的筛选编辑。请只基于给定候选做重排，不要新增候选，不要改链接。',
     '排序目标：优先真实 skill / workflow；优先和设计工作强相关；兼顾 GitHub stars/forks、近期更新和实际可用性。',
-    '请返回 JSON 对象：{"items":[{"original_rank":数字,"ai_score":0到100数字,"reason":"一句中文上榜原因"}]}。',
+    '请返回 JSON 对象：{"items":[{"original_rank":数字,"ai_score":0到100数字,"summary":"一句中文简介","reason":"一句中文上榜原因"}]}。',
+    'summary 要说明这个 skill 大概做什么，控制在 60 字以内。',
     'reason 要解释为什么适合设计师或设计工作流，避免泛泛而谈。',
     JSON.stringify(candidates),
   ].join('\n');
@@ -516,6 +558,7 @@ async function enhanceWithDeepSeek(items) {
       enhanced.push({
         ...item,
         aiScore: Number(row.ai_score) || 0,
+        summary: typeof row.summary === 'string' && row.summary.trim() ? cleanOneLine(row.summary, 120) : item.summary,
         reason: typeof row.reason === 'string' && row.reason.trim() ? row.reason.trim() : item.reason,
       });
     }
@@ -548,13 +591,14 @@ function formatReport(items) {
       const forks = item.repo.forks_count || 0;
       lines.push(`${index + 1}. ${item.title}`);
       lines.push(`分数 ${item.totalScore.toFixed(1)}｜★ ${stars}｜fork ${forks}｜更新 ${formatDate(item.repo.pushed_at || item.repo.updated_at)}`);
+      lines.push(`简介：${item.summary}`);
       lines.push(`上榜原因：${item.reason}`);
       lines.push(`链接：${item.htmlUrl}`);
       lines.push('');
     });
   }
 
-  if (warnings.length) {
+  if (SHOW_WARNINGS && warnings.length) {
     lines.push(`检索告警：${warnings.slice(0, 3).join('；')}${warnings.length > 3 ? `；另有 ${warnings.length - 3} 条` : ''}`);
   }
 
