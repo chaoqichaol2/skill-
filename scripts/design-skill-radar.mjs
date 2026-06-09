@@ -8,7 +8,10 @@ const FEISHU_WEBHOOK = process.env.FEISHU_WEBHOOK;
 const FEISHU_SECRET = process.env.FEISHU_SECRET;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-5.5';
+const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-5';
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
+const DEEPSEEK_MODEL = process.env.DEEPSEEK_MODEL || 'deepseek-chat';
+const DEEPSEEK_BASE_URL = process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com';
 
 const DESIGN_TERMS = [
   ['figma', 24],
@@ -244,6 +247,15 @@ function parseJsonArray(text) {
   return JSON.parse(source.slice(start, end + 1));
 }
 
+function parseJsonObject(text) {
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const source = fenced ? fenced[1] : text;
+  const start = source.indexOf('{');
+  const end = source.lastIndexOf('}');
+  if (start === -1 || end === -1 || end <= start) return {};
+  return JSON.parse(source.slice(start, end + 1));
+}
+
 async function collectOpenAIWebCandidates() {
   if (!OPENAI_API_KEY) return [];
 
@@ -443,6 +455,78 @@ async function rankCandidates(candidates) {
     .slice(0, TOP_N);
 }
 
+async function enhanceWithDeepSeek(items) {
+  if (!DEEPSEEK_API_KEY || !items.length) return items;
+
+  const candidates = items.map((item, index) => ({
+    original_rank: index + 1,
+    title: item.title,
+    url: item.htmlUrl,
+    stars: item.repo.stargazers_count || 0,
+    forks: item.repo.forks_count || 0,
+    updated_at: item.repo.pushed_at || item.repo.updated_at || item.webUpdatedAt || '',
+    repo_description: item.repo.description || item.webSummary || '',
+    matched_design_terms: item.designMatches.slice(0, 8).map((hit) => hit.term),
+    matched_skill_terms: item.skillMatches.slice(0, 6).map((hit) => hit.term),
+    rule_score: Number(item.totalScore.toFixed(1)),
+    rule_reason: item.reason,
+  }));
+
+  const prompt = [
+    '你是设计工具和 AI agent skill 的筛选编辑。请只基于给定候选做重排，不要新增候选，不要改链接。',
+    '排序目标：优先真实 skill / workflow；优先和设计工作强相关；兼顾 GitHub stars/forks、近期更新和实际可用性。',
+    '请返回 JSON 对象：{"items":[{"original_rank":数字,"ai_score":0到100数字,"reason":"一句中文上榜原因"}]}。',
+    'reason 要解释为什么适合设计师或设计工作流，避免泛泛而谈。',
+    JSON.stringify(candidates),
+  ].join('\n');
+
+  try {
+    const response = await fetch(`${DEEPSEEK_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: DEEPSEEK_MODEL,
+        messages: [
+          { role: 'system', content: '你只输出合法 JSON，不输出 Markdown。' },
+          { role: 'user', content: prompt },
+        ],
+        temperature: 0.2,
+        response_format: { type: 'json_object' },
+      }),
+    });
+    const body = await response.text();
+    const data = body ? JSON.parse(body) : {};
+
+    if (!response.ok) {
+      throw new Error(`${response.status} ${response.statusText}: ${data.error?.message || body}`);
+    }
+
+    const parsed = parseJsonObject(data.choices?.[0]?.message?.content || '');
+    const aiRows = Array.isArray(parsed.items) ? parsed.items : [];
+    const byOriginalRank = new Map(items.map((item, index) => [index + 1, item]));
+    const enhanced = [];
+
+    for (const row of aiRows) {
+      const item = byOriginalRank.get(Number(row.original_rank));
+      if (!item) continue;
+      byOriginalRank.delete(Number(row.original_rank));
+      enhanced.push({
+        ...item,
+        aiScore: Number(row.ai_score) || 0,
+        reason: typeof row.reason === 'string' && row.reason.trim() ? row.reason.trim() : item.reason,
+      });
+    }
+
+    return [...enhanced, ...byOriginalRank.values()].slice(0, TOP_N);
+  } catch (error) {
+    warnings.push(`DeepSeek 重排失败，已使用规则排序 (${error.message})`);
+    return items;
+  }
+}
+
 function formatDate(dateText) {
   if (!dateText) return '未知';
   return dateText.slice(0, 10);
@@ -452,7 +536,7 @@ function formatReport(items) {
   const lines = [
     `设计 Skill 雷达日报｜${todayLabel()}`,
     '',
-    `数据源：${OPENAI_API_KEY ? '全网 web search + GitHub Search' : 'GitHub Search'}。排序规则：设计相关度 + skill 信号 + GitHub stars/forks + 近期更新/新建。检索窗口：最近 ${LOOKBACK_DAYS} 天优先。`,
+    `数据源：${OPENAI_API_KEY ? '全网 web search + GitHub Search' : 'GitHub Search'}。排序规则：设计相关度 + skill 信号 + GitHub stars/forks + 近期更新/新建${DEEPSEEK_API_KEY ? ' + DeepSeek AI 重排' : ''}。检索窗口：最近 ${LOOKBACK_DAYS} 天优先。`,
     '',
   ];
 
@@ -520,7 +604,7 @@ async function sendToFeishu(text) {
 
 async function main() {
   const candidates = await collectCandidates();
-  const ranked = await rankCandidates(candidates);
+  const ranked = await enhanceWithDeepSeek(await rankCandidates(candidates));
   const report = formatReport(ranked);
   await sendToFeishu(report);
 }

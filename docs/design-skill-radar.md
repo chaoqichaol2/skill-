@@ -2,7 +2,7 @@
 
 这个自动化每天 09:00（Asia/Shanghai）在 GitHub Actions 运行，检索新近出现或近期更新的设计相关 skill 线索，按综合相关度排序后把 Top 10 推送到飞书。
 
-默认会检索 GitHub。配置 `OPENAI_API_KEY` 后，会先用 OpenAI web search 做全网候选召回，再合并 GitHub 搜索和 GitHub 评分。
+默认会检索 GitHub。配置 `OPENAI_API_KEY` 后，会先用 OpenAI web search 做全网候选召回，再合并 GitHub 搜索和 GitHub 评分。配置 `DEEPSEEK_API_KEY` 后，会在候选结果上做 AI 重排和上榜理由润色。
 
 ## 排序逻辑
 
@@ -22,6 +22,7 @@
 - `FEISHU_WEBHOOK`：必填，飞书自定义机器人 Webhook。
 - `FEISHU_SECRET`：选填，如果飞书机器人开启了签名校验就填写。
 - `OPENAI_API_KEY`：推荐，用于启用全网 web search 候选召回。
+- `DEEPSEEK_API_KEY`：选填，用于对 GitHub 候选结果做 AI 重排和中文上榜原因优化。
 
 `GITHUB_TOKEN` 不需要手动添加，GitHub Actions 会自动提供。
 
