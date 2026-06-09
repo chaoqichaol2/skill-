@@ -1,6 +1,11 @@
 # 设计 Skill 雷达自动化
 
-这个自动化每天 09:00（Asia/Shanghai）在 GitHub Actions 运行，检索新近出现或近期更新的设计相关 skill 线索，按综合相关度排序后把 Top 10 推送到飞书。
+这个自动化每天 09:00（Asia/Shanghai）在 GitHub Actions 运行，检索新近出现或近期更新的 skill 线索，按综合相关度排序后把 Top 10 推送到飞书。
+
+当前有两条日报：
+
+- `Daily Design Skill Radar`：设计相关 skill。
+- `Daily All Skill Radar`：全量 skill，不限主题领域。
 
 默认会检索 GitHub。配置 `OPENAI_API_KEY` 后，会先用 OpenAI web search 做全网候选召回，再合并 GitHub 搜索和 GitHub 评分。配置 `DEEPSEEK_API_KEY` 后，会在候选结果上做 AI 重排和上榜理由润色。
 

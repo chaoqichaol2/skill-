@@ -13,6 +13,7 @@ const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_MODEL = process.env.DEEPSEEK_MODEL || 'deepseek-chat';
 const DEEPSEEK_BASE_URL = process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com';
 const SHOW_WARNINGS = process.env.SHOW_WARNINGS === '1' || process.env.SHOW_WARNINGS === 'true';
+const RADAR_SCOPE = process.env.RADAR_SCOPE === 'all' ? 'all' : 'design';
 
 const DESIGN_TERMS = [
   ['figma', 24],
@@ -51,7 +52,33 @@ const SKILL_TERMS = [
   ['prompt', 5],
 ];
 
-const CODE_QUERIES = [
+const GENERAL_TERMS = [
+  ['mcp', 16],
+  ['agent', 14],
+  ['automation', 14],
+  ['workflow', 12],
+  ['github', 12],
+  ['browser', 12],
+  ['chrome', 10],
+  ['notion', 10],
+  ['spreadsheet', 10],
+  ['presentation', 10],
+  ['document', 10],
+  ['research', 10],
+  ['writing', 10],
+  ['testing', 10],
+  ['deploy', 9],
+  ['security', 9],
+  ['database', 9],
+  ['python', 8],
+  ['javascript', 8],
+  ['api', 8],
+  ['figma', 8],
+  ['design', 8],
+  ['docs', 8],
+];
+
+const DESIGN_CODE_QUERIES = [
   'filename:SKILL.md figma',
   'filename:SKILL.md "design system"',
   'filename:SKILL.md "ui ux"',
@@ -66,7 +93,7 @@ const CODE_QUERIES = [
   'filename:SKILL.md claude design',
 ];
 
-const REPO_QUERIES = [
+const DESIGN_REPO_QUERIES = [
   'codex skill design',
   'codex skills figma',
   'claude skill design',
@@ -74,6 +101,36 @@ const REPO_QUERIES = [
   'ai assistant skill figma',
   'skill.md design',
 ];
+
+const ALL_CODE_QUERIES = [
+  'filename:SKILL.md codex',
+  'filename:SKILL.md "codex skill"',
+  'filename:SKILL.md "claude skill"',
+  'filename:SKILL.md "agent skill"',
+  'filename:SKILL.md mcp',
+  'filename:SKILL.md automation',
+  'filename:SKILL.md github',
+  'filename:SKILL.md browser',
+  'filename:SKILL.md notion',
+  'filename:SKILL.md research',
+  'filename:SKILL.md writing',
+  'filename:SKILL.md testing',
+];
+
+const ALL_REPO_QUERIES = [
+  'codex skills',
+  'claude skills',
+  'agent skills',
+  'ai assistant skills',
+  'mcp agent skill',
+  'ai workflow skill',
+  '"SKILL.md" codex',
+  '"SKILL.md" claude',
+];
+
+const ACTIVE_DOMAIN_TERMS = RADAR_SCOPE === 'all' ? GENERAL_TERMS : DESIGN_TERMS;
+const ACTIVE_CODE_QUERIES = RADAR_SCOPE === 'all' ? ALL_CODE_QUERIES : DESIGN_CODE_QUERIES;
+const ACTIVE_REPO_QUERIES = RADAR_SCOPE === 'all' ? ALL_REPO_QUERIES : DESIGN_REPO_QUERIES;
 
 const warnings = [];
 const repoCache = new Map();
@@ -260,13 +317,21 @@ function parseJsonObject(text) {
 async function collectOpenAIWebCandidates() {
   if (!OPENAI_API_KEY) return [];
 
-  const prompt = [
-    `今天是 ${todayLabel()}。请检索全网最近 ${LOOKBACK_DAYS} 天新出现或近期更新的设计相关 skill。`,
-    '关注 Codex skills、Claude skills、AI coding assistant skills、agent skills、MCP/workflow skills。',
-    '主题优先级：Figma、UI/UX、product design、visual design、design system、brand、prototype、image generation、presentation design、frontend design。',
-    '请返回最多 12 个候选，必须有来源 URL。优先真实的 skill 仓库、SKILL.md、官方/作者发布页。',
-    '只返回 JSON 数组，不要解释。字段：title、url、summary、design_terms、skill_signals、updated_at、github_repo。',
-  ].join('\n');
+  const prompt = RADAR_SCOPE === 'all'
+    ? [
+      `今天是 ${todayLabel()}。请检索全网最近 ${LOOKBACK_DAYS} 天新出现或近期更新的 AI assistant skill。`,
+      '关注 Codex skills、Claude skills、agent skills、MCP/workflow skills、SKILL.md 仓库，不限主题领域。',
+      '优先真实的 skill 仓库、SKILL.md、官方/作者发布页，覆盖开发、研究、文档、浏览器、GitHub、Notion、设计、数据、测试、自动化等方向。',
+      '请返回最多 12 个候选，必须有来源 URL。',
+      '只返回 JSON 数组，不要解释。字段：title、url、summary、design_terms、skill_signals、updated_at、github_repo。',
+    ].join('\n')
+    : [
+      `今天是 ${todayLabel()}。请检索全网最近 ${LOOKBACK_DAYS} 天新出现或近期更新的设计相关 skill。`,
+      '关注 Codex skills、Claude skills、AI coding assistant skills、agent skills、MCP/workflow skills。',
+      '主题优先级：Figma、UI/UX、product design、visual design、design system、brand、prototype、image generation、presentation design、frontend design。',
+      '请返回最多 12 个候选，必须有来源 URL。优先真实的 skill 仓库、SKILL.md、官方/作者发布页。',
+      '只返回 JSON 数组，不要解释。字段：title、url、summary、design_terms、skill_signals、updated_at、github_repo。',
+    ].join('\n');
 
   try {
     const response = await fetch('https://api.openai.com/v1/responses', {
@@ -382,8 +447,9 @@ function reasonText(item) {
   const reasons = [];
   const design = item.designMatches.slice(0, 4).map((hit) => hit.term).join('、');
   const skill = item.skillMatches.slice(0, 3).map((hit) => hit.term).join('、');
+  const matchLabel = RADAR_SCOPE === 'all' ? '主题/能力命中' : '设计相关命中';
 
-  if (design) reasons.push(`设计相关命中：${design}`);
+  if (design) reasons.push(`${matchLabel}：${design}`);
   if (skill) reasons.push(`skill 信号：${skill}`);
   if (item.source === 'web') reasons.push('全网检索命中');
   if (item.repo.stargazers_count) reasons.push(`GitHub ${item.repo.stargazers_count} stars`);
@@ -443,6 +509,20 @@ function inferUseCase(text) {
 
   if (lower.includes('figma')) return '处理 Figma 设计稿、变量、组件或从设计到代码的交接';
   if (lower.includes('design system')) return '整理设计系统、组件规范和页面视觉一致性';
+  if (lower.includes('github')) return '处理 GitHub 仓库、PR、Issue 或 CI 工作流';
+  if (lower.includes('browser') || lower.includes('chrome')) return '自动浏览网页、检查页面状态或执行浏览器操作';
+  if (lower.includes('notion')) return '整理 Notion 知识库、会议材料或项目文档';
+  if (lower.includes('spreadsheet')) return '分析、生成或整理表格数据';
+  if (lower.includes('document')) return '撰写、编辑或校对文档';
+  if (lower.includes('research')) return '做资料检索、信息汇总和研究简报';
+  if (lower.includes('writing') || lower.includes('docs')) return '写作、整理说明文档或生成内容草稿';
+  if (lower.includes('testing')) return '生成测试、定位失败原因或补齐验证流程';
+  if (lower.includes('deploy')) return '部署应用、检查发布流程或处理运维任务';
+  if (lower.includes('security')) return '检查安全风险、权限配置或代码安全问题';
+  if (lower.includes('database')) return '处理数据库查询、迁移或数据建模';
+  if (lower.includes('python')) return '处理 Python 脚本、数据处理或自动化任务';
+  if (lower.includes('javascript')) return '处理 JavaScript/前端工程和脚本自动化';
+  if (lower.includes('api')) return '对接 API、整理接口调用或生成集成脚本';
   if (lower.includes('prototype') || lower.includes('wireframe')) return '生成或评审原型、线框图和交互流程';
   if (lower.includes('brand') || lower.includes('branding')) return '沉淀品牌视觉、语气、素材和设计规范';
   if (lower.includes('image generation') || lower.includes('creative asset')) return '生成图片、视觉素材或创意资产';
@@ -477,9 +557,10 @@ function summaryText(candidate, repo, fileText) {
   const useCase = inferUseCase(`${combinedText}\n${evidence}`);
   const kind = inferSkillKind(`${combinedText}\n${evidence}`);
   const name = titleCaseName(candidate.webTitle || repo.name || candidate.repoFullName || candidate.path);
+  const skillLabel = RADAR_SCOPE === 'design' ? '设计 skill' : 'skill';
 
   if (useCase) {
-    return `这是一个偏 ${kind} 的设计 skill，主要用于${useCase}。`;
+    return `这是一个偏 ${kind} 的 ${skillLabel}，主要用于${useCase}。`;
   }
 
   const design = matchedTerms(combinedText, DESIGN_TERMS)
@@ -499,11 +580,11 @@ async function collectCandidates() {
   const codeResults = [];
   const repoResults = [];
 
-  for (const query of CODE_QUERIES) {
+  for (const query of ACTIVE_CODE_QUERIES) {
     codeResults.push(...await searchCode(query));
   }
 
-  for (const query of REPO_QUERIES) {
+  for (const query of ACTIVE_REPO_QUERIES) {
     repoResults.push(...await searchRepos(query));
   }
 
@@ -520,17 +601,20 @@ async function rankCandidates(candidates) {
     const repo = await getRepo(candidate.repoFullName, candidate.repo);
     const fileText = await getFileText(candidate);
     const combinedText = buildCandidateText(candidate, repo, fileText);
-    const designMatches = matchedTerms(combinedText, DESIGN_TERMS);
+    const designMatches = matchedTerms(combinedText, ACTIVE_DOMAIN_TERMS);
     const skillMatches = matchedTerms(combinedText, SKILL_TERMS);
-    const designScore = cappedScore(designMatches, 72);
+    const rawDesignScore = cappedScore(designMatches, RADAR_SCOPE === 'all' ? 44 : 72);
+    const designScore = RADAR_SCOPE === 'all' ? Math.max(20, rawDesignScore) : rawDesignScore;
     const skillScore = cappedScore(skillMatches, 48)
       + (candidate.path.toLowerCase().endsWith('skill.md') ? 20 : 0)
       + (candidate.source === 'web' ? 8 : 0);
     const qualityScore = githubQualityScore(repo);
     const recentScore = freshnessScore(repo);
-    const totalScore = designScore * 1.15 + skillScore + qualityScore + recentScore;
+    const totalScore = RADAR_SCOPE === 'all'
+      ? designScore * 0.75 + skillScore * 1.25 + qualityScore + recentScore
+      : designScore * 1.15 + skillScore + qualityScore + recentScore;
 
-    if (designScore < 12 || skillScore < 25) continue;
+    if ((RADAR_SCOPE === 'design' && designScore < 12) || skillScore < 25) continue;
 
     ranked.push({
       ...candidate,
@@ -578,8 +662,12 @@ async function enhanceWithDeepSeek(items) {
   }));
 
   const prompt = [
-    '你是设计工具和 AI agent skill 的筛选编辑。请只基于给定候选做重排，不要新增候选，不要改链接。',
-    '排序目标：优先真实 skill / workflow；优先和设计工作强相关；兼顾 GitHub stars/forks、近期更新和实际可用性。',
+    RADAR_SCOPE === 'all'
+      ? '你是 AI assistant skill 的筛选编辑。请只基于给定候选做重排，不要新增候选，不要改链接。'
+      : '你是设计工具和 AI agent skill 的筛选编辑。请只基于给定候选做重排，不要新增候选，不要改链接。',
+    RADAR_SCOPE === 'all'
+      ? '排序目标：优先真实 skill / workflow；兼顾通用价值、实际可用性、GitHub stars/forks 和近期更新。'
+      : '排序目标：优先真实 skill / workflow；优先和设计工作强相关；兼顾 GitHub stars/forks、近期更新和实际可用性。',
     '请返回 JSON 对象：{"items":[{"original_rank":数字,"ai_score":0到100数字,"summary":"一句中文简介","reason":"一句中文上榜原因"}]}。',
     'summary 必须使用中文，必须说明这个 skill 具体用来做什么，格式接近“用于……”，控制在 80 字以内。',
     '不要直接翻译项目名，不要写“设计相关工具”这种空话；如果证据不足，写清“信息不足，需要点开确认”。',
@@ -641,15 +729,21 @@ function formatDate(dateText) {
 }
 
 function formatReport(items) {
+  const title = RADAR_SCOPE === 'all' ? '全量 Skill 雷达日报' : '设计 Skill 雷达日报';
+  const sortRule = RADAR_SCOPE === 'all'
+    ? 'skill 信号 + 主题覆盖 + GitHub stars/forks + 近期更新/新建'
+    : '设计相关度 + skill 信号 + GitHub stars/forks + 近期更新/新建';
   const lines = [
-    `设计 Skill 雷达日报｜${todayLabel()}`,
+    `${title}｜${todayLabel()}`,
     '',
-    `数据源：${OPENAI_API_KEY ? '全网 web search + GitHub Search' : 'GitHub Search'}。排序规则：设计相关度 + skill 信号 + GitHub stars/forks + 近期更新/新建${DEEPSEEK_API_KEY ? ' + DeepSeek AI 重排' : ''}。检索窗口：最近 ${LOOKBACK_DAYS} 天优先。`,
+    `数据源：${OPENAI_API_KEY ? '全网 web search + GitHub Search' : 'GitHub Search'}。排序规则：${sortRule}${DEEPSEEK_API_KEY ? ' + DeepSeek AI 重排' : ''}。检索窗口：最近 ${LOOKBACK_DAYS} 天优先。`,
     '',
   ];
 
   if (!items.length) {
-    lines.push('今天没有找到足够明确的新近设计相关 skill。建议稍后查看 GitHub Actions 日志中的检索告警。');
+    lines.push(RADAR_SCOPE === 'all'
+      ? '今天没有找到足够明确的新近 skill。建议稍后查看 GitHub Actions 日志中的检索告警。'
+      : '今天没有找到足够明确的新近设计相关 skill。建议稍后查看 GitHub Actions 日志中的检索告警。');
   } else {
     items.forEach((item, index) => {
       const stars = item.repo.stargazers_count || 0;
