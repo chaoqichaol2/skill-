@@ -1,1 +1,58 @@
-m«ëˆ§½©buªàºg§¶­†æÿÂŠä~Z0³÷^¦Z2²H¥–Ç(ºÚZë2šU,j›jÇºà7an{¦Š)ßŠW¨¢ë_ŠW›n·š‘ºŞjG§r‡^v‹­¦ën¦)í¢X§zÊ•éà¶î˜7]yÊy×œ¡×¢›­†¥¥Ø¬¦V²¶¬™ë,j¢Šzn¶)éº×â•ç^}«¥µú+²×bŠ.¶›­¢ëiº×â•ç^}«¥µú+²×hº
+name: Deploy Skill Scout to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skill-scout/**"
+      - ".github/workflows/deploy-skill-scout-pages.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "skill-scout/**"
+      - ".github/workflows/deploy-skill-scout-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Export static site
+        run: node skill-scout/scripts/export-static.mjs
+
+      - name: Verify export
+        run: node --test skill-scout/tests/static-export.test.mjs
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: skill-scout/.pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
