@@ -1,16 +1,8 @@
-name: Deploy Skill Scout to GitHub Pages
+name: Deprecated Skill Scout GitHub Pages Deployment
 
+# The private dashboard is deployed by Vercel. This legacy workflow is kept
+# only as migration history and no longer runs on pushes or pull requests.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "skill-scout/**"
-      - ".github/workflows/deploy-skill-scout-pages.yml"
-  pull_request:
-    branches: [main]
-    paths:
-      - "skill-scout/**"
-      - ".github/workflows/deploy-skill-scout-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -24,35 +16,7 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Export static site
-        run: node skill-scout/scripts/export-static.mjs
-
-      - name: Verify export
-        run: node --test skill-scout/tests/static-export.test.mjs
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: skill-scout/.pages
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - run: echo "GitHub Pages deployment is disabled."
