@@ -1,32 +1,33 @@
 {
   "issue": {
-    "number": 1,
+    "number": 2,
     "date": "2026.08.17",
     "cadence": "每两天更新",
-    "title": "agent-browser",
-    "category": "浏览器自动化",
+    "title": "skills",
+    "category": "发现与安装",
     "score": 9.1,
-    "verdict": "把“打开页面、找元素、点击、填写、截图、检查结果”收成一套稳定工作流。它不是花哨的演示，而是能把重复网页操作真正交给 Agent。",
-    "bestFor": "网页验收与重复操作",
-    "summary": "适合经常需要验证网页、采集页面信息或自动完成重复操作的人。",
-    "sourceUrl": "https://github.com/vercel-labs/agent-browser",
-    "sourceLabel": "Vercel Labs / GitHub",
+    "verdict": "本期推荐：用一个命令在 Codex、Claude Code 等 Agent 间搜索、安装与更新已核验来源的 SKILL.md。它最适合把“找对技能并保持更新”从手工复制粘贴变成可重复流程。",
+    "bestFor": "需要跨 Agent 管理技能的创作者与开发者",
+    "summary": "适合经常试用或维护多套 Agent Skills，并希望统一安装、查询和更新的人。",
+    "sourceUrl": "https://github.com/vercel-labs/skills",
+    "sourceLabel": "Vercel Labs / GitHub（8 月 10 日提交核验）",
     "useCases": [
-      "自动走完登录、表单、支付前的完整流程",
-      "从网页提取结构化信息并保留操作上下文",
-      "给开发中的页面做截图、可用性与回归检查"
+      "给 Codex 项目安装一项指定 Skill：npx skills add <来源> -a codex",
+      "在多个已安装 Skill 中统一查询并更新：npx skills list、npx skills update",
+      "先不落盘试用单个 Skill：npx skills use <来源>@<skill> --agent codex"
     ],
     "dimensions": [
-      { "label": "真实提效", "value": 9.5, "note": "能直接替代重复的浏览器点击与网页检查" },
-      { "label": "上手成本", "value": 8.6, "note": "安装一步完成，常用操作有明确指令" },
-      { "label": "结果可靠", "value": 9.1, "note": "基于可访问性树定位，交互目标更稳定" },
-      { "label": "适用广度", "value": 9.3, "note": "测试、采集、表单、截图、登录流程均适用" },
-      { "label": "维护活跃", "value": 9.0, "note": "近期持续更新，文档与技能内容同步" }
+      { "label": "真实提效", "value": 9.2, "note": "统一了发现、安装、试用与更新，减少各 Agent 的重复配置" },
+      { "label": "上手成本", "value": 9.2, "note": "npx 即可使用，README 给出了针对 Codex 的目标参数" },
+      { "label": "结果可靠", "value": 8.7, "note": "来源解析和安装范围有清晰说明；第三方 Skill 本身仍须逐项审查" },
+      { "label": "适用广度", "value": 9.5, "note": "支持 Codex、Claude Code 与多种其他 Agent，覆盖个人和项目级安装" },
+      { "label": "维护活跃", "value": 9.0, "note": "GitHub 显示 8 月 10 日提交、8 月 14 日推送，本期重新核验" }
     ]
   },
   "watchlist": [
-    { "name": "skills", "category": "发现与安装", "score": 91, "note": "统一搜索、安装和更新 Agent Skills。", "url": "https://github.com/vercel-labs/skills" },
-    { "name": "web-design-guidelines", "category": "设计评审", "score": 89, "note": "把网页设计与可用性检查变成可复用流程。", "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines" },
-    { "name": "react-best-practices", "category": "开发提效", "score": 88, "note": "在 React 项目中减少常见性能与结构问题。", "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices" }
+    { "name": "web-design-guidelines", "category": "设计评审", "score": 85, "note": "官方集合仍活跃；先观察其在真实设计验收中的稳定性。", "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines" },
+    { "name": "Anthropic Skills", "category": "Claude 示例与文档工作流", "score": 82, "note": "官方示例丰富，但其中部分定位为教育参考，需按具体 Skill 验证。", "url": "https://github.com/anthropics/skills" },
+    { "name": "SkillHone", "category": "技能持续优化", "score": 78, "note": "方法完整但工作流偏重，暂列观察。", "url": "https://github.com/Tencent/SkillHone" },
+    { "name": "Skills Over MCP", "category": "MCP 工作流规范", "score": 72, "note": "官方工作组活跃，但项目仍属 experimental。", "url": "https://github.com/modelcontextprotocol/experimental-ext-skills" }
   ]
 }
