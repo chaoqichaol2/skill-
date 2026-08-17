@@ -1,4 +1,4 @@
-name: Daily All Skill Radar
+name: Daily Skill Scout Candidate Scan
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Search, rank, and push all skills to Feishu
+      - name: Search and rank Skill Scout candidates
         run: node scripts/design-skill-radar.mjs
         env:
           RADAR_SCOPE: all
@@ -34,3 +34,11 @@ jobs:
           FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
           LOOKBACK_DAYS: 30
           TOP_N: 10
+          OUTPUT_JSON: skill-scout/data/candidates.json
+
+      - name: Archive refreshed candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-scout-candidates
+          path: skill-scout/data/candidates.json
+          retention-days: 3

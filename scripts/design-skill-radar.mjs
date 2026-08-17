@@ -1,4 +1,6 @@
 import crypto from 'node:crypto';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const GITHUB_API = 'https://api.github.com';
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS || 30);
@@ -14,6 +16,7 @@ const DEEPSEEK_MODEL = process.env.DEEPSEEK_MODEL || 'deepseek-chat';
 const DEEPSEEK_BASE_URL = process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com';
 const SHOW_WARNINGS = process.env.SHOW_WARNINGS === '1' || process.env.SHOW_WARNINGS === 'true';
 const RADAR_SCOPE = process.env.RADAR_SCOPE === 'all' ? 'all' : 'design';
+const OUTPUT_JSON = process.env.OUTPUT_JSON;
 
 const DESIGN_TERMS = [
   ['figma', 24],
@@ -771,7 +774,8 @@ async function sendToFeishu(text) {
   }
 
   if (!FEISHU_WEBHOOK) {
-    throw new Error('缺少 FEISHU_WEBHOOK。请在 GitHub Secrets 中配置飞书机器人 Webhook。');
+    console.log(text);
+    return;
   }
 
   const payload = {
@@ -805,10 +809,37 @@ async function sendToFeishu(text) {
   console.log(`已推送 ${text.length} 字到飞书。`);
 }
 
+async function writeJsonReport(items) {
+  if (!OUTPUT_JSON) return;
+
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    scope: RADAR_SCOPE,
+    lookbackDays: LOOKBACK_DAYS,
+    items: items.map((item, index) => ({
+      rank: index + 1,
+      title: item.title,
+      summary: item.summary,
+      reason: item.reason,
+      url: item.htmlUrl,
+      repository: item.repoFullName || null,
+      stars: item.repo.stargazers_count || 0,
+      forks: item.repo.forks_count || 0,
+      updatedAt: item.repo.pushed_at || item.repo.updated_at || item.webUpdatedAt || null,
+      score: Number(item.totalScore.toFixed(1)),
+    })),
+  };
+
+  const destination = path.resolve(OUTPUT_JSON);
+  await fs.mkdir(path.dirname(destination), { recursive: true });
+  await fs.writeFile(destination, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+}
+
 async function main() {
   const candidates = await collectCandidates();
   const ranked = await enhanceWithDeepSeek(await rankCandidates(candidates));
   const report = formatReport(ranked);
+  await writeJsonReport(ranked);
   await sendToFeishu(report);
 }
 
