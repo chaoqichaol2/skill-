@@ -58,7 +58,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer><span>SKILL SCOUT · tidefolw.cloud</span><p>每天收集信号，每两天发布一期。宁缺毋滥。</p></footer>
+      <footer><span>SKILL SCOUT · tideflow.cloud</span><p>每天收集信号，每两天发布一期。宁缺毋滥。</p></footer>
     </main>
   );
 }
