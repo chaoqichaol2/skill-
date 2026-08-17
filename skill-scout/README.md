@@ -12,6 +12,7 @@
 npm install
 npm run dev
 npm run build
+npm run test:pages
 ```
 
-站点使用 vinext 构建，并通过 Sites 发布。
+站点保留 vinext 版本，同时由 `data/recommendations.json` 生成静态页面，并通过 GitHub Pages 自动发布。
