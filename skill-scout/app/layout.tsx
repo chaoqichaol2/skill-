@@ -4,7 +4,7 @@ import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") || requestHeaders.get("host") || "skills.tidefolw.cloud";
+  const host = requestHeaders.get("x-forwarded-host") || requestHeaders.get("host") || "skills.tideflow.cloud";
   const protocol = requestHeaders.get("x-forwarded-proto") || (host.includes("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
   const title = "Skill Scout｜每两天一个真能提效的 Skill";

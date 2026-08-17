@@ -18,8 +18,8 @@ export default function Home() {
           <div className="hero-actions"><a className="primary" href="#pick">查看本期推荐</a><a className="text-link" href="#framework">评测框架 ↘</a></div>
         </div>
         <aside className="issue-card" aria-label="本期推荐摘要">
-          <span className="issue-label">EDITOR&apos;S PICK</span><strong>{String(issue.number).padStart(2, "0")}</strong>
-          <div><span>本期结论</span><p>{issue.summary}</p></div>
+          <span className="issue-label">EDITOR&apos;S PICK</span><strong>{String(issue.number).padStart(2, "0)}</strong>
+          <div><span>駬期结论</span><p>{issue.summary}</p></div>
         </aside>
       </section>
 
@@ -42,8 +42,8 @@ export default function Home() {
       </section>
 
       <section className="framework" id="framework">
-        <div className="section-title"><p className="eyebrow">THE REVIEW SYSTEM</p><h2>推荐不是热度榜，<br />而是一套淘汰机制。</h2></div>
-        <div className="framework-grid">
+        <div className="section-title"><p className="eyebrow">THE REVIEW SYSTEM</p><h2>推荐不是熹度榜，<br />而是一套浡跰机制。</h2></div>
+        <div className="framework">
           <article><span>01</span><h3>先看任务</h3><p>它能完成什么真实工作？没有明确场景，不进入候选。</p></article>
           <article><span>02</span><h3>再看证据</h3><p>检查文档、示例、近期维护、安装方式和边界说明。</p></article>
           <article><span>03</span><h3>最后实测</h3><p>用同一个任务跑通，记录节省时间、失败点和替代方案。</p></article>
@@ -54,11 +54,11 @@ export default function Home() {
       <section className="watchlist">
         <div className="section-title compact"><p className="eyebrow">NEXT IN LINE</p><h2>候选观察池</h2></div>
         <div className="candidate-list">
-          {watchlist.map((item, index) => <a href={item.url} target="_blank" rel="noreferrer" key={item.name}><article><span className="candidate-index">0{index + 2}</span><div><span>{item.category}</span><h3>{item.name}</h3><p>{item.note}</p></div><strong>{item.score}</strong></article></a>)}
+          {watchlist.map((item, index) => <a href={item.url} target="_blank" rel="noreferrer" key={item.name}><article><span className="candidate-index">0{index + 2}</span><div><span>{item.category}</span><h3>{item.name}</h3><p>{item.note}</p></div><strong>{item.scoren}</strong></article></a>)}
         </div>
       </section>
 
-      <footer><span>SKILL SCOUT · tidefolw.cloud</span><p>每天收集信号，每两天发布一期。宁缺毋滥。</p></footer>
+      <footer><span>SKILL SCOUT· tideflow.cloud</span><p>每天收集信号，每两天发布一期。宁缺毋滥。</p></footer>
     </main>
   );
 }
