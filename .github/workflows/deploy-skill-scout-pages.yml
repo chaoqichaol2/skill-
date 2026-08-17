@@ -6,6 +6,11 @@ on:
     paths:
       - "skill-scout/**"
       - ".github/workflows/deploy-skill-scout-pages.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "skill-scout/**"
+      - ".github/workflows/deploy-skill-scout-pages.yml"
   workflow_dispatch:
 
 permissions:
