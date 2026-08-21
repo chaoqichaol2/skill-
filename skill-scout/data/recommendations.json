@@ -1,16 +1,16 @@
 {
   "issue": {
-    "number": 2,
-    "date": "2026.08.17",
+    "number": 4,
+    "date": "2026.08.21",
     "cadence": "每两天更新",
     "title": "skills",
     "category": "发现与安装",
     "score": 9.1,
-    "verdict": "本期推荐：用一个命令在 Codex、Claude Code 等 Agent 间搜索、安装与更新已核验来源的 SKILL.md。它最适合把“找对技能并保持更新”从手工复制粘贴变成可重复流程。",
+    "verdict": "本期推荐：用一个命令在 Codex、Claude Code 等 Agent 间搜索、安装、试用与更新已核验来源的 SKILL.md。它最适合把“找对技能并保持更新”从手工复制粘贴变成可重复流程。",
     "bestFor": "需要跨 Agent 管理技能的创作者与开发者",
     "summary": "适合经常试用或维护多套 Agent Skills，并希望统一安装、查询和更新的人。",
     "sourceUrl": "https://github.com/vercel-labs/skills",
-    "sourceLabel": "Vercel Labs / GitHub（8 月 10 日提交核验）",
+    "sourceLabel": "Vercel Labs / GitHub（2026 年 8 月 21 日复核）",
     "useCases": [
       "给 Codex 项目安装一项指定 Skill：npx skills add <来源> -a codex",
       "在多个已安装 Skill 中统一查询并更新：npx skills list、npx skills update",
@@ -21,7 +21,7 @@
       { "label": "上手成本", "value": 9.2, "note": "npx 即可使用，README 给出了针对 Codex 的目标参数" },
       { "label": "结果可靠", "value": 8.7, "note": "来源解析和安装范围有清晰说明；第三方 Skill 本身仍须逐项审查" },
       { "label": "适用广度", "value": 9.5, "note": "支持 Codex、Claude Code 与多种其他 Agent，覆盖个人和项目级安装" },
-      { "label": "维护活跃", "value": 9.0, "note": "GitHub 显示 8 月 10 日提交、8 月 14 日推送，本期重新核验" }
+      { "label": "维护活跃", "value": 9.0, "note": "作者 README 与源码在本期重新核验，近 30 天仍有可检索的更新信号" }
     ]
   },
   "watchlist": [
