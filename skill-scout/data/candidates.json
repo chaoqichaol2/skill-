@@ -1,40 +1,40 @@
 {
-  "generatedAt": "2026-08-21T09:00:00+08:00",
+  "generatedAt": "2026-08-24T09:00:00+08:00",
   "scope": "all",
   "items": [
     {
       "name": "skills",
       "category": "发现与安装",
       "score": 91,
-      "note": "Vercel Labs 的跨 Agent CLI：可搜索、安装、试用和更新 SKILL.md。安装：npx skills add <source> -a codex；作者 README 于 2026-08-21 复核，明确支持 Codex 等 70 余种 Agent，且源码近 30 天仍被索引更新。风险：私有仓库会使用本机既有 Git 凭据，第三方 Skill 仍须逐项审查；限制：它只管理分发与更新，不保证技能质量或安全。",
+      "note": "Vercel Labs 的跨 Agent CLI：可搜索、安装、试用和更新 SKILL.md。安装：npx skills add <source> -a codex；2026-08-24 复核 README，明确支持 Codex 等 70 余种 Agent，并给出 add、use、check、update 与下载上限说明；公开索引显示仓库近 3 周仍有更新。风险：私有仓库会使用本机既有 Git 凭据，第三方 Skill 仍须逐项审查；限制：它只管理分发与更新，不保证技能质量或安全。",
       "url": "https://github.com/vercel-labs/skills"
     },
     {
       "name": "web-design-guidelines",
       "category": "设计评审",
       "score": 85,
-      "note": "Vercel 官方技能集合中的网页设计/可用性指导。安装：npx skills add vercel-labs/agent-skills --skill web-design-guidelines；2026-08-21 复核其 SKILL.md 入口与规则来源。风险：仅为提示与规则，不能替代真实用户测试；限制：针对网页界面，对原生端和业务研究覆盖有限。",
+      "note": "Vercel 官方技能集合中的网页设计/可用性指导。安装：npx skills add vercel-labs/agent-skills --skill web-design-guidelines；2026-08-24 复核其 SKILL.md 入口、安装命令与最新规则拉取路径。风险：每次评审会从可变的 main 分支拉取规则，须审查远程内容；限制：针对网页界面，对原生端和业务研究覆盖有限。",
       "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines"
     },
     {
       "name": "Anthropic Skills",
       "category": "Claude 示例与文档工作流",
       "score": 82,
-      "note": "Anthropic 官方示例库，含文档、创意、测试与 MCP 服务生成等 SKILL.md。安装：/plugin marketplace add anthropics/skills；2026-08-21 复核到近两周的官方提交。风险：部分技能含脚本与外部工具；限制：官方标注为示例/教育用途，行为须自行验证，且主要面向 Claude 生态。",
+      "note": "Anthropic 官方示例库，含文档、创意、测试与 MCP 服务生成等 SKILL.md。安装：/plugin marketplace add anthropics/skills；2026-08-24 复核官方仓库与真实 SKILL.md，公开索引显示其仍有近期变更。风险：部分技能含脚本与外部工具；限制：官方标注为示例/教育用途，行为须自行验证，且主要面向 Claude 生态。",
       "url": "https://github.com/anthropics/skills"
     },
     {
       "name": "SkillHone",
       "category": "技能持续优化",
       "score": 77,
-      "note": "Tencent 的 Agent Skills 套件，记录诊断、改动与结果以迭代技能。安装：按仓库 README 配置 Claude Agent SDK/Forgejo；2026-08-21 复核作者仓库仍可访问。风险：涉及本地 Git 记录和执行脚本；限制：依赖特定工作流，尚不适合一般用户直接采用。",
+      "note": "Tencent 的 Agent Skills 套件，记录诊断、改动与结果以迭代技能。安装：按仓库 README 配置其安装说明；2026-08-24 复核作者仓库，说明其可用于 agentskills.io runtime。风险：涉及本地 Git 记录和执行脚本；限制：论文中的企业内部 harness 尚未开源，开源实现与原框架存在差异。",
       "url": "https://github.com/Tencent/SkillHone"
     },
     {
       "name": "Skills Over MCP",
       "category": "MCP 工作流规范",
       "score": 72,
-      "note": "MCP 官方工作组探索通过 Resources 分发和激活工作流。安装：当前无稳定终端用户安装路径；2026-08-21 复核的决策记录显示 v1 仍为 Proposed，并限定 skills/list、skills/get 与逐文件摘要。风险：远程技能与脚本需要严格信任边界；限制：仓库标为 experimental，不能作为生产推荐。",
+      "note": "MCP 官方工作组探索通过 Resources 分发和激活工作流。安装：当前无稳定终端用户安装路径；2026-08-24 复核的决策记录显示 v1 仍为 Proposed，并限定 skills/list、skills/get 与逐文件摘要。风险：远程技能与脚本需要严格信任边界；限制：仓库标为 experimental，不能作为生产推荐。",
       "url": "https://github.com/modelcontextprotocol/experimental-ext-skills"
     }
   ]
