@@ -1,41 +1,127 @@
 {
-  "generatedAt": "2026-08-24T09:00:00+08:00",
+  "generatedAt": "2026-08-26T02:24:36.007Z",
   "scope": "all",
+  "lookbackDays": 30,
   "items": [
     {
-      "name": "skills",
-      "category": "发现与安装",
-      "score": 91,
-      "note": "Vercel Labs 的跨 Agent CLI：可搜索、安装、试用和更新 SKILL.md。安装：npx skills add <source> -a codex；2026-08-24 复核 README，明确支持 Codex 等 70 余种 Agent，并给出 add、use、check、update 与下载上限说明；公开索引显示仓库近 3 周仍有更新。风险：私有仓库会使用本机既有 Git 凭据，第三方 Skill 仍须逐项审查；限制：它只管理分发与更新，不保证技能质量或安全。",
-      "url": "https://github.com/vercel-labs/skills"
+      "rank": 1,
+      "title": "Install Obelisk",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、agent skill、prompt；GitHub 380 stars；近期有更新",
+      "url": "https://github.com/tommy0103/obelisk/blob/c9b37b4c7694bb9e7eeefa571d3770ba57d9ec4a/SKILL.md",
+      "repository": "tommy0103/obelisk",
+      "stars": 380,
+      "forks": 26,
+      "updatedAt": "2026-08-25T21:48:21Z",
+      "score": 189.5
     },
     {
-      "name": "web-design-guidelines",
-      "category": "设计评审",
-      "score": 85,
-      "note": "Vercel 官方技能集合中的网页设计/可用性指导。安装：npx skills add vercel-labs/agent-skills --skill web-design-guidelines；2026-08-24 复核其 SKILL.md 入口、安装命令与最新规则拉取路径。风险：每次评审会从可变的 main 分支拉取规则，须审查远程内容；限制：针对网页界面，对原生端和业务研究覆盖有限。",
-      "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines"
+      "rank": 2,
+      "title": "Local ClawSweeper Skill",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、workflow、github、writing；skill 信号：skill.md、codex skill；GitHub 1968 stars；近期有更新",
+      "url": "https://github.com/openclaw/clawsweeper/blob/afe976209aa58a5629041b42b66f6ee11b2812a7/docs/local-clawsweeper-skill.md",
+      "repository": "openclaw/clawsweeper",
+      "stars": 1968,
+      "forks": 296,
+      "updatedAt": "2026-08-26T00:28:41Z",
+      "score": 186
     },
     {
-      "name": "Anthropic Skills",
-      "category": "Claude 示例与文档工作流",
-      "score": 82,
-      "note": "Anthropic 官方示例库，含文档、创意、测试与 MCP 服务生成等 SKILL.md。安装：/plugin marketplace add anthropics/skills；2026-08-24 复核官方仓库与真实 SKILL.md，公开索引显示其仍有近期变更。风险：部分技能含脚本与外部工具；限制：官方标注为示例/教育用途，行为须自行验证，且主要面向 Claude 生态。",
-      "url": "https://github.com/anthropics/skills"
+      "rank": 3,
+      "title": "Codex Skill Guide",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 575 stars；近期有更新",
+      "url": "https://github.com/majiayu000/claude-skill-registry/blob/30955c4c2363859cb13e8db2b52474ea68ea7d31/skills/data/codex/SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "stars": 575,
+      "forks": 88,
+      "updatedAt": "2026-08-25T02:46:31Z",
+      "score": 186
     },
     {
-      "name": "SkillHone",
-      "category": "技能持续优化",
-      "score": 77,
-      "note": "Tencent 的 Agent Skills 套件，记录诊断、改动与结果以迭代技能。安装：按仓库 README 配置其安装说明；2026-08-24 复核作者仓库，说明其可用于 agentskills.io runtime。风险：涉及本地 Git 记录和执行脚本；限制：论文中的企业内部 harness 尚未开源，开源实现与原框架存在差异。",
-      "url": "https://github.com/Tencent/SkillHone"
+      "rank": 4,
+      "title": "MisakaNet Agent Skill",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、github、document；skill 信号：skill.md、agent skill、mcp；GitHub 430 stars；近期有更新",
+      "url": "https://github.com/Ikalus1988/MisakaNet/blob/116f786b879735d92730ebcea135437bc30c3cba/docs/skill.md",
+      "repository": "Ikalus1988/MisakaNet",
+      "stars": 430,
+      "forks": 158,
+      "updatedAt": "2026-08-26T02:02:36Z",
+      "score": 186
     },
     {
-      "name": "Skills Over MCP",
-      "category": "MCP 工作流规范",
-      "score": 72,
-      "note": "MCP 官方工作组探索通过 Resources 分发和激活工作流。安装：当前无稳定终端用户安装路径；2026-08-24 复核的决策记录显示 v1 仍为 Proposed，并限定 skills/list、skills/get 与逐文件摘要。风险：远程技能与脚本需要严格信任边界；限制：仓库标为 experimental，不能作为生产推荐。",
-      "url": "https://github.com/modelcontextprotocol/experimental-ext-skills"
+      "rank": 5,
+      "title": "Skylos",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、workflow、github、deploy；skill 信号：skill.md、codex skill、prompt；GitHub 543 stars；近期有更新",
+      "url": "https://github.com/duriantaco/skylos/blob/8c07ef916ab84cde0d4fa4d5b0dd5dcfd66d8067/.agents/skills/skylos/SKILL.md",
+      "repository": "duriantaco/skylos",
+      "stars": 543,
+      "forks": 29,
+      "updatedAt": "2026-08-26T01:36:10Z",
+      "score": 183.8
+    },
+    {
+      "rank": 6,
+      "title": "/ad-skill",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、github、writing、docs；skill 信号：skill.md、codex skill；GitHub 184 stars；近期有更新",
+      "url": "https://github.com/CorridorTech/PoseCap/blob/626701bd6315727e791cdc9c1353830b9492d6ee/.claude/skills/ad-skill/SKILL.md",
+      "repository": "CorridorTech/PoseCap",
+      "stars": 184,
+      "forks": 14,
+      "updatedAt": "2026-08-23T05:24:36Z",
+      "score": 183.8
+    },
+    {
+      "rank": 7,
+      "title": "marmot",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：mcp、agent、browser、database；skill 信号：skill.md、mcp、prompt；GitHub 606 stars；近期有更新",
+      "url": "https://github.com/marmotdata/marmot/blob/8bc8f3137ec8b821c17940b0b93b0c0f68e7b5bd/SKILL.md",
+      "repository": "marmotdata/marmot",
+      "stars": 606,
+      "forks": 26,
+      "updatedAt": "2026-08-25T20:47:16Z",
+      "score": 182.3
+    },
+    {
+      "rank": 8,
+      "title": "Auto-Empirical Research Skills Router",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于撰写、编辑或校对文档。",
+      "reason": "主题/能力命中：mcp、agent、workflow、document；skill 信号：skill.md、agent skill、mcp；GitHub 3545 stars；近期有更新",
+      "url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/blob/692e9fa3fea40bbdf614584d461851f8fb968ac2/SKILL.md",
+      "repository": "brycewang-stanford/Auto-Empirical-Research-Skills",
+      "stars": 3545,
+      "forks": 459,
+      "updatedAt": "2026-08-24T05:28:12Z",
+      "score": 182
+    },
+    {
+      "rank": 9,
+      "title": "Claude Skill for TorQ",
+      "summary": "这是一个偏 Claude skill 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：workflow、github、deploy、python；skill 信号：skill.md、claude skill；GitHub 309 stars；近期有更新",
+      "url": "https://github.com/DataIntellectTech/TorQ/blob/bf0d56a01e052d27cf6048204738ad919dd686bb/docs/claude-skill.md",
+      "repository": "DataIntellectTech/TorQ",
+      "stars": 309,
+      "forks": 91,
+      "updatedAt": "2026-08-24T08:23:19Z",
+      "score": 182
+    },
+    {
+      "rank": 10,
+      "title": "ade — agent skill",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：agent、workflow、browser、document；skill 信号：skill.md、agent skill；GitHub 2405 stars；近期有更新",
+      "url": "https://github.com/landing-ai/ade-cli/blob/d1995ffef4e63a2a1c2774d9add93368889353c5/SKILL.md",
+      "repository": "landing-ai/ade-cli",
+      "stars": 2405,
+      "forks": 254,
+      "updatedAt": "2026-08-19T04:36:14Z",
+      "score": 182
     }
   ]
 }
