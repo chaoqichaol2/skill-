@@ -14,6 +14,7 @@ import subprocess
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -24,6 +25,7 @@ STATE_FILE = Path("/tmp/codex-traffic-light-state.json")
 STATE_PRIORITY = {"idle": 0, "done": 1, "working": 2, "waiting": 3}
 NOW_PLAYING_SCRIPT = Path(__file__).with_name("now_playing.js")
 NETEASE_DB = Path.home() / "Library/Application Support/com.netease.163music/Documents/storage/sqlite_storage.sqlite3"
+NETEASE_CACHE = Path.home() / "Library/Application Support/com.netease.163music/Caches/online_play_cache"
 LRC_TIMESTAMP = re.compile(r"\[(\d{1,3}):(\d{2}(?:\.\d+)?)\]")
 
 
@@ -112,6 +114,36 @@ def find_netease_song(title: str, artist: str) -> tuple[str, dict] | None:
     return title_match
 
 
+def find_cached_netease_song(title: str, artist: str) -> tuple[str, dict] | None:
+    if not NETEASE_CACHE.exists():
+        return None
+    files = sorted(NETEASE_CACHE.glob("*.info"), key=lambda path: path.stat().st_mtime, reverse=True)[:12]
+    song_ids = [path.name.split("-_-_", 1)[0] for path in files]
+    song_ids = [song_id for song_id in song_ids if song_id.isdigit()]
+    if not song_ids:
+        return None
+    query = urllib.parse.urlencode({"ids": json.dumps([int(song_id) for song_id in song_ids])})
+    request = urllib.request.Request(
+        f"https://music.163.com/api/song/detail/?{query}",
+        headers={"User-Agent": "Mozilla/5.0", "Referer": "https://music.163.com/"},
+    )
+    with urllib.request.urlopen(request, timeout=8) as response:
+        songs = json.load(response).get("songs", [])
+    wanted_title = normalize(title)
+    wanted_artist = normalize(artist)
+    for song in songs:
+        if normalize(song.get("name", "")) != wanted_title:
+            continue
+        artists = " / ".join(entry.get("name", "") for entry in song.get("artists", []))
+        if not wanted_artist or wanted_artist in normalize(artists) or normalize(artists) in wanted_artist:
+            return str(song.get("id")), song
+    return None
+
+
+def resolve_netease_song(title: str, artist: str) -> tuple[str, dict] | None:
+    return find_netease_song(title, artist) or find_cached_netease_song(title, artist)
+
+
 def parse_lrc(raw: str) -> list[tuple[float, str]]:
     lines: list[tuple[float, str]] = []
     for source_line in raw.splitlines():
@@ -175,6 +207,8 @@ def netease_monitor(port: str | None = None) -> None:
     clock_elapsed = 0.0
     clock_raw_elapsed = 0.0
     clock_updated = time.monotonic()
+    resolved_title = ""
+    resolve_attempt = 0.0
     print("网易云歌词桥已启动，按 Ctrl+C 停止。")
     while True:
         try:
@@ -189,6 +223,10 @@ def netease_monitor(port: str | None = None) -> None:
                 clock_elapsed = raw_elapsed
                 clock_raw_elapsed = raw_elapsed
                 clock_updated = now
+                cached_song_id = ""
+                cached_lines = []
+                cached_artist = ""
+                last_key = ()
             elif abs(raw_elapsed - clock_raw_elapsed) > 0.25:
                 clock_elapsed = raw_elapsed
                 clock_raw_elapsed = raw_elapsed
@@ -196,7 +234,11 @@ def netease_monitor(port: str | None = None) -> None:
             elapsed = clock_elapsed + max(0.0, now - clock_updated) * float(playing.get("rate") or 0)
             # Ignore other media players when macOS exposes the active app name.
             if title and (not app or "网易云" in app or "netease" in app or "163music" in app):
-                match = find_netease_song(title, artist)
+                match = None
+                if title != resolved_title or (not cached_song_id and now - resolve_attempt >= 5):
+                    match = resolve_netease_song(title, artist)
+                    resolved_title = title
+                    resolve_attempt = now
                 if match and match[0] != cached_song_id:
                     cached_song_id, song = match
                     cached_lines = fetch_lyrics(cached_song_id)
@@ -206,7 +248,14 @@ def netease_monitor(port: str | None = None) -> None:
                 display_artist = artist or cached_artist
                 key = (cached_song_id, index, title, display_artist)
                 if cached_song_id and key != last_key:
-                    send(lyric_payload(title, display_artist, cached_lines, index, first_update), port, read_reply=False)
+                    reply = send(
+                        lyric_payload(title, display_artist, cached_lines, index, first_update),
+                        port,
+                        read_reply=True,
+                    )
+                    if not reply.startswith("OK lyrics="):
+                        raise RuntimeError(f"开发板未确认歌词：{reply or '无回复'}")
+                    print(f"♪ {title} · {lyric_payload(title, display_artist, cached_lines, index, False)['line']}", flush=True)
                     last_key = key
                     first_update = False
         except (subprocess.SubprocessError, json.JSONDecodeError, sqlite3.Error,

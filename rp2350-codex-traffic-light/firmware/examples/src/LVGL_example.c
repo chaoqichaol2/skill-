@@ -26,6 +26,7 @@ typedef enum {
 static lv_disp_drv_t disp_drv;
 static lv_disp_draw_buf_t disp_buf;
 static lv_color_t *buf0;
+static lv_color_t *buf_rotated;
 
 static lv_obj_t *lamp_red;
 static lv_obj_t *lamp_yellow;
@@ -72,17 +73,16 @@ void LVGL_Init(void)
 
     lv_init();
 
-    buf0 = (lv_color_t *)malloc(sizeof(lv_color_t) * DISP_HOR_RES * DISP_VER_RES);
-    lv_disp_draw_buf_init(&disp_buf, buf0, NULL, DISP_HOR_RES * DISP_VER_RES);
+    buf0 = (lv_color_t *)malloc(sizeof(lv_color_t) * UI_HOR_RES * UI_VER_RES);
+    buf_rotated = (lv_color_t *)malloc(sizeof(lv_color_t) * UI_HOR_RES * UI_VER_RES);
+    lv_disp_draw_buf_init(&disp_buf, buf0, NULL, UI_HOR_RES * UI_VER_RES);
     lv_disp_drv_init(&disp_drv);
     disp_drv.flush_cb = disp_flush_cb;
     disp_drv.draw_buf = &disp_buf;
-    disp_drv.hor_res = DISP_HOR_RES;
-    disp_drv.ver_res = DISP_VER_RES;
-    disp_drv.full_refresh = 0;
+    disp_drv.hor_res = UI_HOR_RES;
+    disp_drv.ver_res = UI_VER_RES;
+    disp_drv.full_refresh = 1;
     disp_drv.direct_mode = 0;
-    disp_drv.sw_rotate = 1;
-    disp_drv.rotated = LV_DISP_ROT_90;
     lv_disp_drv_register(&disp_drv);
 
 #if INPUTDEV_TS
@@ -483,11 +483,18 @@ void CodexTrafficLight_Poll(void)
 static void disp_flush_cb(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
 {
     (void)disp;
-    LCD_3IN49_SetWindows(area->x1, area->y1, area->x2 + 1, area->y2 + 1);
+    (void)area;
+    for (int y = 0; y < UI_VER_RES; ++y) {
+        for (int x = 0; x < UI_HOR_RES; ++x) {
+            buf_rotated[x * UI_VER_RES + (UI_VER_RES - 1 - y)] =
+                color_p[y * UI_HOR_RES + x];
+        }
+    }
+    LCD_3IN49_SetWindows(0, 0, DISP_HOR_RES, DISP_VER_RES);
     QSPI_Select(qspi);
     QSPI_Pixel_Write(qspi, 0x2c);
-    dma_channel_configure(dma_tx, &c, &qspi.pio->txf[qspi.sm], color_p,
-                          ((area->x2 + 1 - area->x1) * (area->y2 + 1 - area->y1)) * 2,
+    dma_channel_configure(dma_tx, &c, &qspi.pio->txf[qspi.sm], buf_rotated,
+                          UI_HOR_RES * UI_VER_RES * 2,
                           true);
 }
 
@@ -496,8 +503,10 @@ static void touch_callback(uint gpio, uint32_t events)
     (void)events;
     if (gpio == TOUCH_INT_PIN) {
         Touch_Read_State();
-        ts_x = TOUCH.Point1_x;
-        ts_y = TOUCH.Point1_y;
+        ts_x = TOUCH.Point1_y > 0 ? TOUCH.Point1_y - 1 : 0;
+        if (ts_x >= UI_HOR_RES) ts_x = UI_HOR_RES - 1;
+        ts_y = UI_VER_RES - 1 - TOUCH.Point1_x;
+        if (ts_y >= UI_VER_RES) ts_y = UI_VER_RES - 1;
         ts_act = LV_INDEV_STATE_PRESSED;
     }
 }
