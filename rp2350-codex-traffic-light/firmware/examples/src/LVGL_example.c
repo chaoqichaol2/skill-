@@ -67,6 +67,64 @@ static void update_ui(void);
 static void handle_serial_line(char *line);
 static bool json_get_string(const char *json, const char *key, char *output, size_t output_size);
 
+#define LYRIC_FONT_SCALE 3
+static uint8_t lyric_glyph_bitmap[2048];
+
+static bool lyric_font_get_dsc(const lv_font_t *font, lv_font_glyph_dsc_t *dsc,
+                               uint32_t letter, uint32_t letter_next)
+{
+    (void)font;
+    if (!lv_font_get_glyph_dsc(&lv_font_simsun_16_cjk, dsc, letter, letter_next)) return false;
+    dsc->adv_w *= LYRIC_FONT_SCALE;
+    dsc->box_w *= LYRIC_FONT_SCALE;
+    dsc->box_h *= LYRIC_FONT_SCALE;
+    dsc->ofs_x *= LYRIC_FONT_SCALE;
+    dsc->ofs_y *= LYRIC_FONT_SCALE;
+    return true;
+}
+
+static const uint8_t *lyric_font_get_bitmap(const lv_font_t *font, uint32_t letter)
+{
+    (void)font;
+    lv_font_glyph_dsc_t source_dsc;
+    if (!lv_font_get_glyph_dsc(&lv_font_simsun_16_cjk, &source_dsc, letter, 0)) return NULL;
+    const uint8_t *source = lv_font_get_glyph_bitmap(&lv_font_simsun_16_cjk, letter);
+    if (source == NULL || source_dsc.bpp != 4) return source;
+
+    const uint32_t target_width = source_dsc.box_w * LYRIC_FONT_SCALE;
+    const uint32_t target_height = source_dsc.box_h * LYRIC_FONT_SCALE;
+    const uint32_t target_pixels = target_width * target_height;
+    if ((target_pixels + 1) / 2 > sizeof(lyric_glyph_bitmap)) return source;
+    memset(lyric_glyph_bitmap, 0, (target_pixels + 1) / 2);
+
+    for (uint32_t y = 0; y < source_dsc.box_h; ++y) {
+        for (uint32_t x = 0; x < source_dsc.box_w; ++x) {
+            uint32_t source_index = y * source_dsc.box_w + x;
+            uint8_t value = (source_index & 1) ? (source[source_index / 2] & 0x0F)
+                                               : (source[source_index / 2] >> 4);
+            for (uint32_t dy = 0; dy < LYRIC_FONT_SCALE; ++dy) {
+                for (uint32_t dx = 0; dx < LYRIC_FONT_SCALE; ++dx) {
+                    uint32_t target_index = (y * LYRIC_FONT_SCALE + dy) * target_width
+                                          + x * LYRIC_FONT_SCALE + dx;
+                    if (target_index & 1) lyric_glyph_bitmap[target_index / 2] |= value;
+                    else lyric_glyph_bitmap[target_index / 2] |= (uint8_t)(value << 4);
+                }
+            }
+        }
+    }
+    return lyric_glyph_bitmap;
+}
+
+static const lv_font_t lyric_font_large = {
+    .get_glyph_dsc = lyric_font_get_dsc,
+    .get_glyph_bitmap = lyric_font_get_bitmap,
+    .line_height = 19 * LYRIC_FONT_SCALE,
+    .base_line = 3 * LYRIC_FONT_SCALE,
+    .subpx = LV_FONT_SUBPX_NONE,
+    .underline_position = -2,
+    .underline_thickness = 2,
+};
+
 void LVGL_Init(void)
 {
     add_repeating_timer_ms(5, repeating_lvgl_timer_callback, NULL, &lvgl_timer);
@@ -121,6 +179,26 @@ void Widgets_Init(void)
     lv_obj_set_style_bg_color(root, lv_color_hex(0x080A0D), 0);
     lv_obj_set_style_bg_opa(root, LV_OPA_COVER, 0);
     lv_obj_clear_flag(root, LV_OBJ_FLAG_SCROLLABLE);
+
+    app_view = lv_tileview_create(root);
+    lv_obj_set_size(app_view, UI_HOR_RES, UI_VER_RES);
+    lv_obj_set_style_bg_color(app_view, lv_color_hex(0x080A0D), 0);
+    lv_obj_set_style_bg_opa(app_view, LV_OPA_COVER, 0);
+    lv_obj_set_scrollbar_mode(app_view, LV_SCROLLBAR_MODE_OFF);
+    lv_obj_set_style_pad_all(app_view, 0, 0);
+    lyrics_page = lv_tileview_add_tile(app_view, 0, 0, LV_DIR_NONE);
+    lv_obj_set_style_bg_color(lyrics_page, lv_color_hex(0x080A0D), 0);
+
+    lyric_current_label = lv_label_create(lyrics_page);
+    lv_obj_set_width(lyric_current_label, 600);
+    lv_label_set_long_mode(lyric_current_label, LV_LABEL_LONG_SCROLL_CIRCULAR);
+    lv_obj_set_style_text_align(lyric_current_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_font(lyric_current_label, &lyric_font_large, 0);
+    lv_obj_set_style_text_color(lyric_current_label, lv_color_hex(0xFFFFFF), 0);
+    lv_obj_set_style_anim_speed(lyric_current_label, 32, 0);
+    lv_obj_center(lyric_current_label);
+    lv_label_set_text(lyric_current_label, "♪");
+    return;
 
     app_view = lv_tileview_create(root);
     lv_obj_set_size(app_view, UI_HOR_RES, UI_VER_RES);
@@ -272,6 +350,7 @@ static void style_lamp(lv_obj_t *lamp, bool active, uint32_t color)
 
 static void update_ui(void)
 {
+    if (lamp_red == NULL) return;
     style_lamp(lamp_red, current_state == CODEX_WAITING, 0xFF3B30);
     style_lamp(lamp_yellow, current_state == CODEX_WORKING, 0xFFD60A);
     style_lamp(lamp_green, current_state == CODEX_DONE, 0x30D158);
@@ -407,12 +486,12 @@ static void handle_serial_line(char *line)
 
     if (strstr(lower, "\"command\":\"lyrics\"") != NULL || strstr(lower, "\"state\":\"lyrics\"") != NULL) {
         char text[240];
-        if (json_get_string(line, "title", text, sizeof(text))) lv_label_set_text(song_label, text);
-        if (json_get_string(line, "artist", text, sizeof(text))) lv_label_set_text(artist_label, text);
-        if (json_get_string(line, "previous", text, sizeof(text))) lv_label_set_text(lyric_previous_label, text);
+        if (song_label && json_get_string(line, "title", text, sizeof(text))) lv_label_set_text(song_label, text);
+        if (artist_label && json_get_string(line, "artist", text, sizeof(text))) lv_label_set_text(artist_label, text);
+        if (lyric_previous_label && json_get_string(line, "previous", text, sizeof(text))) lv_label_set_text(lyric_previous_label, text);
         if (json_get_string(line, "line", text, sizeof(text))) lv_label_set_text(lyric_current_label, text);
-        if (json_get_string(line, "next", text, sizeof(text))) lv_label_set_text(lyric_next_label, text);
-        if (strstr(lower, "\"show\":true") != NULL) lv_obj_set_tile_id(app_view, 1, 0, LV_ANIM_ON);
+        if (lyric_next_label && json_get_string(line, "next", text, sizeof(text))) lv_label_set_text(lyric_next_label, text);
+        if (strstr(lower, "\"show\":true") != NULL) lv_obj_set_tile_id(app_view, 0, 0, LV_ANIM_OFF);
         printf("OK lyrics=updated\r\n");
         return;
     }
