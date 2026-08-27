@@ -1,0 +1,84 @@
+# macOS and editor metadata
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+
+# Secrets and local environment files
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+
+# Dependencies, virtual environments, and caches
+**/node_modules/
+**/.venv/
+**/.runtime/
+**/__pycache__/
+**/.cache/
+**/.next/
+**/.build/
+**/.platformio/
+**/.wrangler/
+**/.vercel/
+**/*.log
+
+# Generated build products
+**/dist/
+**/build/
+**/build-*/
+**/*.app/
+output/
+outputs/
+work/
+.codex_spreadsheet/
+.ppt-build-dashboard/
+.skill-update/
+
+# Transfer bundles and duplicate snapshots
+/marketing-design-transfer-*/
+/linggan-radar-transfer/
+/marketing-design-factory-updated/
+/skill-work/
+/marketing-projects/
+/reference-pack/
+/项目整体进度看板_数字可编辑/
+/vendor/
+/*.zip
+/*.tar.gz
+/*.sha256
+/*.inspect.ndjson
+/CONVERSATION_RECORD.md
+/HANDOFF_FOR_CODEX.md
+/README_TRANSFER.md
+
+# Root-level design deliverables (project assets inside subfolders remain tracked)
+/*.psd
+/*.pptx
+/*.pdf
+/*.docx
+/*.png
+/*.jpg
+/*.jpeg
+/*.svg
+/ocr_layout.tsv
+
+# Generated local captures
+/jsdesign-current-capture.json
+
+# Downloaded RP2350 SDKs, toolchains, and compiled firmware
+/rp2350-codex-traffic-light/arm-gnu-toolchain.tar.xz
+/rp2350-codex-traffic-light/pico-*
+/rp2350-codex-traffic-light/picotool-*
+/rp2350-codex-traffic-light/picotool_*
+/rp2350-codex-traffic-light/sdk-*
+/rp2350-codex-traffic-light/tinyusb-*
+/rp2350-codex-traffic-light/firmware/uf2/
+
+# Local demos and packaged applications
+/ai-usage-menubar/*.app/
+/ai-usage-menubar/*.app.*/
+/ai-usage-menubar/preview*.png
+/doubao-watermark-studio/demo/
+/doubao-watermark-studio/test-output/

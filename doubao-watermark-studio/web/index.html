@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>豆包水印清理室</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">本地处理 · 不上传图片</p>
+        <h1>豆包水印清理室</h1>
+        <p class="subtitle">导入图片，一键清除右下角“豆包”水印；位置不同时可手动画框。</p>
+      </div>
+      <span id="engineBadge" class="badge">正在检查引擎…</span>
+    </header>
+
+    <section class="workspace">
+      <aside class="panel controls">
+        <div class="step">
+          <span class="stepNo">01</span>
+          <div>
+            <h2>导入图片</h2>
+            <p>支持 PNG、JPG、WebP，单张不超过 50 MB。</p>
+          </div>
+        </div>
+        <label id="dropzone" class="dropzone">
+          <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp">
+          <span class="dropIcon">＋</span>
+          <strong>点击选择或拖入图片</strong>
+          <small id="fileMeta">原图只读，不会被覆盖</small>
+        </label>
+
+        <div class="step modeStep">
+          <span class="stepNo">02</span>
+          <div>
+            <h2>选择方式</h2>
+            <p>先用自动模式；水印位置特殊时再手动画框。</p>
+          </div>
+        </div>
+        <div class="segmented" role="radiogroup" aria-label="处理方式">
+          <label>
+            <input type="radio" name="mode" value="doubao" checked>
+            <span><b>豆包自动</b><small>固定模板，一键处理</small></span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="region">
+            <span><b>手动框选</b><small>拖动框住任意水印</small></span>
+          </label>
+        </div>
+
+        <button id="processButton" class="primary" disabled>开始清除水印</button>
+        <div id="status" class="status" aria-live="polite">请先导入图片</div>
+        <p class="legal">仅处理你拥有版权或已获授权编辑的图片。</p>
+      </aside>
+
+      <section class="stage panel">
+        <div class="stageHeader">
+          <div>
+            <span class="label">处理预览</span>
+            <h2 id="previewTitle">等待导入</h2>
+          </div>
+          <button id="clearSelection" class="ghost" hidden>清除框选</button>
+        </div>
+
+        <div id="emptyState" class="emptyState">
+          <div class="emptyMark">豆包</div>
+          <p>图片只会在你的电脑上处理</p>
+        </div>
+
+        <div id="canvasWrap" class="canvasWrap" hidden>
+          <canvas id="previewCanvas"></canvas>
+          <div id="drawHint" class="drawHint" hidden>按住鼠标，框住水印区域</div>
+        </div>
+
+        <div id="resultBlock" class="resultBlock" hidden>
+          <div class="resultHead">
+            <div>
+              <span class="successDot"></span>
+              <strong>处理完成</strong>
+              <small id="resultMeta"></small>
+            </div>
+            <a id="downloadButton" class="download" download>下载无水印图片</a>
+          </div>
+          <div class="comparison">
+            <figure><figcaption>处理前</figcaption><img id="beforeImage" alt="处理前图片"></figure>
+            <figure><figcaption>处理后</figcaption><img id="afterImage" alt="处理后图片"></figure>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <span>本地网页应用 V1.0</span>
+      <span>底层：remove-ai-watermarks / OpenCV</span>
+    </footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>

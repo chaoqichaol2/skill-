@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "case_id": "fixed-deposit-multi-size",
+  "case_name": "单位定期存款多尺寸延展",
+  "classification": ["中文", "互联网", "金融类"],
+  "capture_status": "flattened",
+  "approval_status": "approved-final",
+  "delivery_status": "delivered",
+  "reuse_scope": "case-pattern",
+  "source": {"platform": "user-provided-final-exports", "capture_mode": "flattened-approved-assets", "captured_at": "2026-07-17T04:57:18Z", "file_name": "单位定期存款需求与四个最终交付", "file_id": null, "page_name": null, "page_id": null, "selection_scope": "requirement-plus-four-deliveries", "fingerprint": null},
+  "frames": [
+    {"id": "mobile-banner", "name": "企业手机银行首页Banner", "role": "main-visual-banner", "width": 1029, "height": 330, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/fixed-deposit-multi-size/enterprise-mobile-home-banner_1029x330.png"},
+    {"id": "mobile-header", "name": "首页头部区域", "role": "header-extension", "width": 1125, "height": 997, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/fixed-deposit-multi-size/enterprise-mobile-home-header-final_1125x997.png"},
+    {"id": "mobile-popup", "name": "首页弹窗", "role": "popup-extension", "width": 800, "height": 800, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/fixed-deposit-multi-size/enterprise-mobile-home-popup_800x800.png"},
+    {"id": "online-banner", "name": "企业网银活期账户Banner", "role": "wide-banner-extension", "width": 1644, "height": 214, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/fixed-deposit-multi-size/enterprise-online-current-account-banner_1644x214.png"}
+  ],
+  "shared_style": {"palette": ["品牌红橙", "浅金", "白色"], "typography": ["粗体中文产品名", "单行核心利益"], "effects": ["暖色体积光", "底部流线"], "hero_groups": ["沙漏", "盾牌", "金币"], "cta_styles": ["橙红渐变按钮"], "advertising_label": {"required": true, "placement": "upper-right"}},
+  "extension_rules": ["横版保持左文右图；竖向头部与方形弹窗必须重新排版，不得等比缩放。"],
+  "dynamic_fields": ["起存金额", "产品特点"],
+  "stored_assets": [
+    {"path": "assets/cases/fixed-deposit-multi-size/enterprise-mobile-home-banner_1029x330.png", "width": 1029, "height": 330, "size_bytes": 380086, "sha256": "a1979622fd83e44cd86ca2cb5e15fd20e19af810450330e2802197a0345e5ff0"},
+    {"path": "assets/cases/fixed-deposit-multi-size/enterprise-mobile-home-header-final_1125x997.png", "width": 1125, "height": 997, "size_bytes": 511297, "sha256": "efc3709c1e323a018640ae62309f1a5970dc1634a4ce07005172ba40ebd79092"},
+    {"path": "assets/cases/fixed-deposit-multi-size/enterprise-mobile-home-popup_800x800.png", "width": 800, "height": 800, "size_bytes": 280969, "sha256": "0b61e61ae9dc9832eb36252a9c6ae2aefa9ee438142684e373f1f928f0edb859"},
+    {"path": "assets/cases/fixed-deposit-multi-size/enterprise-online-current-account-banner_1644x214.png", "width": 1644, "height": 214, "size_bytes": 260712, "sha256": "e355064349817e62bc13058e80b30047331c2f651ebd4efdc4a723decc580c81"},
+    {"path": "assets/cases/fixed-deposit-multi-size/requirement.png", "role": "requirement", "width": 738, "height": 1342, "size_bytes": 324245, "sha256": "3f8d02ecd7c39f2feae1def6bff6057f9d63bc898c2e6c54aeaab04b88734f0f"}
+  ],
+  "unknown_fields": ["可编辑图层、字体、安全区精确数值未捕获。"],
+  "notes": ["首页头部交付尺寸以用户确认的 1125×997 为准，需求书原值仅保留作审计。"]
+}

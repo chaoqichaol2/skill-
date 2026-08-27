@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "case_id": "large-denomination-certificate-multi-size",
+  "case_name": "单位大额存单多尺寸延展",
+  "classification": ["中文", "互联网", "金融类"],
+  "capture_status": "flattened",
+  "approval_status": "approved-final",
+  "delivery_status": "delivered",
+  "reuse_scope": "case-pattern",
+  "source": {"platform": "user-provided-final-exports", "capture_mode": "flattened-approved-assets", "captured_at": "2026-07-17T04:57:18Z", "file_name": "单位大额存单需求与四个最终交付", "file_id": null, "page_name": null, "page_id": null, "selection_scope": "requirement-plus-four-deliveries", "fingerprint": null},
+  "frames": [
+    {"id": "mobile-banner", "name": "企业手机银行首页Banner", "role": "main-visual-banner", "width": 1029, "height": 330, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/large-denomination-certificate-multi-size/enterprise-mobile-home-banner_1029x330.png"},
+    {"id": "mobile-header", "name": "首页顶部Banner", "role": "header-extension", "width": 1125, "height": 997, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/large-denomination-certificate-multi-size/enterprise-mobile-home-header-final_1125x997.png"},
+    {"id": "mobile-popup", "name": "首页弹窗", "role": "popup-extension", "width": 800, "height": 800, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/large-denomination-certificate-multi-size/enterprise-mobile-home-popup_800x800.png"},
+    {"id": "online-banner", "name": "企业网银活期账户总览Banner", "role": "wide-banner-extension", "width": 1644, "height": 214, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/large-denomination-certificate-multi-size/enterprise-online-current-account-banner_1644x214.png"}
+  ],
+  "shared_style": {"palette": ["红到橙渐变", "暖金", "白色"], "typography": ["粗体中文产品名", "单行核心利益"], "effects": ["暖色体积光", "轻量金融图表线"], "hero_groups": ["大额存单卡片", "盾牌", "增长图形"], "cta_styles": ["浅色胶囊按钮"], "advertising_label": {"required": true, "placement": "upper-right"}},
+  "extension_rules": ["横版保持左文右图；竖向头部与方形弹窗必须重新排版，不得等比缩放。"],
+  "dynamic_fields": ["起存金额", "产品特点"],
+  "stored_assets": [
+    {"path": "assets/cases/large-denomination-certificate-multi-size/enterprise-mobile-home-banner_1029x330.png", "width": 1029, "height": 330, "size_bytes": 460197, "sha256": "8e92f1d745ef1f8a7bc4f1c8e30bd093eb1e878f0bb427ca8ce423360486ebad"},
+    {"path": "assets/cases/large-denomination-certificate-multi-size/enterprise-mobile-home-header-final_1125x997.png", "width": 1125, "height": 997, "size_bytes": 1184250, "sha256": "a1f48efa061acb9e534578e658a1685c2021ccdd50e244d1defd28c2803cba57"},
+    {"path": "assets/cases/large-denomination-certificate-multi-size/enterprise-mobile-home-popup_800x800.png", "width": 800, "height": 800, "size_bytes": 315405, "sha256": "9d2d1d5a9aaa6ed9bdb9cd92399f0e7958b8c250477261312ba939e40f60f7f1"},
+    {"path": "assets/cases/large-denomination-certificate-multi-size/enterprise-online-current-account-banner_1644x214.png", "width": 1644, "height": 214, "size_bytes": 321277, "sha256": "a47cd5fd9cc480dba56a91424497b3be0ebccdb1429d8111fb54b25f25a46c28"},
+    {"path": "assets/cases/large-denomination-certificate-multi-size/requirement.png", "role": "requirement", "width": 1174, "height": 1534, "size_bytes": 414301, "sha256": "469829692fbe4b416769cc5c658423c169f6d7fede9783ad5583399a6f75a643"}
+  ],
+  "unknown_fields": ["可编辑图层、字体、安全区精确数值未捕获。"],
+  "notes": ["需求书尺寸有误；四个最终文件尺寸是交付权威值。"]
+}

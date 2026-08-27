@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>微信支付大额交易立减 - AI 设计工作流案例</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f7fb;
+        --surface: #ffffff;
+        --surface-soft: #fff5ee;
+        --ink: #161a23;
+        --text: #2f3542;
+        --muted: #697180;
+        --line: rgba(29, 35, 48, 0.12);
+        --brand: #f23b2f;
+        --brand-deep: #9f2018;
+        --gold: #ffc56a;
+        --green: #15ba55;
+        --blue: #1d72d8;
+        --radius: 8px;
+        --shadow: 0 18px 50px rgba(28, 31, 41, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .case-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 64px;
+        padding: 0 32px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(22, 26, 35, 0.88);
+        color: #fff;
+        backdrop-filter: blur(16px);
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        font-weight: 800;
+      }
+
+      .nav-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--brand);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .nav-title {
+        overflow: hidden;
+        color: rgba(255, 255, 255, 0.94);
+        font-size: 15px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        border-radius: 7px;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 13px;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        min-height: calc(74vh - 64px);
+        overflow: hidden;
+        color: #fff;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(117, 16, 12, 0.94) 0%, rgba(117, 16, 12, 0.58) 43%, rgba(117, 16, 12, 0.12) 100%),
+          url("./assets/cases/wechat-pay/banner-1035x300.png") center / cover no-repeat;
+        transform: scale(1.04);
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: auto 0 0;
+        z-index: -1;
+        height: 42%;
+        content: "";
+        background: linear-gradient(180deg, transparent, rgba(246, 247, 251, 0.98));
+      }
+
+      .hero-inner {
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 76px 0 128px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--gold);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        max-width: 860px;
+        margin: 0;
+        color: #fff;
+        font-size: 64px;
+        line-height: 1.04;
+      }
+
+      .hero-lead {
+        max-width: 680px;
+        margin: 24px 0 0;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 20px;
+        line-height: 1.78;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 34px;
+      }
+
+      .hero-meta span {
+        padding: 9px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .band {
+        padding: 76px 0;
+      }
+
+      .band.alt {
+        background: #fff;
+      }
+
+      .band.warm {
+        background: linear-gradient(180deg, #fff5ee, #fff);
+      }
+
+      .section-inner {
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.6fr);
+        gap: 44px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+
+      .section-kicker {
+        margin: 0 0 10px;
+        color: var(--brand);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 40px;
+        line-height: 1.18;
+      }
+
+      h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.78;
+      }
+
+      .section-note {
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(340px, 1fr);
+        gap: 34px;
+        align-items: start;
+      }
+
+      .text-stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .info-item,
+      .step,
+      .check-item,
+      .template-item,
+      .asset-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: 0 10px 28px rgba(24, 28, 38, 0.06);
+      }
+
+      .info-item {
+        padding: 18px;
+      }
+
+      .info-item strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .info-item span {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .visual-frame {
+        overflow: hidden;
+        border: 1px solid rgba(255, 116, 79, 0.22);
+        border-radius: var(--radius);
+        background: #ffe5d8;
+        box-shadow: var(--shadow);
+      }
+
+      .visual-frame img {
+        width: 100%;
+      }
+
+      .caption {
+        padding: 12px 14px;
+        border-top: 1px solid rgba(255, 116, 79, 0.18);
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .strategy-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .strategy-list li,
+      .rule-list li {
+        list-style: none;
+      }
+
+      .strategy-list,
+      .rule-list {
+        margin: 0;
+        padding: 0;
+      }
+
+      .strategy-list li {
+        min-height: 150px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+      }
+
+      .strategy-list strong {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--ink);
+      }
+
+      .strategy-list span {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.72;
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .step {
+        position: relative;
+        min-height: 260px;
+        padding: 22px;
+      }
+
+      .step-number {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 18px;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+      }
+
+      .step p {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .avoid-box {
+        margin-top: 18px;
+        padding: 16px;
+        border: 1px solid rgba(242, 59, 47, 0.22);
+        border-radius: var(--radius);
+        background: #fff8f4;
+        color: var(--brand-deep);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .asset-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1fr 0.8fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .asset-card {
+        overflow: hidden;
+      }
+
+      .asset-card figure {
+        margin: 0;
+        background: #f0f2f7;
+      }
+
+      .asset-card.detail figure {
+        max-height: 720px;
+        overflow: auto;
+      }
+
+      .asset-card.popup figure {
+        padding: 18px;
+        background:
+          linear-gradient(90deg, rgba(29, 114, 216, 0.08), transparent),
+          #f7f8fb;
+      }
+
+      .asset-card.popup img {
+        width: min(100%, 370px);
+        margin: 0 auto;
+      }
+
+      .asset-card.banner {
+        grid-column: span 1;
+      }
+
+      .asset-body {
+        padding: 18px;
+      }
+
+      .asset-body p {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .tag-row span {
+        padding: 6px 8px;
+        border-radius: 7px;
+        background: #f1f3f8;
+        color: #5a6473;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .checks {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .check-item {
+        padding: 20px;
+      }
+
+      .check-item ul {
+        display: grid;
+        gap: 10px;
+        margin: 14px 0 0;
+        padding: 0;
+      }
+
+      .check-item li {
+        list-style: none;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .status-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .status {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+      }
+
+      .status strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--ink);
+      }
+
+      .status span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .status.warning {
+        border-color: rgba(242, 59, 47, 0.3);
+        background: #fff7f3;
+      }
+
+      .template-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .template-item {
+        min-height: 178px;
+        padding: 20px;
+      }
+
+      .template-item p {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .quote-band {
+        background: #161a23;
+        color: #fff;
+      }
+
+      .quote-band h2 {
+        max-width: 940px;
+        color: #fff;
+      }
+
+      .quote-band p {
+        max-width: 850px;
+        margin-top: 20px;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 18px;
+      }
+
+      .footer {
+        padding: 28px 0 48px;
+        background: #161a23;
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 13px;
+      }
+
+      .footer-inner {
+        width: min(1160px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      @media (max-width: 980px) {
+        .nav-links {
+          display: none;
+        }
+
+        .section-head,
+        .two-col,
+        .asset-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .info-grid,
+        .process,
+        .checks,
+        .template-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .strategy-list {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          max-width: 720px;
+          font-size: 46px;
+        }
+
+        .hero-lead {
+          font-size: 18px;
+        }
+
+        h2 {
+          font-size: 34px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .case-nav {
+          padding: 0 18px;
+        }
+
+        .hero-inner,
+        .section-inner,
+        .footer-inner {
+          width: min(100% - 28px, 1160px);
+        }
+
+        .hero {
+          min-height: 680px;
+        }
+
+        .hero::before {
+          background:
+            linear-gradient(180deg, rgba(117, 16, 12, 0.92) 0%, rgba(117, 16, 12, 0.72) 58%, rgba(117, 16, 12, 0.3) 100%),
+            url("./assets/cases/wechat-pay/banner-1035x300.png") center top / auto 100% no-repeat;
+        }
+
+        .hero-inner {
+          padding: 58px 0 92px;
+        }
+
+        .hero h1 {
+          font-size: 34px;
+          line-height: 1.12;
+        }
+
+        .hero-lead {
+          font-size: 17px;
+          line-height: 1.74;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        .band {
+          padding: 58px 0;
+        }
+
+        .info-grid,
+        .process,
+        .checks,
+        .status-row,
+        .template-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .step {
+          min-height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="case-nav">
+      <a class="nav-brand" href="./index.html" aria-label="返回灵感 Radar">
+        <span class="nav-mark">AI</span>
+        <span class="nav-title">金融运营活动 AI 设计工作流案例</span>
+      </a>
+      <nav class="nav-links" aria-label="案例章节">
+        <a href="#background">背景</a>
+        <a href="#strategy">策略</a>
+        <a href="#workflow">流程</a>
+        <a href="#assets">物料</a>
+        <a href="#qa">质检</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="case-title">
+        <div class="hero-inner">
+          <p class="eyebrow">Portfolio Case / Bank Operation Design</p>
+          <h1 id="case-title">用 AI 搭建手机银行“微信支付大额交易立减”活动视觉系统</h1>
+          <p class="hero-lead">
+            面向手机银行新注册用户和持卡用户，用 AI 辅助完成主视觉方向搭建，并延展为活动详情页、首页 Banner 和首页弹窗，沉淀一套可复用的金融运营活动生产模板。
+          </p>
+          <div class="hero-meta" aria-label="案例信息">
+            <span>活动详情页 750x1828</span>
+            <span>首页 Banner 1035x300</span>
+            <span>首页弹窗 912x1032</span>
+            <span>BCS / 长沙银行</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="background">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">01 项目背景</p>
+              <h2>从单张运营图，升级为可复用的活动视觉系统。</h2>
+            </div>
+            <p class="section-note">
+              这类支付激励活动需要在 App 多个入口同步曝光。第一版案例的重点不是炫技，而是证明设计师能用 AI 更快建立主视觉方向，并把它稳定延展到不同触点。
+            </p>
+          </div>
+
+          <div class="two-col">
+            <div class="text-stack">
+              <p>
+                本案例围绕手机银行 App 内“微信支付大额交易立减”活动展开。活动通过微信支付场景中的大额交易立减金权益，引导用户完成支付绑定、账户激活或指定金额交易。
+              </p>
+              <p>
+                设计难点不只是做出一张好看的活动图，而是让详情页、Banner 和弹窗在不同信息密度下保持同一个活动识别，同时兼顾金融品牌可信感、支付场景识别和限时福利氛围。
+              </p>
+              <div class="info-grid">
+                <div class="info-item">
+                  <strong>活动主题</strong>
+                  <span>微信支付大额交易立减</span>
+                </div>
+                <div class="info-item">
+                  <strong>核心权益</strong>
+                  <span>千元以上交易享最高 5 元立减优惠</span>
+                </div>
+                <div class="info-item">
+                  <strong>目标用户</strong>
+                  <span>新注册用户 / 长沙银行持卡用户</span>
+                </div>
+                <div class="info-item">
+                  <strong>投放触点</strong>
+                  <span>详情页、首页 Banner、首页弹窗</span>
+                </div>
+              </div>
+            </div>
+            <div class="visual-frame">
+              <img src="./assets/cases/wechat-pay/detail-750x1828.png" alt="微信支付大额交易立减活动详情页" />
+              <p class="caption">活动详情页负责完整说明活动对象、时间、内容和规则，是后续多尺寸延展的母版依据。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" id="strategy">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">02 设计目标</p>
+              <h2>先把信息讲清楚，再让视觉变得统一、可延展。</h2>
+            </div>
+            <p class="section-note">
+              金融活动的优先级是权益准确、路径清晰、规则可信。AI 负责提速，设计师负责判断信息层级和上线可用性。
+            </p>
+          </div>
+
+          <ul class="strategy-list" aria-label="设计目标">
+            <li>
+              <strong>突出核心利益点</strong>
+              <span>用户第一眼要理解“微信支付大额交易可享最高 5 元立减优惠”。</span>
+            </li>
+            <li>
+              <strong>保持金融可信感</strong>
+              <span>在强促销氛围里保留银行 Logo、规则说明和清晰内容区，避免廉价化。</span>
+            </li>
+            <li>
+              <strong>支持多触点投放</strong>
+              <span>详情页、Banner、弹窗沿用统一标题、主色、角色、权益券和 CTA。</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band warm">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">03 信息拆解</p>
+              <h2>把活动拆成 AI 能理解、设计师能质检的输入表。</h2>
+            </div>
+            <p class="section-note">
+              输入越清楚，AI 越不容易跑偏。这里先固定用户、权益、路径、规则和物料角色，再进入视觉生成。
+            </p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>一级信息</strong>
+              <span>微信支付大额交易立减</span>
+            </div>
+            <div class="info-item">
+              <strong>二级信息</strong>
+              <span>千元以上交易享最高 5 元立减优惠</span>
+            </div>
+            <div class="info-item">
+              <strong>参与路径</strong>
+              <span>注册登录 -> 绑卡 -> 微信支付 -> 完成交易 -> 获得立减</span>
+            </div>
+            <div class="info-item">
+              <strong>规则限制</strong>
+              <span>限时、每日限量、每人每自然月限享一次</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" id="workflow">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">04 AI 生成流程</p>
+              <h2>AI 做候选，设计师做判断和落地。</h2>
+            </div>
+            <p class="section-note">
+              这个流程的价值不是“让 AI 直接出最终稿”，而是把活动信息、视觉约束和上线规范前置，让生成结果可控。
+            </p>
+          </div>
+
+          <div class="process">
+            <article class="step">
+              <span class="step-number">1</span>
+              <h3>需求结构化</h3>
+              <p>先拆解用户、权益、场景、规则和投放触点，避免 AI 只生成热闹画面却忽略金融活动的规则表达。</p>
+            </article>
+            <article class="step">
+              <span class="step-number">2</span>
+              <h3>关键词定义</h3>
+              <p>提炼红橙渐变、微信支付识别、5 元立减券、3D 角色、红包金币、年轻活跃、银行可信感。</p>
+            </article>
+            <article class="step">
+              <span class="step-number">3</span>
+              <h3>主视觉候选</h3>
+              <p>生成多版头图 KV，重点观察标题留白、角色记忆点、背景氛围和权益券是否能建立快速识别。</p>
+            </article>
+            <article class="step">
+              <span class="step-number">4</span>
+              <h3>人工修正</h3>
+              <p>设计师再控制 Logo、标题、权益表达、CTA 和规则说明，确保最终物料信息准确且可上线。</p>
+            </article>
+          </div>
+
+          <div class="avoid-box">
+            避免方向：纯红包堆叠、过度电商促销感、过多小字、弱化银行品牌、让 AI 生成不可读或不准确文字。
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="assets">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">05 多物料延展</p>
+              <h2>同一套主视觉，分别承担完整说明、入口曝光和强提醒。</h2>
+            </div>
+            <p class="section-note">
+              三类物料保持统一的标题、主色、角色、权益符号和 CTA，只根据投放位置调整信息密度。
+            </p>
+          </div>
+
+          <div class="asset-grid">
+            <article class="asset-card detail">
+              <figure>
+                <img src="./assets/cases/wechat-pay/detail-750x1828.png" alt="活动详情页 750x1828" />
+              </figure>
+              <div class="asset-body">
+                <h3>活动详情页</h3>
+                <p>完整承载头图 KV、活动简介、活动内容、活动规则和品牌收尾。</p>
+                <div class="tag-row">
+                  <span>750x1828</span>
+                  <span>完整信息</span>
+                  <span>规则承载</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="asset-card banner">
+              <figure>
+                <img src="./assets/cases/wechat-pay/banner-1035x300.png" alt="首页 Banner 1035x300" />
+              </figure>
+              <div class="asset-body">
+                <h3>首页 Banner</h3>
+                <p>只保留活动标题、最高 5 元立减优惠、查看详情入口和主视觉角色，提高点击效率。</p>
+                <div class="tag-row">
+                  <span>1035x300</span>
+                  <span>首页入口</span>
+                  <span>曝光转化</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="asset-card popup">
+              <figure>
+                <img src="./assets/cases/wechat-pay/popup-912x1032.png" alt="首页弹窗 912x1032" />
+              </figure>
+              <div class="asset-body">
+                <h3>首页弹窗</h3>
+                <p>延续主视觉氛围，突出大标题、5 元立减金和“查看详情”按钮，用于活动强提醒。</p>
+                <div class="tag-row">
+                  <span>912x1032</span>
+                  <span>强提醒</span>
+                  <span>CTA 明确</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" id="qa">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">06 质检与规范</p>
+              <h2>金融运营图不能只看好不好看，还要看能不能交付。</h2>
+            </div>
+            <p class="section-note">
+              质检从信息准确、视觉统一、尺寸规范和上线风险四个维度执行。这里把可展示和可上线的差异也写清楚。
+            </p>
+          </div>
+
+          <div class="checks">
+            <article class="check-item">
+              <h3>信息检查</h3>
+              <ul>
+                <li>标题是否清晰表达活动。</li>
+                <li>最高 5 元立减是否突出。</li>
+                <li>限制条件是否避免误导。</li>
+              </ul>
+            </article>
+            <article class="check-item">
+              <h3>视觉检查</h3>
+              <ul>
+                <li>Logo 与微信支付识别是否清楚。</li>
+                <li>角色和装饰是否服务信息。</li>
+                <li>阅读顺序是否稳定。</li>
+              </ul>
+            </article>
+            <article class="check-item">
+              <h3>尺寸检查</h3>
+              <ul>
+                <li>Banner 为 1035x300px。</li>
+                <li>弹窗为 912x1032px。</li>
+                <li>详情页为移动端展示稿。</li>
+              </ul>
+            </article>
+            <article class="check-item">
+              <h3>上线检查</h3>
+              <ul>
+                <li>小字号规则手机端可读。</li>
+                <li>CTA 足够明确。</li>
+                <li>重要内容没有裁切风险。</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="status-row" aria-label="文件校验">
+            <div class="status">
+              <strong>Banner</strong>
+              <span>1035x300px，约 349K，符合常用 Banner 文件限制。</span>
+            </div>
+            <div class="status">
+              <strong>详情页</strong>
+              <span>750x1828px，约 626K，适合作为案例展示长图。</span>
+            </div>
+            <div class="status warning">
+              <strong>弹窗</strong>
+              <span>912x1032px，约 805K；上线前需压缩至 500K 以内。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band warm">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">07 模板沉淀</p>
+              <h2>把这次活动沉淀成下一次可复用的生产规则。</h2>
+            </div>
+            <p class="section-note">
+              这套模板可以复用于支付立减、绑卡有礼、新客福利、消费满减、积分活动等同类型金融运营场景。
+            </p>
+          </div>
+
+          <div class="template-grid">
+            <article class="template-item">
+              <h3>需求输入模板</h3>
+              <p>活动主题、目标用户、核心权益、参与路径、规则限制、投放物料。</p>
+            </article>
+            <article class="template-item">
+              <h3>信息层级模板</h3>
+              <p>主标题、利益点、补充说明、CTA、活动规则、品牌露出。</p>
+            </article>
+            <article class="template-item">
+              <h3>主视觉模板</h3>
+              <p>品牌 Logo、活动标题、权益券、场景元素、角色和促销背景。</p>
+            </article>
+            <article class="template-item">
+              <h3>多尺寸延展模板</h3>
+              <p>详情页完整说明，Banner 入口曝光，弹窗强提醒转化。</p>
+            </article>
+            <article class="template-item">
+              <h3>AI Prompt 模板</h3>
+              <p>组合活动主题、权益、视觉关键词、尺寸、禁忌项和排版要求。</p>
+            </article>
+            <article class="template-item">
+              <h3>质检 Checklist</h3>
+              <p>从信息准确、金融可信、尺寸规范、视觉统一、上线可读五个维度检查。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band quote-band">
+        <div class="section-inner">
+          <p class="section-kicker">08 案例结论</p>
+          <h2>AI 的价值不是替代设计师完成单张画面，而是帮助设计师更快建立方向、延展物料，并沉淀可复用流程。</h2>
+          <p>
+            设计师的核心价值体现在需求拆解、信息层级判断、金融场景理解、上线规范检查和模板沉淀上。最终交付的不只是三张运营图，而是一套可迁移到后续金融活动中的 AI 设计工作流。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        第一版案例页面 / 微信支付大额交易立减 / AI 设计工作流
+      </div>
+    </footer>
+  </body>
+</html>

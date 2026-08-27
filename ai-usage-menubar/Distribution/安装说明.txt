@@ -1,0 +1,27 @@
+TokenPulse 0.3.0 体验版
+
+安装方法
+1. 打开 DMG 文件。
+2. 将 TokenPulse 拖入“应用程序”文件夹。
+3. 前往“应用程序”，右键 TokenPulse，选择“打开”。
+4. 首次运行时允许通知权限，之后可在屏幕顶部菜单栏找到 TokenPulse。
+
+如果 macOS 阻止打开
+当前体验版尚未经过 Apple 公证。请打开：
+系统设置 → 隐私与安全性 → 安全性 → 仍要打开。
+
+功能
+- 查看 Codex 与 Claude CLI 的本机 Token 用量和额度窗口。
+- 在设置中连接 DeepSeek API，查看实时余额。
+- Codex 运行任务时菜单栏显示红点，完成后显示绿点并发送通知。
+- 支持额度用完、额度重置和 DeepSeek 低余额提醒。
+- 支持中文与 English。
+
+隐私
+- Codex 与 Claude 数据只在本机统计，不上传对话正文。
+- DeepSeek API Key 只保存在 macOS 钥匙串，并仅发送给 DeepSeek 官方余额接口。
+- 删除应用前，可先在设置中点击“移除”清除 DeepSeek API Key。
+
+系统要求
+- macOS 14 或更高版本
+- 支持 Apple 芯片与 Intel Mac

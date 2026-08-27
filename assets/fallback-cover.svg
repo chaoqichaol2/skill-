@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" fill="none">
+  <rect width="900" height="560" rx="32" fill="#F5F8FC"/>
+  <path d="M0 0H900V560H0V0Z" fill="url(#g)"/>
+  <g opacity=".28" stroke="#8CCFF7">
+    <path d="M0 80H900M0 160H900M0 240H900M0 320H900M0 400H900M0 480H900"/>
+    <path d="M90 0V560M180 0V560M270 0V560M360 0V560M450 0V560M540 0V560M630 0V560M720 0V560M810 0V560"/>
+  </g>
+  <circle cx="450" cy="280" r="134" stroke="#14A2D8" stroke-width="2" opacity=".28"/>
+  <circle cx="450" cy="280" r="78" stroke="#7C5CFF" stroke-width="2" opacity=".24"/>
+  <path d="M450 280L614 168" stroke="#16B985" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="450" cy="280" r="16" fill="#16B985"/>
+  <text x="450" y="414" text-anchor="middle" fill="#657186" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">No related image</text>
+  <defs>
+    <linearGradient id="g" x1="84" y1="0" x2="779" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8FFF4"/>
+      <stop offset=".45" stop-color="#F8FBFF"/>
+      <stop offset="1" stop-color="#EEF1FF"/>
+    </linearGradient>
+  </defs>
+</svg>

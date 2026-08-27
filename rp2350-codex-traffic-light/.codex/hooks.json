@@ -1,0 +1,26 @@
+{
+  "description": "Drive the RP2350 Codex traffic light over USB.",
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [{ "type": "command", "command": "/Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/.venv/bin/python /Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/host/codex_light.py hook", "timeout": 2, "async": true }] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [{ "type": "command", "command": "/Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/.venv/bin/python /Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/host/codex_light.py hook", "timeout": 2, "async": true }] }
+    ],
+    "PreToolUse": [
+      { "hooks": [{ "type": "command", "command": "/Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/.venv/bin/python /Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/host/codex_light.py hook", "timeout": 2, "async": true }] }
+    ],
+    "PostToolUse": [
+      { "hooks": [{ "type": "command", "command": "/Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/.venv/bin/python /Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/host/codex_light.py hook", "timeout": 2, "async": true }] }
+    ],
+    "PermissionRequest": [
+      { "hooks": [{ "type": "command", "command": "/Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/.venv/bin/python /Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/host/codex_light.py hook", "timeout": 2, "async": true }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "/Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/.venv/bin/python /Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/host/codex_light.py hook", "timeout": 2, "async": true }] }
+    ],
+    "SessionEnd": [
+      { "hooks": [{ "type": "command", "command": "/Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/.venv/bin/python /Users/bcs/Documents/设计师vibecoding/rp2350-codex-traffic-light/host/codex_light.py hook", "timeout": 2 }] }
+    ]
+  }
+}

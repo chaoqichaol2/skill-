@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>灵感 Radar - 设计 AI 工作流热榜</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080812'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%2363d5ff' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='10' fill='none' stroke='%23ff8ded' stroke-width='2'/%3E%3Cpath d='M32 32 48 14' stroke='%237ff0bc' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%237ff0bc'/%3E%3C/svg%3E" />
+    <script>
+      (() => {
+        const storedTheme = localStorage.getItem("linggan-radar-theme");
+        const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        document.documentElement.dataset.theme = storedTheme || (prefersLight ? "light" : "dark");
+      })();
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="灵感 Radar 首页">
+          <img class="brand-logo brand-logo-light" src="./assets/linggan-radar-logo.png" alt="灵感 Radar" />
+          <img class="brand-logo brand-logo-dark" src="./assets/linggan-radar-logo-dark.png" alt="灵感 Radar" />
+        </a>
+
+        <div class="top-actions">
+          <div class="theme-switch" aria-label="界面模式">
+            <button type="button" data-theme-option="light" aria-pressed="false">
+              <span class="theme-icon theme-icon-day" aria-hidden="true"></span>
+              <span>日间</span>
+            </button>
+            <button type="button" data-theme-option="dark" aria-pressed="false">
+              <span class="theme-icon theme-icon-night" aria-hidden="true"></span>
+              <span>夜间</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <h1 id="page-title">
+              每天精选值得试的
+              <span class="title-highlight">Skill、MCP 与 AI 工作流。</span>
+            </h1>
+            <p class="hero-desc">
+              一个轻量趋势工作台，用热度增长、设计相关度和来源可信度，筛出今天真正值得打开的设计 AI 资源。
+            </p>
+
+            <div class="hero-actions" aria-label="页面快捷操作">
+              <a class="primary-action" href="#trending">查看今日热榜</a>
+              <a class="secondary-action" href="#curation">了解筛选逻辑</a>
+            </div>
+
+            <div class="hero-badges" aria-label="产品覆盖范围">
+              <span>MCP Watchlist</span>
+              <span>Design Skill</span>
+              <span>Workflow Scan</span>
+            </div>
+          </div>
+
+          <aside class="radar-panel" aria-label="今日趋势概览">
+            <div class="radar-panel-head">
+              <div>
+                <span>Live Signal Scan</span>
+                <strong>09:30 Radar Pulse</strong>
+              </div>
+              <small>Auto</small>
+            </div>
+            <div class="radar-visual" aria-hidden="true">
+              <span class="radar-sweep"></span>
+              <span class="signal-dot dot-a"></span>
+              <span class="signal-dot dot-b"></span>
+              <span class="signal-dot dot-c"></span>
+              <span class="signal-dot dot-d"></span>
+            </div>
+            <div class="radar-stats">
+              <div>
+                <strong>42</strong>
+                <span>今日候选</span>
+              </div>
+              <div>
+                <strong>10</strong>
+                <span>精选上榜</span>
+              </div>
+              <div>
+                <strong>73%</strong>
+                <span>噪声过滤</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="workspace" id="trending" aria-label="热榜工作台">
+          <div class="panel panel-main">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">TRENDING BOARD</p>
+                <h2>设计 AI 工作流热榜</h2>
+              </div>
+              <p class="last-sync">今日 09:30 更新</p>
+            </div>
+
+            <div class="controls" aria-label="榜单筛选">
+              <div class="chips" aria-label="资源类型">
+                <button class="is-active" type="button" data-type="all">全部</button>
+                <button type="button" data-type="Skill">Skill</button>
+                <button type="button" data-type="MCP">MCP</button>
+                <button type="button" data-type="Workflow">Workflow</button>
+                <button type="button" data-type="Plugin">Plugin</button>
+                <button type="button" data-type="Prompt">Prompt</button>
+              </div>
+
+              <label class="period-filter">
+                <span>时间</span>
+                <select id="periodSelect" aria-label="时间范围">
+                  <option value="today" selected>今日</option>
+                  <option value="week">本周</option>
+                  <option value="month">本月</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="rank-list" id="rankList"></div>
+          </div>
+
+          <aside class="side-stack">
+            <section class="panel" id="signals">
+              <div class="section-head compact">
+                <div>
+                  <p class="eyebrow">SOURCE MIX</p>
+                  <h2>今日信号</h2>
+                </div>
+              </div>
+
+              <div class="signal-list">
+                <div class="signal-row">
+                  <span>GitHub / Registry</span>
+                  <strong>48%</strong>
+                </div>
+                <div class="signal-bar"><span style="width: 48%"></span></div>
+                <div class="signal-row">
+                  <span>Design Community</span>
+                  <strong>31%</strong>
+                </div>
+                <div class="signal-bar"><span style="width: 31%"></span></div>
+                <div class="signal-row">
+                  <span>Newsletter / Blog</span>
+                  <strong>21%</strong>
+                </div>
+                <div class="signal-bar"><span style="width: 21%"></span></div>
+              </div>
+            </section>
+
+            <section class="panel" id="curation">
+              <div class="section-head compact">
+                <div>
+                  <p class="eyebrow">CURATION RULE</p>
+                  <h2>上榜逻辑</h2>
+                </div>
+              </div>
+
+              <ol class="rule-list">
+                <li>
+                  <strong>增长信号</strong>
+                  <span>过去 24 小时、7 天、30 天的 star、讨论、收藏变化。</span>
+                </li>
+                <li>
+                  <strong>设计相关度</strong>
+                  <span>是否真正服务 UI、视觉、品牌、动效、3D 或交付流程。</span>
+                </li>
+                <li>
+                  <strong>可试用价值</strong>
+                  <span>是否有清晰文档、示例、安装方式或可复用工作流。</span>
+                </li>
+              </ol>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="detail-dialog" id="detailDialog" aria-labelledby="detailTitle">
+      <button class="dialog-close" type="button" aria-label="关闭详情">×</button>
+      <div id="detailContent"></div>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

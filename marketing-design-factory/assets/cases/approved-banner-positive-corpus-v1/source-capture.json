@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "case_id": "approved-banner-positive-corpus-v1",
+  "case_name": "已交付金融运营Banner正向案例库V1",
+  "classification": ["中文", "互联网", "金融类"],
+  "capture_status": "flattened",
+  "approval_status": "approved-final",
+  "delivery_status": "delivered",
+  "reuse_scope": "global-aesthetic-reference",
+  "source": {
+    "platform": "user-provided-final-exports",
+    "capture_mode": "local-approved-assets",
+    "captured_at": "2026-07-17T04:49:28Z",
+    "file_name": "九张用户确认的已交付正向案例",
+    "file_id": null,
+    "page_name": null,
+    "page_id": null,
+    "selection_scope": "nine-approved-final-exports",
+    "fingerprint": null
+  },
+  "frames": [
+    {
+      "id": "sports-ticket-red-packet",
+      "name": "湘超门票微信红包免费送",
+      "role": "sports-event-entry-banner",
+      "width": 1035,
+      "height": 300,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/sports-ticket-red-packet_1035x300.png"
+    },
+    {
+      "id": "returning-customer-reward",
+      "name": "回馈老友登录有礼",
+      "role": "returning-customer-reward-banner",
+      "width": 1035,
+      "height": 300,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/returning-customer-reward_1035x300.png"
+    },
+    {
+      "id": "new-customer-welcome",
+      "name": "新客见面礼",
+      "role": "new-customer-benefit-banner",
+      "width": 1035,
+      "height": 300,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/new-customer-welcome_1035x300.png"
+    },
+    {
+      "id": "monthly-quick-payment",
+      "name": "长沙银行月月享活动",
+      "role": "payment-benefit-banner",
+      "width": 1035,
+      "height": 300,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/monthly-quick-payment_1035x300.png"
+    },
+    {
+      "id": "digital-finance-recruitment",
+      "name": "数字金融体验官招募",
+      "role": "internal-recruitment-campaign-banner",
+      "width": 1600,
+      "height": 600,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/digital-finance-recruitment_1600x600.png"
+    },
+    {
+      "id": "wealth-gift-hot-activity",
+      "name": "购买产品领取16.6元权益",
+      "role": "wealth-benefit-hot-activity",
+      "width": 1080,
+      "height": 450,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/wealth-gift-hot-activity_1080x450.png"
+    },
+    {
+      "id": "wealth-gift-banner",
+      "name": "财富礼16.6元奖励",
+      "role": "wealth-benefit-entry-banner",
+      "width": 1035,
+      "height": 300,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/wealth-gift-banner_1035x300.png"
+    },
+    {
+      "id": "changsha-lifestyle",
+      "name": "潮玩长沙减单快乐",
+      "role": "local-lifestyle-payment-banner",
+      "width": 1035,
+      "height": 300,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/changsha-lifestyle_1035x300.png"
+    },
+    {
+      "id": "shopping-festival-payment",
+      "name": "618购物狂欢支付有惊喜",
+      "role": "shopping-festival-payment-banner",
+      "width": 1035,
+      "height": 300,
+      "x": 0,
+      "y": 0,
+      "layer_count": 0,
+      "layers": [],
+      "asset": "assets/cases/approved-banner-positive-corpus-v1/shopping-festival-payment_1035x300.png"
+    }
+  ],
+  "shared_style": {
+    "palette": [
+      "Warm red-orange, coral, peach, pale gold, and white for conversion-oriented finance",
+      "Clear sky blue with restrained red accents for sports and local-lifestyle scenes",
+      "One dominant palette family with small native platform-icon colours"
+    ],
+    "typography": [
+      "Large Chinese display headline with strong size contrast",
+      "Short benefit line adjacent to the primary action",
+      "Large numeric benefit only when it is the central conversion claim"
+    ],
+    "effects": [
+      "Controlled white outline or warm drop shadow on display titles",
+      "Concentrated 3D/gloss detail on the hero rather than every layer",
+      "Curves, ribbons, light trails, or contextual scenery linking copy and hero"
+    ],
+    "hero_groups": [
+      "Football and stadium scene",
+      "Red packet, coupon, benefit card, and gift box",
+      "Payment device, bank card, app icon, and coin group",
+      "Megaphone and information-card recruitment metaphor",
+      "Brand mascot and local-consumption scene"
+    ],
+    "cta_styles": [
+      "Red-orange gradient pill with white text",
+      "White or pale fill with red-orange border",
+      "Short direct Chinese action copy"
+    ],
+    "advertising_label": {
+      "required": true,
+      "placement": "upper-right",
+      "observed_count": 8,
+      "total_count": 9,
+      "exception": "The internal digital-finance recruitment asset does not visibly contain the label.",
+      "note": "The current forward workflow still requires the label on every new marketing image; exact size remains slot-specific."
+    }
+  },
+  "extension_rules": [
+    "Treat the nine exports as visual evidence, not editable layout templates.",
+    "Prefer a left-copy/right-hero reading path for 1035x300 financial banners unless the approved campaign reference establishes another hierarchy.",
+    "Keep marketing energy high but preserve one clear headline, one benefit, one hero group, and one primary CTA."
+  ],
+  "dynamic_fields": [],
+  "stored_assets": [
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/sports-ticket-red-packet_1035x300.png", "width": 1035, "height": 300, "size_bytes": 457468, "sha256": "54ee2f8f35d5ded61a86bc48e2c17012f44159f3853f9bed8407b07a9c4fe131"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/returning-customer-reward_1035x300.png", "width": 1035, "height": 300, "size_bytes": 295362, "sha256": "a858a09fdb7b0385fd9a06568229a736896324b3c39f1898d2b8fda323e49fc6"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/new-customer-welcome_1035x300.png", "width": 1035, "height": 300, "size_bytes": 312392, "sha256": "ad0660b9464b49153dbf608d78f09dbdf0096508d2bc651e669a1038e35a335b"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/monthly-quick-payment_1035x300.png", "width": 1035, "height": 300, "size_bytes": 328337, "sha256": "6c3b32821db8f3e434a2d580165a247fcee6ef8e1f41ac4b3b65992a6e5f3dc9"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/digital-finance-recruitment_1600x600.png", "width": 1600, "height": 600, "size_bytes": 1197650, "sha256": "f834f6ffc0123df17af128c76a44e971d7e61fb8bfb10c842ba7a940f97a9410"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/wealth-gift-hot-activity_1080x450.png", "width": 1080, "height": 450, "size_bytes": 250797, "sha256": "adc8851e99989b2da4e6a66f66918bc5e4df83108073edcbc549d14ba2fcb6fe"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/wealth-gift-banner_1035x300.png", "width": 1035, "height": 300, "size_bytes": 248730, "sha256": "ad1114162efc258198a49ebbc3af8acfc9a2da363186b74dc6ad7337e34fc7fe"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/changsha-lifestyle_1035x300.png", "width": 1035, "height": 300, "size_bytes": 68536, "sha256": "58c8036c48f8d56f382f186b3c2a581fbc625a0338975f5b79fc4237880623af"},
+    {"path": "assets/cases/approved-banner-positive-corpus-v1/shopping-festival-payment_1035x300.png", "width": 1035, "height": 300, "size_bytes": 479237, "sha256": "dff97b9bda313234e09e8fdeb33a5d33119a769a8d4af16f05f605002a635741"}
+  ],
+  "unknown_fields": [
+    "Editable layer structure and exact source fonts are not available in this corpus capture.",
+    "Requirement documents, communication history, and per-case revision rationale are not yet linked.",
+    "User confirmed all nine images as delivered positive examples but has not yet ranked them or annotated per-image likes and dislikes."
+  ],
+  "notes": [
+    "User explicitly confirmed all nine exports as positive final delivery examples on 2026-07-17.",
+    "Use this corpus to calibrate aesthetic direction and reference selection; never copy embedded reward amounts or campaign claims into a new requirement."
+  ]
+}

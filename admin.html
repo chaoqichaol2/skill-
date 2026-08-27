@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>灵感 Radar Console - 后台控制台</title>
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="后台导航">
+        <a class="console-brand" href="./admin.html" aria-label="灵感 Radar Console">
+          <img class="console-logo" src="./assets/linggan-radar-logo.png" alt="灵感 Radar" />
+        </a>
+
+        <nav class="console-nav">
+          <button class="is-active" type="button" data-section="dashboard">工作台</button>
+          <button type="button" data-section="review">上架审核</button>
+          <button type="button" data-section="ranking">榜单运营</button>
+          <button type="button" data-section="analytics">访问与点击</button>
+          <button type="button" data-section="resources">资源库</button>
+          <button type="button" data-section="sources">来源管理</button>
+        </nav>
+
+        <div class="sidebar-status">
+          <span>今日抓取</span>
+          <strong>42</strong>
+          <small>候选资源，10 条进入精选池</small>
+        </div>
+      </aside>
+
+      <main class="console-main">
+        <header class="console-topbar">
+          <div>
+            <p class="eyebrow">RADAR CONSOLE</p>
+            <h1 id="sectionTitle">工作台</h1>
+          </div>
+          <div class="topbar-actions">
+            <a class="ghost-link" href="./index.html">查看前台</a>
+            <button class="primary-button" type="button" id="publishButton">发布今日榜单</button>
+            <button class="ghost-button" type="button" id="logoutButton">退出登录</button>
+          </div>
+        </header>
+
+        <section class="console-section is-active" id="dashboard" aria-labelledby="dashboardTitle">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">TODAY SNAPSHOT</p>
+              <h2 id="dashboardTitle">今日运营概览</h2>
+            </div>
+            <span class="sync-pill">09:30 已同步</span>
+          </div>
+
+          <div class="metric-grid" id="metricGrid"></div>
+
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">REVIEW PIPELINE</p>
+                  <h3>审核流转</h3>
+                </div>
+                <button class="text-button" type="button" data-section-jump="review">去处理</button>
+              </div>
+              <div class="pipeline" id="pipeline"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">TODAY RANKING</p>
+                  <h3>今日待发布</h3>
+                </div>
+                <span class="panel-note">10 条精选</span>
+              </div>
+              <div class="compact-list" id="todayQueue"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="console-section" id="review" aria-labelledby="reviewTitle">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">REVIEW QUEUE</p>
+              <h2 id="reviewTitle">Skill / MCP 上架审核</h2>
+            </div>
+            <div class="filter-tabs" aria-label="审核状态筛选">
+              <button class="is-active" type="button" data-review-filter="全部">全部</button>
+              <button type="button" data-review-filter="待审核">待审核</button>
+              <button type="button" data-review-filter="观察中">观察中</button>
+              <button type="button" data-review-filter="已通过">已通过</button>
+            </div>
+          </div>
+
+          <div class="review-layout">
+            <div class="panel queue-panel">
+              <div class="panel-head">
+                <h3>审核队列</h3>
+                <span class="panel-note" id="reviewCount"></span>
+              </div>
+              <div class="review-list" id="reviewList"></div>
+            </div>
+
+            <article class="panel review-detail" id="reviewDetail"></article>
+          </div>
+        </section>
+
+        <section class="console-section" id="ranking" aria-labelledby="rankingTitle">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">RANKING OPS</p>
+              <h2 id="rankingTitle">榜单运营</h2>
+            </div>
+            <span class="sync-pill">今日 / 本周 / 本月</span>
+          </div>
+
+          <div class="ranking-layout">
+            <section class="panel">
+              <div class="panel-head">
+                <h3>今日榜单编排</h3>
+                <span class="panel-note">可置顶、隐藏、改推荐语</span>
+              </div>
+              <div class="ranking-list" id="rankingList"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <h3>评分权重</h3>
+                <span class="panel-note">MVP 默认规则</span>
+              </div>
+              <div class="weight-list">
+                <div><span>热度增长</span><strong>35%</strong></div>
+                <div><span>设计相关度</span><strong>25%</strong></div>
+                <div><span>可试用价值</span><strong>20%</strong></div>
+                <div><span>来源可信度</span><strong>15%</strong></div>
+                <div><span>编辑推荐分</span><strong>5%</strong></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="console-section" id="analytics" aria-labelledby="analyticsTitle">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">VISIT & CLICK DATA</p>
+              <h2 id="analyticsTitle">访问数据与点击数据</h2>
+            </div>
+            <span class="sync-pill">过去 7 天</span>
+          </div>
+
+          <div class="analytics-grid">
+            <section class="panel">
+              <div class="panel-head">
+                <h3>访问趋势</h3>
+                <span class="panel-note">PV / UV</span>
+              </div>
+              <div class="bar-chart" id="visitChart"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <h3>点击漏斗</h3>
+                <span class="panel-note">曝光到来源</span>
+              </div>
+              <div class="funnel" id="clickFunnel"></div>
+            </section>
+          </div>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h3>资源点击表现</h3>
+              <span class="panel-note">按 CTR 排序</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>资源</th>
+                    <th>类型</th>
+                    <th>曝光</th>
+                    <th>详情点击</th>
+                    <th>来源点击</th>
+                    <th>CTR</th>
+                  </tr>
+                </thead>
+                <tbody id="clickTable"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section class="console-section" id="resources" aria-labelledby="resourcesTitle">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">RESOURCE LIBRARY</p>
+              <h2 id="resourcesTitle">资源库</h2>
+            </div>
+            <button class="primary-button" type="button">新建资源</button>
+          </div>
+
+          <section class="panel">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>领域</th>
+                    <th>来源</th>
+                    <th>状态</th>
+                    <th>评分</th>
+                    <th>更新时间</th>
+                  </tr>
+                </thead>
+                <tbody id="resourceTable"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section class="console-section" id="sources" aria-labelledby="sourcesTitle">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">SOURCE HEALTH</p>
+              <h2 id="sourcesTitle">来源管理</h2>
+            </div>
+            <button class="primary-button" type="button">添加来源</button>
+          </div>
+
+          <div class="source-grid" id="sourceGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>

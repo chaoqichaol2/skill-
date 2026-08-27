@@ -1,0 +1,9 @@
+{
+  "name": "jsdesign-pixel-snap",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "node --check code.js",
+    "test": "node --test tests/*.test.js"
+  }
+}

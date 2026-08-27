@@ -1,0 +1,7 @@
+{
+  "name": "像素归整 Pixel Snap",
+  "id": "pX7mQ2kL9vN4cR8sT1wYzA",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html"
+}

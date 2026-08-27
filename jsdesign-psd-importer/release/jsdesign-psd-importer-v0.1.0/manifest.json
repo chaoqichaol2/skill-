@@ -1,0 +1,7 @@
+{
+  "name": "PSD 可编辑导入",
+  "id": "psdEditableImportMvp2026",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}

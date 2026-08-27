@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>像素归整</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #171717; background: #f7f7f8; font-size: 12px; }
+    button, select, input { font: inherit; }
+    button { cursor: pointer; }
+    .app { min-height: 100vh; display: flex; flex-direction: column; }
+    header { padding: 18px 18px 14px; background: #fff; border-bottom: 1px solid #e8e8ea; }
+    .title-row { display: flex; align-items: center; justify-content: space-between; }
+    h1 { margin: 0; font-size: 17px; line-height: 24px; letter-spacing: -0.2px; }
+    .close { width: 28px; height: 28px; border: 0; border-radius: 7px; color: #777; background: transparent; font-size: 18px; }
+    .close:hover { background: #f1f1f3; }
+    .subtitle { margin: 3px 0 0; color: #777; line-height: 18px; }
+    .controls { padding: 14px 18px; background: #fff; border-bottom: 1px solid #e8e8ea; }
+    .control-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .control-row:last-child { margin-bottom: 0; }
+    .label { width: 54px; flex: none; color: #666; }
+    .field-list { display: flex; gap: 6px; }
+    .check-pill { display: flex; align-items: center; gap: 4px; padding: 5px 8px; border: 1px solid #dedee2; border-radius: 7px; background: #fff; }
+    .check-pill:has(input:checked) { color: #5b42e8; border-color: #c8befd; background: #f5f2ff; }
+    input[type="checkbox"] { margin: 0; accent-color: #6548ee; }
+    select { height: 30px; padding: 0 28px 0 9px; border: 1px solid #dedee2; border-radius: 7px; color: #292929; background: #fff; }
+    .children { display: flex; align-items: center; gap: 6px; color: #454545; }
+    main { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 14px 18px 0; }
+    .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    .stat { padding: 10px; border: 1px solid #e5e5e8; border-radius: 9px; background: #fff; }
+    .stat strong { display: block; font-size: 18px; line-height: 22px; }
+    .stat span { color: #777; line-height: 18px; }
+    .list-head { display: flex; justify-content: space-between; align-items: center; margin: 0 1px 8px; color: #666; }
+    .issues { flex: 1; min-height: 140px; overflow: auto; padding-bottom: 12px; }
+    .issue { margin-bottom: 8px; padding: 10px; border: 1px solid #e3e3e6; border-radius: 9px; background: #fff; }
+    .issue:hover { border-color: #cfc7f7; }
+    .issue-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .node-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+    .node-type { margin-left: 6px; color: #999; font-weight: 400; font-size: 10px; }
+    .mini { flex: none; padding: 4px 8px; border: 0; border-radius: 6px; color: #5c42df; background: #f1edff; }
+    .mini:disabled { cursor: default; color: #aaa; background: #f2f2f3; }
+    .changes { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .change { padding: 4px 6px; border-radius: 5px; color: #5340be; background: #f5f2ff; }
+    .change.blocked { color: #946625; background: #fff4df; }
+    .empty { display: grid; place-items: center; min-height: 180px; padding: 24px; color: #858585; text-align: center; line-height: 20px; border: 1px dashed #d9d9dd; border-radius: 10px; background: rgba(255,255,255,.65); }
+    .feedback { min-height: 18px; margin: 0 0 8px; color: #65707d; line-height: 18px; }
+    footer { display: flex; gap: 8px; padding: 12px 18px 16px; border-top: 1px solid #e2e2e5; background: #fff; }
+    .button { height: 36px; border-radius: 8px; padding: 0 14px; font-weight: 600; }
+    .secondary { width: 88px; border: 1px solid #dcdce0; color: #333; background: #fff; }
+    .primary { flex: 1; border: 1px solid #6548ee; color: #fff; background: #6548ee; }
+    .primary:hover { background: #563ada; }
+    .primary:disabled { cursor: default; border-color: #c9c9ce; background: #c9c9ce; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="title-row">
+        <h1>像素归整 <span style="color:#765ff0">Pixel Snap</span></h1>
+        <button class="close" id="close" title="关闭">×</button>
+      </div>
+      <p class="subtitle">查找并修复图层位置、尺寸中的小数像素</p>
+    </header>
+
+    <section class="controls">
+      <div class="control-row">
+        <span class="label">检查属性</span>
+        <div class="field-list">
+          <label class="check-pill"><input type="checkbox" name="field" value="x" checked />X</label>
+          <label class="check-pill"><input type="checkbox" name="field" value="y" checked />Y</label>
+          <label class="check-pill"><input type="checkbox" name="field" value="width" checked />宽</label>
+          <label class="check-pill"><input type="checkbox" name="field" value="height" checked />高</label>
+        </div>
+      </div>
+      <div class="control-row">
+        <span class="label">吸附规则</span>
+        <select id="step" aria-label="网格精度">
+          <option value="1">整数像素 1px</option>
+          <option value="0.5">半像素 0.5px</option>
+        </select>
+        <select id="mode" aria-label="取整方向">
+          <option value="round">就近</option>
+          <option value="floor">向下</option>
+          <option value="ceil">向上</option>
+        </select>
+      </div>
+      <div class="control-row">
+        <span class="label"></span>
+        <label class="children"><input id="children" type="checkbox" checked />包含选中图层的所有子层级</label>
+      </div>
+    </section>
+
+    <main>
+      <div class="summary">
+        <div class="stat"><strong id="scanned">0</strong><span>已扫描</span></div>
+        <div class="stat"><strong id="issueNodes">0</strong><span>问题图层</span></div>
+        <div class="stat"><strong id="issueValues">0</strong><span>小数值</span></div>
+      </div>
+      <div class="list-head"><span>检查结果</span><span id="fixable"></span></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="issues" id="issues"><div class="empty">请先在画布中选择一个或多个图层</div></div>
+    </main>
+
+    <footer>
+      <button class="button secondary" id="scan">重新扫描</button>
+      <button class="button primary" id="fixAll" disabled>一键归整</button>
+    </footer>
+  </div>
+
+  <script>
+    const state = { result: null };
+    const $ = (selector) => document.querySelector(selector);
+    const post = (message) => parent.postMessage({ pluginMessage: message }, '*');
+
+    function getOptions() {
+      return {
+        includeChildren: $('#children').checked,
+        step: Number($('#step').value),
+        mode: $('#mode').value,
+        fields: Array.from(document.querySelectorAll('input[name="field"]:checked')).map((input) => input.value)
+      };
+    }
+
+    function formatNumber(value) {
+      return Number(value.toFixed(4)).toString();
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function render(result, emptySelection) {
+      state.result = result;
+      $('#scanned').textContent = result.scannedCount;
+      $('#issueNodes').textContent = result.issueNodeCount;
+      $('#issueValues').textContent = result.issueValueCount;
+      $('#fixable').textContent = result.fixableValueCount ? `${result.fixableValueCount} 项可修复` : '';
+      $('#fixAll').disabled = result.fixableValueCount === 0;
+
+      if (emptySelection) {
+        $('#issues').innerHTML = '<div class="empty">请先在画布中选择一个或多个图层</div>';
+        return;
+      }
+      if (!result.issues.length) {
+        $('#issues').innerHTML = '<div class="empty">✓ 选中内容已对齐当前像素网格</div>';
+        return;
+      }
+
+      $('#issues').innerHTML = result.issues.map((issue) => {
+        const changes = issue.changes.map((change) => {
+          const title = change.reason ? ` title="${escapeHtml(change.reason)}"` : '';
+          return `<span class="change${change.canFix ? '' : ' blocked'}"${title}>${change.label} ${formatNumber(change.from)} → ${formatNumber(change.to)}${change.canFix ? '' : ' · 跳过'}</span>`;
+        }).join('');
+        return `
+          <article class="issue" data-node-id="${escapeHtml(issue.id)}">
+            <div class="issue-title">
+              <div class="node-name" title="${escapeHtml(issue.name)}">${escapeHtml(issue.name)}<span class="node-type">${escapeHtml(issue.type)}</span></div>
+              <button class="mini fix-one" data-node-id="${escapeHtml(issue.id)}" ${issue.fixableCount ? '' : 'disabled'}>修复</button>
+            </div>
+            <div class="changes">${changes}</div>
+          </article>`;
+      }).join('');
+    }
+
+    $('#scan').addEventListener('click', () => {
+      $('#feedback').textContent = '正在扫描…';
+      post({ type: 'scan', options: getOptions() });
+    });
+    $('#fixAll').addEventListener('click', () => {
+      $('#feedback').textContent = '正在归整…';
+      post({ type: 'fix-all', options: getOptions() });
+    });
+    $('#close').addEventListener('click', () => post({ type: 'close' }));
+
+    document.querySelectorAll('input, select').forEach((control) => {
+      control.addEventListener('change', () => post({ type: 'scan', options: getOptions() }));
+    });
+
+    $('#issues').addEventListener('click', (event) => {
+      const fixButton = event.target.closest('.fix-one');
+      if (fixButton) {
+        event.stopPropagation();
+        post({ type: 'fix-node', nodeId: fixButton.dataset.nodeId, options: getOptions() });
+        return;
+      }
+      const issue = event.target.closest('.issue');
+      if (issue) post({ type: 'select-node', nodeId: issue.dataset.nodeId });
+    });
+
+    window.onmessage = (event) => {
+      const message = event.data.pluginMessage;
+      if (!message) return;
+      if (message.type === 'scan-result') {
+        $('#feedback').textContent = '';
+        render(message.result, message.emptySelection);
+      }
+      if (message.type === 'fix-result') {
+        $('#feedback').textContent = message.changedValueCount
+          ? `已归整 ${message.changedNodeCount} 个图层、${message.changedValueCount} 个值${message.skippedCount ? `，跳过 ${message.skippedCount} 项` : ''}`
+          : `没有可安全修复的值${message.skippedCount ? `，跳过 ${message.skippedCount} 项` : ''}`;
+      }
+      if (message.type === 'error') $('#feedback').textContent = `操作失败：${message.message}`;
+    };
+
+    post({ type: 'scan', options: getOptions() });
+  </script>
+</body>
+</html>

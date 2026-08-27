@@ -1,0 +1,13 @@
+{
+  "name": "jsdesign-psd-importer",
+  "version": "0.1.3",
+  "private": true,
+  "description": "Import PSD files into JsDesign as movable layers with editable text.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check src/code.js && node --check src/ui.js && node --check scripts/build.mjs && node --check scripts/create-test-psd.mjs && node --check scripts/bridge-smoke.mjs",
+    "fixture": "node scripts/create-test-psd.mjs",
+    "test": "npm run build && node --test tests/*.test.js",
+    "test:bridge": "node scripts/bridge-smoke.mjs"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "case_id": "lottery-result-popup",
+  "case_name": "抽奖结果弹窗",
+  "classification": ["中文", "互联网", "金融类"],
+  "capture_status": "flattened",
+  "approval_status": "approved-final",
+  "delivery_status": "delivered",
+  "reuse_scope": "case-pattern",
+  "source": {
+    "platform": "exported-images",
+    "capture_mode": "flattened-approved-assets",
+    "captured_at": "2026-07-17T04:57:18Z",
+    "file_name": "winner.png / loser.png",
+    "file_id": null,
+    "page_name": null,
+    "page_id": null,
+    "selection_scope": "two-approved-result-states",
+    "fingerprint": null
+  },
+  "frames": [
+    {"id": "winner", "name": "中奖", "role": "winner-popup", "width": 1125, "height": 1125, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/lottery-result-popup/winner.png"},
+    {"id": "loser", "name": "未中奖", "role": "loser-popup", "width": 1125, "height": 1125, "x": 0, "y": 0, "layer_count": 0, "layers": [], "asset": "assets/cases/lottery-result-popup/loser.png"}
+  ],
+  "shared_style": {
+    "palette": ["暖白卡片", "浅金粉背景", "红色主操作", "灰色次操作"],
+    "typography": ["中文状态标题", "灰色说明文案", "红色动态次数"],
+    "effects": ["上方状态主视觉", "下方双按钮"],
+    "hero_groups": ["动态奖品卡", "礼盒与未中奖表情"],
+    "cta_styles": ["左灰次操作", "右红主操作"],
+    "advertising_label": {"required_for_future_work": true, "placement": "upper-right"}
+  },
+  "extension_rules": ["两种状态共用卡片、文案和按钮网格，仅替换状态标题与主视觉。"],
+  "dynamic_fields": ["奖品图片", "奖品名称", "奖品金额", "支付笔数", "抽奖次数"],
+  "stored_assets": [
+    {"path": "assets/cases/lottery-result-popup/winner.png", "width": 1125, "height": 1125, "size_bytes": 218908, "sha256": "7ae800cbd3e47e65d0699c50bb2b5664d842305f9b2c7a737847e6963e760705"},
+    {"path": "assets/cases/lottery-result-popup/loser.png", "width": 1125, "height": 1125, "size_bytes": 305775, "sha256": "9be434a9412a34d685d3539f2436b8637b9f66f7996b68b175901b6c7fdf6204"}
+  ],
+  "unknown_fields": ["可编辑图层、字体与组件状态未捕获。"],
+  "notes": ["金额与奖品为示例动态字段，不可继承到新活动。"]
+}

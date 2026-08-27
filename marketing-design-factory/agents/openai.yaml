@@ -1,0 +1,4 @@
+interface:
+  display_name: "营销设计工厂"
+  short_description: "快速生成金融营销主视觉、Banner、弹窗和多尺寸延展"
+  default_prompt: "使用 $marketing-design-factory 先生成2至3个主视觉方向选定1个，再以它为参考为每个尺寸各生成1张；难以命中精确比例时经用户同意采用近似固定比例并预留裁切安全区。"

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>澄江银行 · 运营管理中心</title>
+    <link rel="stylesheet" href="./bank-admin.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="后台主导航">
+        <a class="brand" href="./bank-admin.html" aria-label="澄江银行管理中心">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 18h16M6 18V9m4 9V9m4 9V9m4 9V9M3 9h18L12 4 3 9Z" /></svg>
+          </span>
+          <span><strong>澄江银行</strong><small>运营管理中心</small></span>
+        </a>
+
+        <nav class="main-nav">
+          <p class="nav-label">工作台</p>
+          <button class="nav-item is-active" type="button" data-page="经营概览">
+            <span class="nav-icon">⌂</span><span>经营概览</span>
+          </button>
+          <button class="nav-item" type="button" data-page="实时监控">
+            <span class="nav-icon">◌</span><span>实时监控</span><span class="nav-dot"></span>
+          </button>
+          <p class="nav-label">业务管理</p>
+          <button class="nav-item" type="button" data-page="客户管理">
+            <span class="nav-icon">♙</span><span>客户管理</span>
+          </button>
+          <button class="nav-item" type="button" data-page="账户管理">
+            <span class="nav-icon">▣</span><span>账户管理</span>
+          </button>
+          <button class="nav-item" type="button" data-page="交易管理">
+            <span class="nav-icon">⇄</span><span>交易管理</span>
+          </button>
+          <button class="nav-item" type="button" data-page="信贷业务">
+            <span class="nav-icon">◈</span><span>信贷业务</span>
+          </button>
+          <p class="nav-label">风险与系统</p>
+          <button class="nav-item" type="button" data-page="风险中心">
+            <span class="nav-icon">△</span><span>风险中心</span><span class="nav-badge">8</span>
+          </button>
+          <button class="nav-item" type="button" data-page="数据报表">
+            <span class="nav-icon">▥</span><span>数据报表</span>
+          </button>
+          <button class="nav-item" type="button" data-page="系统设置">
+            <span class="nav-icon">⚙</span><span>系统设置</span>
+          </button>
+        </nav>
+
+        <div class="service-card">
+          <span class="service-icon">?</span>
+          <div><strong>运营支持</strong><small>工作日 8:30–18:00</small></div>
+          <button type="button" aria-label="联系运营支持">›</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-button" type="button" aria-label="展开导航">☰</button>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" placeholder="搜索客户、账户、交易流水" aria-label="搜索" />
+            <kbd>⌘ K</kbd>
+          </label>
+          <div class="topbar-actions">
+            <span class="system-state"><i></i> 系统运行正常</span>
+            <button class="icon-button" type="button" aria-label="查看通知">♢<b>3</b></button>
+            <button class="profile" type="button">
+              <span class="avatar">林</span>
+              <span><strong>林嘉怡</strong><small>运营管理员</small></span>
+              <span aria-hidden="true">⌄</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="page-wrap">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow">经营工作台</p>
+              <h1 id="pageTitle">早上好，林嘉怡</h1>
+              <p>这是今日业务概况，关键指标较昨日保持稳健。</p>
+            </div>
+            <div class="date-actions">
+              <span>2026年6月22日 · 星期一</span>
+              <button class="secondary-button" type="button" id="exportButton">导出日报</button>
+              <button class="primary-button" type="button" id="newTaskButton">＋ 新建任务</button>
+            </div>
+          </section>
+
+          <section class="metric-grid" aria-label="核心经营指标">
+            <article class="metric-card">
+              <div class="metric-head"><span class="metric-icon blue">¥</span><span class="trend up">↗ 3.8%</span></div>
+              <p>管理资产总额</p><strong>¥ 286.42 <small>亿</small></strong><span>昨日 ¥ 275.91 亿</span>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span class="metric-icon cyan">⇄</span><span class="trend up">↗ 8.2%</span></div>
+              <p>今日交易金额</p><strong>¥ 18.73 <small>亿</small></strong><span>12,648 笔交易</span>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span class="metric-icon violet">♙</span><span class="trend up">↗ 1.6%</span></div>
+              <p>活跃客户数</p><strong>82,460</strong><span>本月新增 1,284</span>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span class="metric-icon amber">△</span><span class="trend down">↘ 12.5%</span></div>
+              <p>风险预警</p><strong>8 <small>项</small></strong><span>2 项待优先处理</span>
+            </article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="panel chart-panel">
+              <header class="panel-head">
+                <div><h2>交易趋势</h2><p>近 7 日交易金额与笔数</p></div>
+                <div class="segmented" aria-label="交易趋势时间范围">
+                  <button class="is-active" type="button" data-range="7">7日</button>
+                  <button type="button" data-range="30">30日</button>
+                  <button type="button" data-range="90">90日</button>
+                </div>
+              </header>
+              <div class="chart-legend"><span><i class="legend-bar"></i>交易金额（亿元）</span><span><i class="legend-line"></i>交易笔数</span></div>
+              <div class="chart-wrap">
+                <svg class="trend-chart" viewBox="0 0 760 250" role="img" aria-label="近七日交易趋势图">
+                  <defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2563eb" stop-opacity=".22"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/></linearGradient></defs>
+                  <g class="chart-grid"><path d="M54 28H735M54 78H735M54 128H735M54 178H735M54 228H735" /></g>
+                  <g class="axis-labels"><text x="8" y="33">24</text><text x="8" y="83">18</text><text x="8" y="133">12</text><text x="16" y="183">6</text><text x="22" y="233">0</text></g>
+                  <path class="area" d="M54 164 C92 152 118 133 160 139 S230 157 265 124 S330 106 370 120 S432 103 475 94 S542 116 580 81 S650 95 688 64 S717 54 735 48 L735 228 L54 228Z" />
+                  <path class="line" d="M54 164 C92 152 118 133 160 139 S230 157 265 124 S330 106 370 120 S432 103 475 94 S542 116 580 81 S650 95 688 64 S717 54 735 48" />
+                  <g class="points"><circle cx="54" cy="164" r="4"/><circle cx="160" cy="139" r="4"/><circle cx="265" cy="124" r="4"/><circle cx="370" cy="120" r="4"/><circle cx="475" cy="94" r="4"/><circle cx="580" cy="81" r="4"/><circle cx="688" cy="64" r="4"/><circle cx="735" cy="48" r="5"/></g>
+                  <g class="x-labels"><text x="43" y="247">6/16</text><text x="149" y="247">6/17</text><text x="254" y="247">6/18</text><text x="359" y="247">6/19</text><text x="464" y="247">6/20</text><text x="569" y="247">6/21</text><text x="680" y="247">今日</text></g>
+                </svg>
+              </div>
+            </article>
+
+            <article class="panel todo-panel">
+              <header class="panel-head"><div><h2>待办事项</h2><p>需要你处理的业务</p></div><a href="#transactions">查看全部</a></header>
+              <div class="todo-list">
+                <button type="button"><span class="todo-icon amber">▤</span><span><strong>大额转账审批</strong><small>5 笔 · 最高 680 万元</small></span><b>5</b></button>
+                <button type="button"><span class="todo-icon red">△</span><span><strong>异常交易复核</strong><small>2 笔 · 高风险预警</small></span><b>2</b></button>
+                <button type="button"><span class="todo-icon blue">♙</span><span><strong>企业开户审核</strong><small>12 家 · 资料已齐全</small></span><b>12</b></button>
+                <button type="button"><span class="todo-icon violet">◇</span><span><strong>授信额度调整</strong><small>3 户 · 等待审批</small></span><b>3</b></button>
+              </div>
+              <div class="todo-summary"><span>今日已完成 <strong>18</strong> 项</span><div><i style="width:68%"></i></div><b>68%</b></div>
+            </article>
+          </section>
+
+          <section class="bottom-grid" id="transactions">
+            <article class="panel transaction-panel">
+              <header class="panel-head"><div><h2>最新交易</h2><p>实时更新 · 刚刚同步</p></div><button class="text-button" type="button">查看全部交易 →</button></header>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>交易流水号</th><th>客户名称</th><th>交易类型</th><th>金额</th><th>时间</th><th>状态</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>TXN2026062200186</code></td><td><span class="company-logo blue">湘</span>湖南湘江科技有限公司</td><td>企业转账</td><td class="amount">¥ 2,860,000.00</td><td>10:32:18</td><td><span class="status success">处理成功</span></td></tr>
+                    <tr><td><code>TXN2026062200185</code></td><td><span class="company-logo violet">南</span>南山实业集团</td><td>贷款放款</td><td class="amount">¥ 8,000,000.00</td><td>10:28:46</td><td><span class="status pending">处理中</span></td></tr>
+                    <tr><td><code>TXN2026062200184</code></td><td><span class="company-logo cyan">智</span>智云数据服务有限公司</td><td>批量代发</td><td class="amount">¥ 428,650.00</td><td>10:21:09</td><td><span class="status success">处理成功</span></td></tr>
+                    <tr><td><code>TXN2026062200183</code></td><td><span class="company-logo amber">创</span>创远供应链有限公司</td><td>跨行汇款</td><td class="amount">¥ 680,000.00</td><td>10:16:37</td><td><span class="status warning">待审核</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="panel risk-panel">
+              <header class="panel-head"><div><h2>风险概况</h2><p>今日风险监控</p></div><span class="risk-state"><i></i>低风险</span></header>
+              <div class="risk-score"><div><span>综合风险指数</span><strong>24<small>/100</small></strong><p>较昨日下降 3 点</p></div><div class="risk-ring"><span>24</span></div></div>
+              <div class="risk-items">
+                <div><span><i class="red"></i>高风险预警</span><strong>2</strong></div>
+                <div><span><i class="amber"></i>中风险预警</span><strong>6</strong></div>
+                <div><span><i class="green"></i>已处理预警</span><strong>18</strong></div>
+              </div>
+              <button class="risk-button" type="button">进入风险中心</button>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="./bank-admin.js"></script>
+  </body>
+</html>

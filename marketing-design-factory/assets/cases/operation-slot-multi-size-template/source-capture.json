@@ -1,0 +1,588 @@
+{
+  "schema_version": 1,
+  "case_id": "operation-slot-multi-size-template",
+  "case_name": "运营位多尺寸模板（乐成长·夏日惊喜示例）",
+  "classification": ["中文", "互联网", "金融类"],
+  "capture_status": "complete",
+  "approval_status": "provisional-template",
+  "delivery_status": "not-delivery-evidence",
+  "reuse_scope": "source-template-only",
+  "source": {
+    "platform": "jsdesign",
+    "capture_mode": "mcp-bridge",
+    "captured_at": "2026-07-17T02:12:22.511Z",
+    "file_name": "营销设计工作流_MCP模板库_v1",
+    "file_id": "6a44be09c81e559ae1005641",
+    "page_name": "04_运营位尺寸模板",
+    "page_id": "0:5",
+    "selection_scope": "selected-frames",
+    "selected_frame_ids": ["0:10", "0:11", "0:12"],
+    "document_pages": [
+      {"id": "0:1", "name": "00_工作流说明"},
+      {"id": "0:2", "name": "01_品牌资产"},
+      {"id": "0:3", "name": "02_营销组件库"},
+      {"id": "0:4", "name": "03_KV主视觉模板"},
+      {"id": "0:5", "name": "04_运营位尺寸模板"},
+      {"id": "0:6", "name": "05_案例沉淀"},
+      {"id": "0:7", "name": "99_导出区"}
+    ],
+    "fingerprint": "sha256:3f24eb24a7b3b3c507535c7bf69796c489ec21ae31d9cbb3bb6db033c98f0f01"
+  },
+  "frames": [
+    {
+      "id": "0:10",
+      "name": "首页Banner_1035x300",
+      "role": "main-visual",
+      "width": 1035,
+      "height": 300,
+      "x": -371,
+      "y": -322,
+      "aspect_ratio": 3.45,
+      "layer_count": 8,
+      "visible": true,
+      "locked": false,
+      "clips_content": true,
+      "blend_mode": "PASS_THROUGH",
+      "layers": [
+        {
+          "id": "0:24",
+          "name": "@bg_背景",
+          "semantic_role": "background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 0, "y": 0, "width": 1035, "height": 300},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "cbe448da8f080c1195cb9d2c76487865", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:26",
+          "name": "@hero_image_主视觉图",
+          "semantic_role": "hero-image",
+          "type": "RECTANGLE",
+          "bounds": {"x": 635, "y": 9, "width": 387, "height": 253},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "36ca9b630bbecd292ddfd525258ef228", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:27",
+          "name": "@title_主标题",
+          "semantic_role": "title",
+          "type": "TEXT",
+          "bounds": {"x": 81, "y": 38, "width": 480, "height": 77},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "乐成长·夏日惊喜",
+            "font_family": "AlimamaShuHeiTi",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 64,
+            "line_height": "AUTO",
+            "letter_spacing": null,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          },
+          "effects": [
+            {"type": "DROP_SHADOW", "color": "rgba(45,97,181,0.6)", "offset": {"x": 0, "y": 2}, "radius": 22, "spread": 2}
+          ]
+        },
+        {
+          "id": "0:29",
+          "name": "@bg_副标题背景",
+          "semantic_role": "subtitle-background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 0, "y": 129, "width": 688, "height": 63},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "06703fcac1f9b3e91881525c1ad8f479", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:28",
+          "name": "@subtitle_副标题",
+          "semantic_role": "subtitle",
+          "type": "TEXT",
+          "bounds": {"x": 189, "y": 139, "width": 252, "height": 43},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "资产保级领好礼",
+            "font_family": "方正兰亭中黑简体",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 36,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": null
+          },
+          "effects": [
+            {"type": "DROP_SHADOW", "color": "rgba(45,97,181,0.6)", "offset": {"x": 0, "y": 2}, "radius": 4, "spread": 2}
+          ]
+        },
+        {
+          "id": "0:31",
+          "name": "@cta_按钮背景",
+          "semantic_role": "cta-background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 178, "y": 206, "width": 275, "height": 68},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "c2bfe41f9c578bb74d021e20b2e52d73", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:32",
+          "name": "@cta_按钮",
+          "semantic_role": "cta-label",
+          "type": "TEXT",
+          "bounds": {"x": 260, "y": 223, "width": 112, "height": 34},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "立即参与",
+            "font_family": "方正兰亭中黑简体",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 28,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "CENTER",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          }
+        },
+        {
+          "id": "4:2",
+          "name": "广告",
+          "semantic_role": "advertising-label",
+          "type": "TEXT",
+          "bounds": {"x": 985, "y": 10, "width": 40, "height": 23},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "广告",
+            "font_family": "fangZhengHeiTiJianTi(+]",
+            "font_style": "@@Regular",
+            "font_weight": null,
+            "font_size": 20,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0:11",
+      "name": "活动弹窗_912x1035",
+      "role": "popup-extension",
+      "width": 912,
+      "height": 1035,
+      "x": -371,
+      "y": 58,
+      "aspect_ratio": 0.8812,
+      "layer_count": 8,
+      "visible": true,
+      "locked": false,
+      "clips_content": true,
+      "blend_mode": "PASS_THROUGH",
+      "layers": [
+        {
+          "id": "0:43",
+          "name": "@bg_背景",
+          "semantic_role": "background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 0, "y": 0, "width": 912, "height": 1035},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "ed90564f8b2d580575d6ac9065b6ba2a", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:44",
+          "name": "@title_主标题",
+          "semantic_role": "title",
+          "type": "TEXT",
+          "bounds": {"x": 120, "y": 61, "width": 672, "height": 107.8},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "乐成长·夏日惊喜",
+            "font_family": "AlimamaShuHeiTi",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 89.6,
+            "line_height": "AUTO",
+            "letter_spacing": null,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          },
+          "effects": [
+            {"type": "DROP_SHADOW", "color": "rgba(45,97,181,0.6)", "offset": {"x": 0, "y": 2.8}, "radius": 30.8, "spread": 2.8}
+          ]
+        },
+        {
+          "id": "0:45",
+          "name": "@bg_副标题背景",
+          "semantic_role": "subtitle-background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 26, "y": 198, "width": 963.2, "height": 88.2},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "06703fcac1f9b3e91881525c1ad8f479", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:46",
+          "name": "@subtitle_副标题",
+          "semantic_role": "subtitle",
+          "type": "TEXT",
+          "bounds": {"x": 280, "y": 212, "width": 352.8, "height": 60.2},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "资产保级领好礼",
+            "font_family": "方正兰亭中黑简体",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 50.4,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": null
+          },
+          "effects": [
+            {"type": "DROP_SHADOW", "color": "rgba(45,97,181,0.6)", "offset": {"x": 0, "y": 2.8}, "radius": 5.6, "spread": 2.8}
+          ]
+        },
+        {
+          "id": "0:47",
+          "name": "@hero_image_主视觉",
+          "semantic_role": "hero-image",
+          "type": "RECTANGLE",
+          "bounds": {"x": 86, "y": 272, "width": 783, "height": 512},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "53c7438a04a926e0b5cc77c0d9dfc848", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:48",
+          "name": "@cta_按钮背景",
+          "semantic_role": "cta-background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 109, "y": 810, "width": 695, "height": 132},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "f3499dfe65bf8e135782799dff584916", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:49",
+          "name": "@cta_按钮",
+          "semantic_role": "cta-label",
+          "type": "TEXT",
+          "bounds": {"x": 361, "y": 848, "width": 192, "height": 57},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "立即参与",
+            "font_family": "方正兰亭中黑简体",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 48,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "CENTER",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          }
+        },
+        {
+          "id": "4:3",
+          "name": "广告",
+          "semantic_role": "advertising-label",
+          "type": "TEXT",
+          "bounds": {"x": 844, "y": 20, "width": 48, "height": 27},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "广告",
+            "font_family": "fangZhengHeiTiJianTi(+]",
+            "font_style": "@@Regular",
+            "font_weight": null,
+            "font_size": 24,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0:12",
+      "name": "热门活动_498x216",
+      "role": "hot-activity-extension",
+      "width": 498,
+      "height": 216,
+      "x": -371,
+      "y": -618,
+      "aspect_ratio": 2.3056,
+      "layer_count": 8,
+      "visible": true,
+      "locked": false,
+      "clips_content": true,
+      "blend_mode": "PASS_THROUGH",
+      "layers": [
+        {
+          "id": "0:35",
+          "name": "@bg_背景",
+          "semantic_role": "background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 0, "y": 0, "width": 498, "height": 216},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "adbb34804ffb6f9efbfd69500ac93456", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:39",
+          "name": "@bg_副标题背景",
+          "semantic_role": "subtitle-background",
+          "type": "RECTANGLE",
+          "bounds": {"x": -56, "y": 92, "width": 438, "height": 40},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "06703fcac1f9b3e91881525c1ad8f479", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:36",
+          "name": "@hero_image_主视觉",
+          "semantic_role": "hero-image",
+          "type": "RECTANGLE",
+          "bounds": {"x": 276, "y": 16, "width": 222, "height": 166},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "c011a77cd25c0513418b9a8682da6b81", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:38",
+          "name": "@title_主标题",
+          "semantic_role": "title",
+          "type": "TEXT",
+          "bounds": {"x": 24, "y": 35, "width": 272, "height": 46},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "乐成长·夏日惊喜",
+            "font_family": "AlimamaShuHeiTi",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 38,
+            "line_height": "AUTO",
+            "letter_spacing": null,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          },
+          "effects": [
+            {"type": "DROP_SHADOW", "color": "rgba(45,97,181,0.6)", "offset": {"x": 0, "y": 2}, "radius": 22, "spread": 2}
+          ]
+        },
+        {
+          "id": "0:40",
+          "name": "@subtitle_副标题",
+          "semantic_role": "subtitle",
+          "type": "TEXT",
+          "bounds": {"x": 76, "y": 98, "width": 168, "height": 29},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "资产保级领好礼",
+            "font_family": "方正兰亭中黑简体",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 24,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": null
+          },
+          "effects": [
+            {"type": "DROP_SHADOW", "color": "rgba(45,97,181,0.6)", "offset": {"x": 0, "y": 2}, "radius": 4, "spread": 2}
+          ]
+        },
+        {
+          "id": "0:41",
+          "name": "@cta_按钮背景",
+          "semantic_role": "cta-background",
+          "type": "RECTANGLE",
+          "bounds": {"x": 67, "y": 143, "width": 185.9999, "height": 46},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "fill": {"type": "IMAGE", "image_hash": "c2bfe41f9c578bb74d021e20b2e52d73", "scale_mode": "FILL"}
+        },
+        {
+          "id": "0:42",
+          "name": "@cta_按钮",
+          "semantic_role": "cta-label",
+          "type": "TEXT",
+          "bounds": {"x": 110, "y": 155, "width": 100, "height": 23},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "立即参与",
+            "font_family": "方正兰亭中黑简体",
+            "font_style": "Regular",
+            "font_weight": null,
+            "font_size": 20,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "CENTER",
+            "vertical_alignment": "TOP",
+            "auto_resize": "NONE",
+            "fill": "#FFFFFF"
+          }
+        },
+        {
+          "id": "4:1",
+          "name": "广告",
+          "semantic_role": "advertising-label",
+          "type": "TEXT",
+          "bounds": {"x": 456, "y": 10, "width": 32, "height": 18},
+          "visible": true,
+          "locked": false,
+          "opacity": 1,
+          "text": {
+            "characters": "广告",
+            "font_family": "fangZhengHeiTiJianTi(+]",
+            "font_style": "@@Regular",
+            "font_weight": null,
+            "font_size": 16,
+            "line_height": "AUTO",
+            "letter_spacing": 0,
+            "horizontal_alignment": "LEFT",
+            "vertical_alignment": "TOP",
+            "auto_resize": "WIDTH_AND_HEIGHT",
+            "fill": "#FFFFFF"
+          }
+        }
+      ]
+    }
+  ],
+  "shared_style": {
+    "palette": [
+      {"role": "sky-blue-background", "value": "#6DB7EB", "evidence": "quantized from the 1035x300 source export"},
+      {"role": "mint-field-background", "value": "#E2F7E6", "evidence": "quantized from the 1035x300 source export"},
+      {"role": "orange-red-hero-and-cta", "value": "#E86945", "evidence": "quantized from the 1035x300 source export"},
+      {"role": "white-primary-type", "value": "#FFFFFF", "evidence": "source text fill"},
+      {"role": "yellow-copy-accent", "value": null, "evidence": "visible in exported preview; mixed source fill was not returned"}
+    ],
+    "typography": [
+      {"role": "title", "font_family": "AlimamaShuHeiTi", "font_style": "Regular", "sizes_by_frame": {"1035x300": 64, "912x1035": 89.6, "498x216": 38}},
+      {"role": "subtitle", "font_family": "方正兰亭中黑简体", "font_style": "Regular", "sizes_by_frame": {"1035x300": 36, "912x1035": 50.4, "498x216": 24}},
+      {"role": "cta", "font_family": "方正兰亭中黑简体", "font_style": "Regular", "sizes_by_frame": {"1035x300": 28, "912x1035": 48, "498x216": 20}}
+    ],
+    "effects": [
+      "White display title with soft blue drop shadow",
+      "Subtitle with tighter blue drop shadow",
+      "Orange-red glossy pill CTA supplied as an image-filled shape"
+    ],
+    "hero_groups": [
+      {"role": "summer-financial-mascot", "description": "Orange-red running mascot holding a red coupon/packet, placed over a spring grass field", "implementation": "flattened image fill per frame"}
+    ],
+    "cta_styles": [
+      {"shape": "wide pill", "text": "立即参与", "text_color": "#FFFFFF", "background": "orange-red-to-yellow glossy image fill"}
+    ],
+    "advertising_label": {
+      "required": true,
+      "text": "广告",
+      "placement": "upper-right",
+      "color": "#FFFFFF",
+      "sizes_by_frame": {"1035x300": 20, "912x1035": 24, "498x216": 16}
+    }
+  },
+  "extension_rules": [
+    {
+      "from": "首页Banner_1035x300",
+      "to": "活动弹窗_912x1035",
+      "rule": "Recompose vertically: centered title and subtitle at top, enlarged hero in the middle, and a full-width CTA near the bottom. Do not proportionally scale the horizontal banner."
+    },
+    {
+      "from": "首页Banner_1035x300",
+      "to": "热门活动_498x216",
+      "rule": "Compress the left text hierarchy and CTA while keeping the hero on the right; allow the subtitle band to extend beyond the left frame edge and clip at the frame boundary."
+    },
+    {
+      "from": "all",
+      "to": "all",
+      "rule": "Preserve title, subtitle, orange-red hero, glossy CTA, grass-and-sky scene, and the upper-right advertising label as campaign anchors."
+    },
+    {
+      "from": "all",
+      "to": "all",
+      "rule": "Use semantic layer prefixes @bg, @hero_image, @title, @subtitle, and @cta so automated replacement can target stable roles."
+    }
+  ],
+  "dynamic_fields": [
+    {"field": "title", "value": "乐成长·夏日惊喜", "mode": "editable", "layer_prefix": "@title_"},
+    {"field": "subtitle", "value": "资产保级领好礼", "mode": "editable", "layer_prefix": "@subtitle_"},
+    {"field": "cta", "value": "立即参与", "mode": "editable", "layer_prefix": "@cta_按钮"},
+    {"field": "hero_image", "value": "summer-financial-mascot", "mode": "replaceable-image", "layer_prefix": "@hero_image_"},
+    {"field": "background", "value": "blue-sky-and-green-field", "mode": "replaceable-image", "layer_prefix": "@bg_背景"},
+    {"field": "advertising_label", "value": "广告", "mode": "fixed-required", "placement": "upper-right"}
+  ],
+  "stored_assets": [
+    {"path": "assets/cases/operation-slot-multi-size-template/首页Banner_1035x300.png", "role": "main-visual-preview", "width": 1035, "height": 300, "size_bytes": 352688, "sha256": "2c23208e7072c4e5f871392f398724ab107c7e7e7a04cdf035c6cb48c97d7991"},
+    {"path": "assets/cases/operation-slot-multi-size-template/活动弹窗_912x1035.png", "role": "popup-preview", "width": 912, "height": 1035, "size_bytes": 910345, "sha256": "24b051c82549f3ff40f2a25e3dc05454e7605e5e67daaf8fdd69685f075c54e8"},
+    {"path": "assets/cases/operation-slot-multi-size-template/热门活动_498x216.png", "role": "hot-activity-preview", "width": 498, "height": 216, "size_bytes": 148423, "sha256": "be2a45da9acc6a2a10d5b2507f5784ba288a41b0ca1ff672f4db07d3d30883a2"}
+  ],
+  "unknown_fields": [
+    "Exact per-character subtitle fill values were not returned by the bridge because the mixed text fill serialized as null.",
+    "Font weight values were returned as null for all text layers.",
+    "The advertising-label font family/style strings were returned as fangZhengHeiTiJianTi(+] and @@Regular and are preserved verbatim pending source-font normalization.",
+    "Image-filled background, hero, subtitle-band, and CTA layers do not expose editable sublayers in this selected-frame scope."
+  ],
+  "notes": [
+    "This is a reusable source template from the operation-slot template page, not evidence that the sample campaign copy is a universal standard.",
+    "The 912x1035 frame is an editable full-frame popup artwork template; channel mask, corner radius, and final export-size limits must still be checked against the current operation-slot specification.",
+    "Palette audit reports moderate multi-hue competition; reuse the palette only when a summer or youth-finance concept supports the blue, green, and orange combination."
+  ]
+}

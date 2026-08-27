@@ -1,0 +1,45 @@
+{
+  "case": "fixed-deposit-multi-size",
+  "requirement_source": "requirement.png",
+  "assets": [
+    {
+      "slot": "企业手机银行首页 Banner 1",
+      "file": "enterprise-mobile-home-banner_1029x330.png",
+      "expected_width": 1029,
+      "expected_height": 330,
+      "max_bytes": 819200,
+      "max_bytes_mode": "recommended",
+      "allowed_formats": ["png", "jpeg"]
+    },
+    {
+      "slot": "企业手机银行首页头部区域",
+      "file": "enterprise-mobile-home-header-final_1125x997.png",
+      "expected_width": 1125,
+      "expected_height": 997,
+      "original_requirement_width": 1170,
+      "original_requirement_height": 273,
+      "max_bytes": 819200,
+      "max_bytes_mode": "recommended",
+      "allowed_formats": ["png", "jpeg"],
+      "note": "User confirmed 1125x997 as the actual final delivery; the original brief listed 1170x273."
+    },
+    {
+      "slot": "企业手机银行首页中心弹窗",
+      "file": "enterprise-mobile-home-popup_800x800.png",
+      "expected_width": 800,
+      "expected_height": 800,
+      "max_bytes": 819200,
+      "max_bytes_mode": "recommended",
+      "allowed_formats": ["png", "jpeg"]
+    },
+    {
+      "slot": "企业网银活期账户页下方 Banner",
+      "file": "enterprise-online-current-account-banner_1644x214.png",
+      "expected_width": 1644,
+      "expected_height": 214,
+      "max_bytes": 819200,
+      "max_bytes_mode": "recommended",
+      "allowed_formats": ["png", "jpeg"]
+    }
+  ]
+}
