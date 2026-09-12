@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T05:38:49.419Z",
+  "generatedAt": "2026-09-12T05:26:22.777Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
@@ -7,40 +7,64 @@
       "rank": 1,
       "title": "Codex Skill Guide",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 603 stars；近期有更新",
-      "url": "https://github.com/majiayu000/claude-skill-registry/blob/cab759cb22d76d864019bd884167c41b39f1f2d9/skills/data/codex/SKILL.md",
+      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 605 stars；近期有更新",
+      "url": "https://github.com/majiayu000/claude-skill-registry/blob/9a72f3d0fdd95649ec641edbafb6512e85bc2a49/skills/data/codex/SKILL.md",
       "repository": "majiayu000/claude-skill-registry",
-      "stars": 603,
+      "stars": 605,
       "forks": 94,
-      "updatedAt": "2026-09-11T05:01:03Z",
+      "updatedAt": "2026-09-12T05:02:42Z",
       "score": 186
     },
     {
       "rank": 2,
-      "title": "tirith — Terminal Security for Developer Environments",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、mcp、prompt；GitHub 2707 stars；近期有更新",
-      "url": "https://github.com/sheeki03/tirith/blob/1a196d3d8fc6669fe537783c9b3d6f1be220ae58/SKILL.md",
-      "repository": "sheeki03/tirith",
-      "stars": 2707,
-      "forks": 95,
-      "updatedAt": "2026-09-10T09:00:00Z",
-      "score": 184.8
+      "title": "Claude Skill for TorQ",
+      "summary": "这是一个偏 Claude skill 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：workflow、github、deploy、python；skill 信号：skill.md、claude skill；GitHub 310 stars；近期有更新",
+      "url": "https://github.com/DataIntellectTech/TorQ/blob/7e77714a62fb49dc42b11500a96bcfa535ce9a19/docs/claude-skill.md",
+      "repository": "DataIntellectTech/TorQ",
+      "stars": 310,
+      "forks": 91,
+      "updatedAt": "2026-09-11T08:04:09Z",
+      "score": 186
     },
     {
       "rank": 3,
-      "title": "wait ~2s, then GET /health to confirm readiness",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 Figma 设计稿、变量、组件或从设计到代码的交接。",
-      "reason": "主题/能力命中：mcp、agent、automation、workflow；skill 信号：skill.md、mcp、prompt；GitHub 400 stars；近期有更新",
-      "url": "https://github.com/AmrDab/clawdcursor/blob/9f788dbdc08d7060a38b0bbbcb58afd039715957/SKILL.md",
-      "repository": "AmrDab/clawdcursor",
-      "stars": 400,
-      "forks": 58,
-      "updatedAt": "2026-09-11T03:25:54Z",
-      "score": 184.5
+      "title": "tirith — Terminal Security for Developer Environments",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、mcp、prompt；GitHub 2713 stars；近期有更新",
+      "url": "https://github.com/sheeki03/tirith/blob/7fd35101568bb06ee0d361dc1d4a4d193c5f60fd/SKILL.md",
+      "repository": "sheeki03/tirith",
+      "stars": 2713,
+      "forks": 95,
+      "updatedAt": "2026-09-11T16:19:47Z",
+      "score": 184.8
     },
     {
       "rank": 4,
+      "title": "AgentRecall v3.4.30 — Usage Guide",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、mcp、prompt；GitHub 371 stars；近期有更新",
+      "url": "https://github.com/Goldentrii/AgentRecall-X/blob/0a2797d4b05a905cbd861c45ad0e2de1c0b18ed3/SKILL.md",
+      "repository": "Goldentrii/AgentRecall-X",
+      "stars": 371,
+      "forks": 58,
+      "updatedAt": "2026-09-11T21:48:21Z",
+      "score": 184.5
+    },
+    {
+      "rank": 5,
+      "title": "wait ~2s, then GET /health to confirm readiness",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 Figma 设计稿、变量、组件或从设计到代码的交接。",
+      "reason": "主题/能力命中：mcp、agent、automation、workflow；skill 信号：skill.md、mcp、prompt；GitHub 400 stars；近期有更新",
+      "url": "https://github.com/AmrDab/clawdcursor/blob/f091d9a651e8b2fcc7c65f073eb2efab482639a7/SKILL.md",
+      "repository": "AmrDab/clawdcursor",
+      "stars": 400,
+      "forks": 58,
+      "updatedAt": "2026-09-11T10:48:38Z",
+      "score": 184.5
+    },
+    {
+      "rank": 6,
       "title": "Lazyweb",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
       "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、agent skill、mcp；GitHub 450 stars；近期有更新",
@@ -49,10 +73,22 @@
       "stars": 450,
       "forks": 35,
       "updatedAt": "2026-09-10T21:29:09Z",
-      "score": 184.3
+      "score": 180.3
     },
     {
-      "rank": 5,
+      "rank": 7,
+      "title": "misakanet-failure-memory",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于撰写、编辑或校对文档。",
+      "reason": "主题/能力命中：mcp、agent、document、deploy；skill 信号：skill.md、mcp；GitHub 491 stars；近期有更新",
+      "url": "https://github.com/Ikalus1988/MisakaNet/blob/c5a5f0ca885d999b9961ac38699828d93af4153c/SKILL.md",
+      "repository": "Ikalus1988/MisakaNet",
+      "stars": 491,
+      "forks": 177,
+      "updatedAt": "2026-09-12T04:44:24Z",
+      "score": 178.5
+    },
+    {
+      "rank": 8,
       "title": "Notion Operations",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于整理 Notion 知识库、会议材料或项目文档。",
       "reason": "主题/能力命中：agent、automation、workflow、notion；skill 信号：skill.md、agent skill；GitHub 76 stars；近期有更新",
@@ -61,43 +97,7 @@
       "stars": 76,
       "forks": 8,
       "updatedAt": "2026-09-10T22:30:28Z",
-      "score": 181.4
-    },
-    {
-      "rank": 6,
-      "title": "AgentRecall v3.4.30 — Usage Guide",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、mcp、prompt；GitHub 371 stars；近期有更新",
-      "url": "https://github.com/Goldentrii/AgentRecall-X/blob/270e7a47106537333133e85a3f98063e08ee7db2/SKILL.md",
-      "repository": "Goldentrii/AgentRecall-X",
-      "stars": 371,
-      "forks": 58,
-      "updatedAt": "2026-09-08T12:45:44Z",
-      "score": 180.5
-    },
-    {
-      "rank": 7,
-      "title": "misakanet-failure-memory",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于撰写、编辑或校对文档。",
-      "reason": "主题/能力命中：mcp、agent、document、deploy；skill 信号：skill.md、mcp；GitHub 490 stars；近期有更新",
-      "url": "https://github.com/Ikalus1988/MisakaNet/blob/c1725bd504177a4282edfb04f79e984673903f82/SKILL.md",
-      "repository": "Ikalus1988/MisakaNet",
-      "stars": 490,
-      "forks": 177,
-      "updatedAt": "2026-09-11T04:51:25Z",
-      "score": 178.5
-    },
-    {
-      "rank": 8,
-      "title": "Butterbase",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、notion；skill 信号：skill.md、mcp；GitHub 3432 stars；近期有更新",
-      "url": "https://github.com/butterbase-ai/butterbase/blob/e3168147709ccbefcaa892cd00eb5909fed2e388/SKILL.md",
-      "repository": "butterbase-ai/butterbase",
-      "stars": 3432,
-      "forks": 165,
-      "updatedAt": "2026-09-10T10:07:04Z",
-      "score": 178.5
+      "score": 177.4
     },
     {
       "rank": 9,
@@ -113,15 +113,15 @@
     },
     {
       "rank": 10,
-      "title": "Windscribe Android App — AI Agent Skill",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于生成测试、定位失败原因或补齐验证流程。",
-      "reason": "主题/能力命中：agent、workflow、testing、database；skill 信号：skill.md、agent skill；GitHub 372 stars；近期有更新",
-      "url": "https://github.com/Windscribe/Android-App/blob/2c585dd5979ba93655853d56d849ed8ad2c964cb/SKILL.md",
-      "repository": "Windscribe/Android-App",
-      "stars": 372,
-      "forks": 57,
-      "updatedAt": "2026-09-01T19:55:01Z",
-      "score": 176.7
+      "title": "Mobilerun",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、automation、workflow、github；skill 信号：skill.md、prompt；GitHub 9351 stars；近期有更新",
+      "url": "https://github.com/droidrun/mobilerun/blob/9a95ad435fc627c18a8bf511a83c02260bf519fb/SKILL.md",
+      "repository": "droidrun/mobilerun",
+      "stars": 9351,
+      "forks": 1000,
+      "updatedAt": "2026-09-11T08:21:15Z",
+      "score": 174.8
     }
   ]
 }
