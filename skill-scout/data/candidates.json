@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T05:50:12.435Z",
+  "generatedAt": "2026-09-15T05:52:40.723Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
@@ -7,24 +7,24 @@
       "rank": 1,
       "title": "Codex Skill Guide",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 607 stars；近期有更新",
-      "url": "https://github.com/majiayu000/claude-skill-registry/blob/9b564dc6cf577fa3626be2be858f7126c56a16cc/skills/data/codex/SKILL.md",
+      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 609 stars；近期有更新",
+      "url": "https://github.com/majiayu000/claude-skill-registry/blob/b285fe7e23615da51788e755c0e005d3d3d8d0ed/skills/data/codex/SKILL.md",
       "repository": "majiayu000/claude-skill-registry",
-      "stars": 607,
+      "stars": 609,
       "forks": 94,
-      "updatedAt": "2026-09-14T05:17:57Z",
+      "updatedAt": "2026-09-15T05:03:52Z",
       "score": 186
     },
     {
       "rank": 2,
       "title": "tirith — Terminal Security for Developer Environments",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、mcp、prompt；GitHub 2717 stars；近期有更新",
-      "url": "https://github.com/sheeki03/tirith/blob/4a9829cfd3eea7b94944d92d1e92a2a4c742a06c/SKILL.md",
+      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、mcp、prompt；GitHub 2721 stars；近期有更新",
+      "url": "https://github.com/sheeki03/tirith/blob/0b03c52aa0300b11094d0124c00278350f4646e6/SKILL.md",
       "repository": "sheeki03/tirith",
-      "stars": 2717,
+      "stars": 2721,
       "forks": 95,
-      "updatedAt": "2026-09-13T15:40:58Z",
+      "updatedAt": "2026-09-14T09:55:49Z",
       "score": 184.8
     },
     {
@@ -32,15 +32,27 @@
       "title": "wait ~2s, then GET /health to confirm readiness",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 Figma 设计稿、变量、组件或从设计到代码的交接。",
       "reason": "主题/能力命中：mcp、agent、automation、workflow；skill 信号：skill.md、mcp、prompt；GitHub 401 stars；近期有更新",
-      "url": "https://github.com/AmrDab/clawdcursor/blob/cee6ac259c9ccd7404a652abab5f79beaf55f4d1/SKILL.md",
+      "url": "https://github.com/AmrDab/clawdcursor/blob/ba4f4cb7dbae225bd1239a6b5e944555039e470d/SKILL.md",
       "repository": "AmrDab/clawdcursor",
       "stars": 401,
       "forks": 58,
-      "updatedAt": "2026-09-13T14:09:06Z",
+      "updatedAt": "2026-09-14T13:09:05Z",
       "score": 184.5
     },
     {
       "rank": 4,
+      "title": "Notion Operations",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于整理 Notion 知识库、会议材料或项目文档。",
+      "reason": "主题/能力命中：agent、automation、workflow、notion；skill 信号：skill.md、agent skill；GitHub 82 stars；近期有更新",
+      "url": "https://github.com/magnus919/agent-skills/blob/f0d5b46e74d8b72ba9c4d663d8b2d62e4ae439c0/notion/SKILL.md",
+      "repository": "magnus919/agent-skills",
+      "stars": 82,
+      "forks": 9,
+      "updatedAt": "2026-09-14T22:56:39Z",
+      "score": 182.1
+    },
+    {
+      "rank": 5,
       "title": "Claude Skill for TorQ",
       "summary": "这是一个偏 Claude skill 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：workflow、github、deploy、python；skill 信号：skill.md、claude skill；GitHub 310 stars；近期有更新",
@@ -52,7 +64,7 @@
       "score": 182
     },
     {
-      "rank": 5,
+      "rank": 6,
       "title": "AgentRecall v3.4.30 — Usage Guide",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、mcp、prompt；GitHub 371 stars；近期有更新",
@@ -64,7 +76,7 @@
       "score": 180.5
     },
     {
-      "rank": 6,
+      "rank": 7,
       "title": "Lazyweb",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
       "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、agent skill、mcp；GitHub 450 stars；近期有更新",
@@ -76,40 +88,28 @@
       "score": 180.3
     },
     {
-      "rank": 7,
+      "rank": 8,
       "title": "misakanet-failure-memory",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于撰写、编辑或校对文档。",
       "reason": "主题/能力命中：mcp、agent、document、deploy；skill 信号：skill.md、mcp；GitHub 491 stars；近期有更新",
-      "url": "https://github.com/Ikalus1988/MisakaNet/blob/74d9a7d1d2f83980aa7231f04ed3f0085f13d2ea/SKILL.md",
+      "url": "https://github.com/Ikalus1988/MisakaNet/blob/99ec57aea825d1c986ffe8b897ec20d2ee74a553/SKILL.md",
       "repository": "Ikalus1988/MisakaNet",
       "stars": 491,
-      "forks": 185,
-      "updatedAt": "2026-09-14T05:07:33Z",
-      "score": 178.5
-    },
-    {
-      "rank": 8,
-      "title": "Butterbase",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、notion；skill 信号：skill.md、mcp；GitHub 3496 stars；近期有更新",
-      "url": "https://github.com/butterbase-ai/butterbase/blob/f4b44f3049a7d619ac990b66c8b116bce3460803/SKILL.md",
-      "repository": "butterbase-ai/butterbase",
-      "stars": 3496,
-      "forks": 168,
-      "updatedAt": "2026-09-13T17:38:49Z",
+      "forks": 186,
+      "updatedAt": "2026-09-15T05:51:46Z",
       "score": 178.5
     },
     {
       "rank": 9,
-      "title": "Notion Operations",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于整理 Notion 知识库、会议材料或项目文档。",
-      "reason": "主题/能力命中：agent、automation、workflow、notion；skill 信号：skill.md、agent skill；GitHub 79 stars；近期有更新",
-      "url": "https://github.com/magnus919/agent-skills/blob/d0edebbeab276acc6e237e2111030ce25527e455/notion/SKILL.md",
-      "repository": "magnus919/agent-skills",
-      "stars": 79,
-      "forks": 8,
-      "updatedAt": "2026-09-10T22:30:28Z",
-      "score": 177.6
+      "title": "Butterbase",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、github、notion；skill 信号：skill.md、mcp；GitHub 3523 stars；近期有更新",
+      "url": "https://github.com/butterbase-ai/butterbase/blob/5846e982aa590f77c9b5ed2b752fad0700842a07/SKILL.md",
+      "repository": "butterbase-ai/butterbase",
+      "stars": 3523,
+      "forks": 168,
+      "updatedAt": "2026-09-14T12:51:37Z",
+      "score": 178.5
     },
     {
       "rank": 10,
