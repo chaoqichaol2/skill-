@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T05:52:44.529Z",
+  "generatedAt": "2026-09-26T05:53:02.254Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
@@ -7,24 +7,24 @@
       "rank": 1,
       "title": "Codex Skill Guide",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 649 stars；近期有更新",
-      "url": "https://github.com/majiayu000/claude-skill-registry/blob/ffd3fdbdfa64c4531da92bb6bfc8caff737af76d/skills/data/codex/SKILL.md",
+      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 650 stars；近期有更新",
+      "url": "https://github.com/majiayu000/claude-skill-registry/blob/f5925529cf8e603129330b54a9ebb2b6bf37c539/skills/data/codex/SKILL.md",
       "repository": "majiayu000/claude-skill-registry",
-      "stars": 649,
+      "stars": 650,
       "forks": 100,
-      "updatedAt": "2026-09-25T05:00:47Z",
+      "updatedAt": "2026-09-26T05:28:14Z",
       "score": 186
     },
     {
       "rank": 2,
       "title": "tirith — Terminal Security for Developer Environments",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、mcp、prompt；GitHub 2737 stars；近期有更新",
-      "url": "https://github.com/sheeki03/tirith/blob/c18753adae52baa0bdc8a0d2eb1ec167142390c1/SKILL.md",
+      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、mcp、prompt；GitHub 2739 stars；近期有更新",
+      "url": "https://github.com/sheeki03/tirith/blob/7f50041e657768bf5a4820db103d920ab54c46fd/SKILL.md",
       "repository": "sheeki03/tirith",
-      "stars": 2737,
-      "forks": 97,
-      "updatedAt": "2026-09-24T09:22:19Z",
+      "stars": 2739,
+      "forks": 96,
+      "updatedAt": "2026-09-25T09:40:32Z",
       "score": 184.8
     },
     {
@@ -32,51 +32,39 @@
       "title": "wait ~2s, then GET /health to confirm readiness",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 Figma 设计稿、变量、组件或从设计到代码的交接。",
       "reason": "主题/能力命中：mcp、agent、automation、workflow；skill 信号：skill.md、mcp、prompt；GitHub 402 stars；近期有更新",
-      "url": "https://github.com/AmrDab/clawdcursor/blob/c5ab402645e781bc375d195de0fdf2eb84051b24/SKILL.md",
+      "url": "https://github.com/AmrDab/clawdcursor/blob/cda0c0b2ec2a8b35c60cf8fb6c9964b53c06619b/SKILL.md",
       "repository": "AmrDab/clawdcursor",
       "stars": 402,
       "forks": 59,
-      "updatedAt": "2026-09-24T13:21:23Z",
+      "updatedAt": "2026-09-25T13:21:56Z",
       "score": 184.6
     },
     {
       "rank": 4,
       "title": "Notion Operations",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于整理 Notion 知识库、会议材料或项目文档。",
-      "reason": "主题/能力命中：agent、automation、workflow、notion；skill 信号：skill.md、agent skill；GitHub 96 stars；近期有更新",
-      "url": "https://github.com/magnus919/agent-skills/blob/f35ed6261afe49e42d6f85d42bbf41b6706ea07f/notion/SKILL.md",
+      "reason": "主题/能力命中：agent、automation、workflow、notion；skill 信号：skill.md、agent skill；GitHub 99 stars；近期有更新",
+      "url": "https://github.com/magnus919/agent-skills/blob/4debae3e2f694c2cc17fa6d3cc021436466ba7ad/notion/SKILL.md",
       "repository": "magnus919/agent-skills",
-      "stars": 96,
+      "stars": 99,
       "forks": 9,
-      "updatedAt": "2026-09-25T05:50:06Z",
-      "score": 183
+      "updatedAt": "2026-09-25T17:07:54Z",
+      "score": 183.2
     },
     {
       "rank": 5,
       "title": "xurl — Agent Skill Reference",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、agent skill、mcp；GitHub 1342 stars；近期有更新",
+      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、agent skill、mcp；GitHub 1343 stars；近期有更新",
       "url": "https://github.com/xdevplatform/xurl/blob/f70cf7d3233b2b1dd46941f58c87e4b5cc3b725c/SKILL.md",
       "repository": "xdevplatform/xurl",
-      "stars": 1342,
+      "stars": 1343,
       "forks": 115,
       "updatedAt": "2026-09-24T00:00:10Z",
       "score": 182
     },
     {
       "rank": 6,
-      "title": "Gemini Skill",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、automation、browser；skill 信号：skill.md、mcp、prompt；GitHub 834 stars；近期有更新",
-      "url": "https://github.com/WJZ-P/gemini-skill/blob/333e81835c3e83437c988ec7d7c6f2d7419be291/SKILL.md",
-      "repository": "WJZ-P/gemini-skill",
-      "stars": 834,
-      "forks": 122,
-      "updatedAt": "2026-09-18T13:41:01Z",
-      "score": 180.8
-    },
-    {
-      "rank": 7,
       "title": "AgentRecall v3.4.30 — Usage Guide",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、mcp、prompt；GitHub 371 stars；近期有更新",
@@ -88,19 +76,7 @@
       "score": 180.6
     },
     {
-      "rank": 8,
-      "title": "Claude Skill for TorQ",
-      "summary": "这是一个偏 Claude skill 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：workflow、github、deploy、python；skill 信号：skill.md、claude skill；GitHub 309 stars；近期有更新",
-      "url": "https://github.com/DataIntellectTech/TorQ/blob/7e77714a62fb49dc42b11500a96bcfa535ce9a19/docs/claude-skill.md",
-      "repository": "DataIntellectTech/TorQ",
-      "stars": 309,
-      "forks": 91,
-      "updatedAt": "2026-09-11T08:04:09Z",
-      "score": 177
-    },
-    {
-      "rank": 9,
+      "rank": 7,
       "title": "THREE.Terrain agent skill",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
       "reason": "主题/能力命中：agent、browser、document、javascript；skill 信号：skill.md、agent skill；GitHub 905 stars；近期有更新",
@@ -112,7 +88,7 @@
       "score": 177
     },
     {
-      "rank": 10,
+      "rank": 8,
       "title": "CareerOps agent skill",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
       "reason": "主题/能力命中：agent、browser、api、docs；skill 信号：skill.md、agent skill、prompt；GitHub 51 stars；近期有更新",
@@ -122,6 +98,30 @@
       "forks": 25,
       "updatedAt": "2026-09-22T16:23:00Z",
       "score": 176.7
+    },
+    {
+      "rank": 9,
+      "title": "AI SAFE² Secure Build Copilot: v3.1 Redirect",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于检查安全风险、权限配置或代码安全问题。",
+      "reason": "主题/能力命中：mcp、agent、security；skill 信号：skill.md、mcp、prompt；GitHub 143 stars；近期有更新",
+      "url": "https://github.com/CyberStrategyInstitute/ai-safe2-framework/blob/97e892e7fd089a46e05bc8a49bdf5fbc461a1c63/skill.md",
+      "repository": "CyberStrategyInstitute/ai-safe2-framework",
+      "stars": 143,
+      "forks": 21,
+      "updatedAt": "2026-09-25T18:34:31Z",
+      "score": 176.6
+    },
+    {
+      "rank": 10,
+      "title": "DocsAgent Skill",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、workflow、github；skill 信号：skill.md、agent skill、mcp；GitHub 614 stars；近期有更新",
+      "url": "https://github.com/docsagent/docsagent/blob/986b5a790f0ce95de46f06ee8ae48b237e030bc6/SKILL.md",
+      "repository": "docsagent/docsagent",
+      "stars": 614,
+      "forks": 8,
+      "updatedAt": "2026-09-21T04:54:44Z",
+      "score": 176.3
     }
   ]
 }
