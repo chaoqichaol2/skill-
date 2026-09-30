@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T06:36:26.690Z",
+  "generatedAt": "2026-09-30T06:18:54.082Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
@@ -7,40 +7,16 @@
       "rank": 1,
       "title": "xurl — Agent Skill Reference",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、agent skill、mcp；GitHub 1344 stars；近期有更新",
-      "url": "https://github.com/xdevplatform/xurl/blob/50d5db585c7d184fe20bae825e62787e1fd8a168/SKILL.md",
+      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、agent skill、mcp；GitHub 1345 stars；近期有更新",
+      "url": "https://github.com/xdevplatform/xurl/blob/18dcb447f090667171ff23666a05d6d387e2aa73/SKILL.md",
       "repository": "xdevplatform/xurl",
-      "stars": 1344,
+      "stars": 1345,
       "forks": 115,
-      "updatedAt": "2026-09-29T04:57:55Z",
+      "updatedAt": "2026-09-29T21:20:24Z",
       "score": 186
     },
     {
       "rank": 2,
-      "title": "Lazyweb",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、agent skill、mcp；GitHub 454 stars；近期有更新",
-      "url": "https://github.com/aboul3ata/lazyweb-skill/blob/71e86aaa76b0ae444b191e57de0bd28a2a3b4e78/SKILL.md",
-      "repository": "aboul3ata/lazyweb-skill",
-      "stars": 454,
-      "forks": 35,
-      "updatedAt": "2026-09-28T17:33:53Z",
-      "score": 184.3
-    },
-    {
-      "rank": 3,
-      "title": "Codex Skill Guide",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 656 stars；近期有更新",
-      "url": "https://github.com/majiayu000/claude-skill-registry/blob/e500cb3b3f9a529b7712563d59e70570fe81e23f/skills/ai-llm/codex/SKILL.md",
-      "repository": "majiayu000/claude-skill-registry",
-      "stars": 656,
-      "forks": 102,
-      "updatedAt": "2026-09-28T05:28:13Z",
-      "score": 182
-    },
-    {
-      "rank": 4,
       "title": "AgentRecall v3.4.30 — Usage Guide",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、mcp、prompt；GitHub 371 stars；近期有更新",
@@ -52,7 +28,55 @@
       "score": 180.6
     },
     {
+      "rank": 3,
+      "title": "Lazyweb",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、agent skill、mcp；GitHub 456 stars；近期有更新",
+      "url": "https://github.com/aboul3ata/lazyweb-skill/blob/71e86aaa76b0ae444b191e57de0bd28a2a3b4e78/SKILL.md",
+      "repository": "aboul3ata/lazyweb-skill",
+      "stars": 456,
+      "forks": 35,
+      "updatedAt": "2026-09-28T17:33:53Z",
+      "score": 180.3
+    },
+    {
+      "rank": 4,
+      "title": "THREE.Terrain agent skill",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：agent、browser、document、javascript；skill 信号：skill.md、agent skill；GitHub 906 stars；近期有更新",
+      "url": "https://github.com/IceCreamYou/THREE.Terrain/blob/8892578f013bb5073cd2c492093af444d677e095/SKILL.md",
+      "repository": "IceCreamYou/THREE.Terrain",
+      "stars": 906,
+      "forks": 128,
+      "updatedAt": "2026-09-17T18:24:13Z",
+      "score": 177
+    },
+    {
       "rank": 5,
+      "title": "DocsAgent Skill",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、workflow、github；skill 信号：skill.md、agent skill、mcp；GitHub 624 stars；近期有更新",
+      "url": "https://github.com/docsagent/docsagent/blob/e9d98c3309ee9c12d83f3aeed674f5e70fb61d3d/SKILL.md",
+      "repository": "docsagent/docsagent",
+      "stars": 624,
+      "forks": 10,
+      "updatedAt": "2026-09-28T06:24:35Z",
+      "score": 176.9
+    },
+    {
+      "rank": 6,
+      "title": "AI SAFE² Secure Build Copilot: v3.1 Redirect",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于检查安全风险、权限配置或代码安全问题。",
+      "reason": "主题/能力命中：mcp、agent、security；skill 信号：skill.md、mcp、prompt；GitHub 145 stars；近期有更新",
+      "url": "https://github.com/CyberStrategyInstitute/ai-safe2-framework/blob/e66182e93bef1debe61c2cc17f089c60d16829a9/skill.md",
+      "repository": "CyberStrategyInstitute/ai-safe2-framework",
+      "stars": 145,
+      "forks": 22,
+      "updatedAt": "2026-09-29T19:41:40Z",
+      "score": 176.8
+    },
+    {
+      "rank": 7,
       "title": "AI Agent Skill",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：agent、github、document、writing；skill 信号：skill.md、agent skill；GitHub 106 stars；近期有更新",
@@ -61,67 +85,43 @@
       "stars": 106,
       "forks": 23,
       "updatedAt": "2026-09-28T13:47:39Z",
-      "score": 180.1
-    },
-    {
-      "rank": 6,
-      "title": "Notion Operations",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于整理 Notion 知识库、会议材料或项目文档。",
-      "reason": "主题/能力命中：agent、automation、workflow、notion；skill 信号：skill.md、agent skill；GitHub 102 stars；近期有更新",
-      "url": "https://github.com/magnus919/agent-skills/blob/9e45d5eef30ef975db75bcfe737094ca72473e77/notion/SKILL.md",
-      "repository": "magnus919/agent-skills",
-      "stars": 102,
-      "forks": 11,
-      "updatedAt": "2026-09-28T04:54:20Z",
-      "score": 179.9
-    },
-    {
-      "rank": 7,
-      "title": "Butterbase",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、notion；skill 信号：skill.md、mcp；GitHub 3690 stars；近期有更新",
-      "url": "https://github.com/butterbase-ai/butterbase/blob/025b5e3b92a40b27d0826e3097d788b1048df739/SKILL.md",
-      "repository": "butterbase-ai/butterbase",
-      "stars": 3690,
-      "forks": 172,
-      "updatedAt": "2026-09-29T02:25:01Z",
-      "score": 178.5
+      "score": 176.1
     },
     {
       "rank": 8,
-      "title": "THREE.Terrain agent skill",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：agent、browser、document、javascript；skill 信号：skill.md、agent skill；GitHub 905 stars；近期有更新",
-      "url": "https://github.com/IceCreamYou/THREE.Terrain/blob/8892578f013bb5073cd2c492093af444d677e095/SKILL.md",
-      "repository": "IceCreamYou/THREE.Terrain",
-      "stars": 905,
-      "forks": 128,
-      "updatedAt": "2026-09-17T18:24:13Z",
-      "score": 177
+      "title": "Gemini Skill",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：mcp、agent、automation、browser；skill 信号：skill.md、mcp、prompt；GitHub 834 stars；近期有更新",
+      "url": "https://github.com/WJZ-P/gemini-skill/blob/333e81835c3e83437c988ec7d7c6f2d7419be291/SKILL.md",
+      "repository": "WJZ-P/gemini-skill",
+      "stars": 834,
+      "forks": 121,
+      "updatedAt": "2026-09-18T13:41:01Z",
+      "score": 175.8
     },
     {
       "rank": 9,
-      "title": "DocsAgent Skill",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、workflow、github；skill 信号：skill.md、agent skill、mcp；GitHub 623 stars；近期有更新",
-      "url": "https://github.com/docsagent/docsagent/blob/e9d98c3309ee9c12d83f3aeed674f5e70fb61d3d/SKILL.md",
-      "repository": "docsagent/docsagent",
-      "stars": 623,
-      "forks": 10,
-      "updatedAt": "2026-09-28T06:24:35Z",
-      "score": 176.9
+      "title": "Genomi",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于做资料检索、信息汇总和研究简报。",
+      "reason": "主题/能力命中：mcp、agent、workflow、research；skill 信号：skill.md、agent skill、mcp；GitHub 483 stars；近期有更新",
+      "url": "https://github.com/exon-research/genomi/blob/1df4f5bfb635e2d08f93a1102b70b840fbe80d86/SKILL.md",
+      "repository": "exon-research/genomi",
+      "stars": 483,
+      "forks": 62,
+      "updatedAt": "2026-08-31T19:30:56Z",
+      "score": 172
     },
     {
       "rank": 10,
-      "title": "AI SAFE² Secure Build Copilot: v3.1 Redirect",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于检查安全风险、权限配置或代码安全问题。",
-      "reason": "主题/能力命中：mcp、agent、security；skill 信号：skill.md、mcp、prompt；GitHub 144 stars；近期有更新",
-      "url": "https://github.com/CyberStrategyInstitute/ai-safe2-framework/blob/caadf456dddd9365b10c4c6ddb95f3eb94a24e3a/skill.md",
-      "repository": "CyberStrategyInstitute/ai-safe2-framework",
-      "stars": 144,
-      "forks": 22,
-      "updatedAt": "2026-09-29T06:34:29Z",
-      "score": 176.8
+      "title": "CareerOps agent skill",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：agent、browser、api、docs；skill 信号：skill.md、agent skill、prompt；GitHub 52 stars；近期有更新",
+      "url": "https://github.com/TelivityAI/careerops/blob/19b247e6fad459050350e1ba7bd649207e24a9bb/docs/SKILL.md",
+      "repository": "TelivityAI/careerops",
+      "stars": 52,
+      "forks": 25,
+      "updatedAt": "2026-09-22T16:23:00Z",
+      "score": 171.8
     }
   ]
 }
