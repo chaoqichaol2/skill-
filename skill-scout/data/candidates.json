@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T06:43:55.009Z",
+  "generatedAt": "2026-10-03T06:03:57.397Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
@@ -8,11 +8,11 @@
       "title": "Codex Skill Guide",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：agent、workflow、github、document；skill 信号：skill.md、codex skill、prompt；GitHub 660 stars；近期有更新",
-      "url": "https://github.com/majiayu000/claude-skill-registry/blob/ed48d5087693e86647cd42a9b8e3f2e97c034b9b/skills/ai-llm/codex/SKILL.md",
+      "url": "https://github.com/majiayu000/claude-skill-registry/blob/51b4e968cc1df0d48e43c64e0cbd1dee59a2a060/skills/ai-llm/codex/SKILL.md",
       "repository": "majiayu000/claude-skill-registry",
       "stars": 660,
-      "forks": 101,
-      "updatedAt": "2026-10-02T05:50:16Z",
+      "forks": 102,
+      "updatedAt": "2026-10-02T12:27:38Z",
       "score": 186
     },
     {
@@ -25,34 +25,22 @@
       "stars": 908,
       "forks": 128,
       "updatedAt": "2026-10-01T08:34:42Z",
-      "score": 186
+      "score": 182
     },
     {
       "rank": 3,
-      "title": "Datadog Skills",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、workflow、github、browser；skill 信号：skill.md、agent skill；GitHub 176 stars；近期有更新",
-      "url": "https://github.com/datadog-labs/agent-skills/blob/b5126b9a42628b89f0c0f53724fcb479f271a70a/SKILL.md",
-      "repository": "datadog-labs/agent-skills",
-      "stars": 176,
-      "forks": 29,
-      "updatedAt": "2026-10-01T18:02:08Z",
-      "score": 183.7
-    },
-    {
-      "rank": 4,
       "title": "xurl — Agent Skill Reference",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、agent skill、mcp；GitHub 1349 stars；近期有更新",
+      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、agent skill、mcp；GitHub 1350 stars；近期有更新",
       "url": "https://github.com/xdevplatform/xurl/blob/18dcb447f090667171ff23666a05d6d387e2aa73/SKILL.md",
       "repository": "xdevplatform/xurl",
-      "stars": 1349,
+      "stars": 1350,
       "forks": 114,
       "updatedAt": "2026-09-29T21:20:24Z",
       "score": 182
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "AgentRecall v3.4.30 — Usage Guide",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、mcp、prompt；GitHub 371 stars；近期有更新",
@@ -64,7 +52,7 @@
       "score": 180.6
     },
     {
-      "rank": 6,
+      "rank": 5,
       "title": "Lazyweb",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
       "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、agent skill、mcp；GitHub 456 stars；近期有更新",
@@ -76,19 +64,7 @@
       "score": 180.3
     },
     {
-      "rank": 7,
-      "title": "AI Agent Skill",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、github、document、writing；skill 信号：skill.md、agent skill；GitHub 106 stars；近期有更新",
-      "url": "https://github.com/Polydile/dile-components/blob/b723b4aba207e8a23216f52b8f6d45c7ad5b5df5/docs/ai-skill.md",
-      "repository": "Polydile/dile-components",
-      "stars": 106,
-      "forks": 23,
-      "updatedAt": "2026-10-01T11:17:13Z",
-      "score": 180.1
-    },
-    {
-      "rank": 8,
+      "rank": 6,
       "title": "Notion Operations",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于整理 Notion 知识库、会议材料或项目文档。",
       "reason": "主题/能力命中：agent、automation、workflow、notion；skill 信号：skill.md、agent skill；GitHub 104 stars；近期有更新",
@@ -100,19 +76,7 @@
       "score": 180
     },
     {
-      "rank": 9,
-      "title": "DataForSEO MCP Server — LLM Agent Guide",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于撰写、编辑或校对文档。",
-      "reason": "主题/能力命中：mcp、agent、workflow、document；skill 信号：skill.md、mcp；GitHub 249 stars；近期有更新",
-      "url": "https://github.com/dataforseo/mcp-server-typescript/blob/935969670fe4883800a8342a7c199f3ec7ef2b15/SKILL.md",
-      "repository": "dataforseo/mcp-server-typescript",
-      "stars": 249,
-      "forks": 117,
-      "updatedAt": "2026-10-02T05:41:16Z",
-      "score": 178.5
-    },
-    {
-      "rank": 10,
+      "rank": 7,
       "title": "DocsAgent Skill",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：mcp、agent、workflow、github；skill 信号：skill.md、agent skill、mcp；GitHub 625 stars；近期有更新",
@@ -122,6 +86,42 @@
       "forks": 11,
       "updatedAt": "2026-09-28T06:24:35Z",
       "score": 177.2
+    },
+    {
+      "rank": 8,
+      "title": "Terrashark: Failure-Mode Workflow for Terraform/OpenTofu",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于写作、整理说明文档或生成内容草稿。",
+      "reason": "主题/能力命中：mcp、workflow、writing、testing；skill 信号：skill.md、mcp；GitHub 715 stars；近期有更新",
+      "url": "https://github.com/LukasNiessen/terrashark/blob/21f2c18b912818b6a8e2b7bdbf25a275ecb894b1/SKILL.md",
+      "repository": "LukasNiessen/terrashark",
+      "stars": 715,
+      "forks": 27,
+      "updatedAt": "2026-10-02T19:51:41Z",
+      "score": 176.1
+    },
+    {
+      "rank": 9,
+      "title": "Butterbase",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、github、notion；skill 信号：skill.md、mcp；GitHub 3687 stars；近期有更新",
+      "url": "https://github.com/butterbase-ai/butterbase/blob/b8623ece2ad7756a89578434102c3f40926c653e/SKILL.md",
+      "repository": "butterbase-ai/butterbase",
+      "stars": 3687,
+      "forks": 171,
+      "updatedAt": "2026-10-01T02:11:00Z",
+      "score": 174.5
+    },
+    {
+      "rank": 10,
+      "title": "Gemini Skill",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
+      "reason": "主题/能力命中：mcp、agent、automation、browser；skill 信号：skill.md、mcp、prompt；GitHub 832 stars；近期有更新",
+      "url": "https://github.com/WJZ-P/gemini-skill/blob/333e81835c3e83437c988ec7d7c6f2d7419be291/SKILL.md",
+      "repository": "WJZ-P/gemini-skill",
+      "stars": 832,
+      "forks": 120,
+      "updatedAt": "2026-09-18T13:41:01Z",
+      "score": 170.8
     }
   ]
 }
