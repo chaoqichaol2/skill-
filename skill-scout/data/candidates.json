@@ -1,34 +1,10 @@
 {
-  "generatedAt": "2026-10-13T07:24:34.206Z",
+  "generatedAt": "2026-10-14T05:51:17.639Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
     {
       "rank": 1,
-      "title": "Claude Skill for TorQ",
-      "summary": "这是一个偏 Claude skill 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：workflow、github、deploy、python；skill 信号：skill.md、claude skill；GitHub 310 stars；近期有更新",
-      "url": "https://github.com/DataIntellectTech/TorQ/blob/7e77714a62fb49dc42b11500a96bcfa535ce9a19/docs/claude-skill.md",
-      "repository": "DataIntellectTech/TorQ",
-      "stars": 310,
-      "forks": 93,
-      "updatedAt": "2026-10-09T16:06:20Z",
-      "score": 182
-    },
-    {
-      "rank": 2,
-      "title": "THREE.Terrain agent skill",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：agent、browser、document、javascript；skill 信号：skill.md、agent skill；GitHub 910 stars；近期有更新",
-      "url": "https://github.com/IceCreamYou/THREE.Terrain/blob/27b4c726b98a4e162f441d0603cc1f28c545d811/SKILL.md",
-      "repository": "IceCreamYou/THREE.Terrain",
-      "stars": 910,
-      "forks": 128,
-      "updatedAt": "2026-10-08T04:49:22Z",
-      "score": 182
-    },
-    {
-      "rank": 3,
       "title": "Organize Skills",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
       "reason": "主题/能力命中：agent、automation、browser、database；skill 信号：skill.md、codex skill；GitHub 715 stars；近期有更新",
@@ -40,7 +16,7 @@
       "score": 181.8
     },
     {
-      "rank": 4,
+      "rank": 2,
       "title": "AI Agent Utility Runner",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于生成测试、定位失败原因或补齐验证流程。",
       "reason": "主题/能力命中：agent、workflow、testing、api；skill 信号：skill.md、codex skill；GitHub 347 stars；近期有更新",
@@ -49,79 +25,103 @@
       "stars": 347,
       "forks": 13,
       "updatedAt": "2026-10-07T01:54:22Z",
-      "score": 177.6
+      "score": 172.6
     },
     {
-      "rank": 5,
-      "title": "xurl — Agent Skill Reference",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、browser；skill 信号：skill.md、agent skill、mcp；GitHub 1358 stars；近期有更新",
-      "url": "https://github.com/xdevplatform/xurl/blob/18dcb447f090667171ff23666a05d6d387e2aa73/SKILL.md",
-      "repository": "xdevplatform/xurl",
-      "stars": 1358,
-      "forks": 114,
-      "updatedAt": "2026-09-29T21:20:24Z",
-      "score": 177
-    },
-    {
-      "rank": 6,
-      "title": "What can you do with Tensorlake SDK",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：agent、automation、workflow、browser；skill 信号：skill.md、agent skill；GitHub 171 stars；近期有更新",
-      "url": "https://github.com/tensorlakeai/tensorlake-skills/blob/eca6b8336cb8842188a551cc16eeef45f2547068/SKILL.md",
-      "repository": "tensorlakeai/tensorlake-skills",
-      "stars": 171,
-      "forks": 9,
-      "updatedAt": "2026-10-09T08:42:41Z",
-      "score": 176.3
-    },
-    {
-      "rank": 7,
-      "title": "AI Agent Skill",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、github、document、writing；skill 信号：skill.md、agent skill；GitHub 106 stars；近期有更新",
-      "url": "https://github.com/Polydile/dile-components/blob/ca740f524209d56344b4b0090d9a82c8f1c0782f/docs/ai-skill.md",
-      "repository": "Polydile/dile-components",
-      "stars": 106,
-      "forks": 23,
-      "updatedAt": "2026-10-09T09:51:31Z",
-      "score": 176.1
-    },
-    {
-      "rank": 8,
-      "title": "Gemini Skill",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、automation、browser；skill 信号：skill.md、mcp、prompt；GitHub 832 stars；近期有更新",
-      "url": "https://github.com/WJZ-P/gemini-skill/blob/333e81835c3e83437c988ec7d7c6f2d7419be291/SKILL.md",
-      "repository": "WJZ-P/gemini-skill",
-      "stars": 832,
-      "forks": 121,
-      "updatedAt": "2026-09-18T13:41:01Z",
-      "score": 170.8
-    },
-    {
-      "rank": 9,
+      "rank": 3,
       "title": "Lazyweb",
       "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、agent skill、mcp；GitHub 455 stars；近期有更新",
+      "reason": "主题/能力命中：mcp、agent、workflow、browser；skill 信号：skill.md、agent skill、mcp；GitHub 454 stars；近期有更新",
       "url": "https://github.com/LazywebHQ/lazyweb-skill/blob/71e86aaa76b0ae444b191e57de0bd28a2a3b4e78/SKILL.md",
       "repository": "LazywebHQ/lazyweb-skill",
-      "stars": 455,
+      "stars": 454,
       "forks": 35,
       "updatedAt": "2026-09-28T17:33:53Z",
       "score": 170.3
     },
     {
+      "rank": 4,
+      "title": "Codex Skill Guide",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、automation、workflow；skill 信号：skill.md、codex skill、agent skill；GitHub 240 stars",
+      "url": "https://github.com/jdrhyne/agent-skills/blob/439cd3a9da78c4f463a0c0b5ba30a217b24b7c3b/codex/codex/SKILL.md",
+      "repository": "jdrhyne/agent-skills",
+      "stars": 240,
+      "forks": 31,
+      "updatedAt": "2026-08-30T02:05:52Z",
+      "score": 164
+    },
+    {
+      "rank": 5,
+      "title": "Codex Skill Guide",
+      "summary": "这是一个偏 Codex skill 的 skill，主要用于辅助界面、体验、布局和视觉细节设计。",
+      "reason": "主题/能力命中：workflow；skill 信号：skill.md、codex skill、prompt；GitHub 391 stars；近期有更新",
+      "url": "https://github.com/glebis/claude-skills/blob/3b8826108af86135b90f6b264934ccbfaa48f205/codex/SKILL.md",
+      "repository": "glebis/claude-skills",
+      "stars": 391,
+      "forks": 59,
+      "updatedAt": "2026-10-08T09:21:17Z",
+      "score": 163.8
+    },
+    {
+      "rank": 6,
+      "title": "Codex Skill Guide",
+      "summary": "这是一个偏 Codex skill 的 skill，主要用于辅助界面、体验、布局和视觉细节设计。",
+      "reason": "skill 信号：skill.md、codex skill、prompt；GitHub 57 stars；近期有更新",
+      "url": "https://github.com/ekino/docker-buildbox/blob/693583426286eda9dba2ac003a6a295c54e51e66/reviewtools/skills/codex/SKILL.md",
+      "repository": "ekino/docker-buildbox",
+      "stars": 57,
+      "forks": 63,
+      "updatedAt": "2026-10-13T10:15:44Z",
+      "score": 161.4
+    },
+    {
+      "rank": 7,
+      "title": "nuyoah-xiezhen-prompt",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、github；skill 信号：skill.md、agent skill、prompt；GitHub 759 stars",
+      "url": "https://github.com/nuyoah-ai-works/nuyoah-xiezhen-prompt/blob/7482a14074bcffb9fed8eb8fe2ddcdc4ac2e980b/SKILL.md",
+      "repository": "nuyoah-ai-works/nuyoah-xiezhen-prompt",
+      "stars": 759,
+      "forks": 84,
+      "updatedAt": "2026-08-26T12:47:05Z",
+      "score": 158.5
+    },
+    {
+      "rank": 8,
+      "title": "gpt-image2-ppt -- 用 gpt-image-2 生成 PPT",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、github、chrome、presentation；skill 信号：skill.md、prompt；GitHub 1353 stars",
+      "url": "https://github.com/JuneYaooo/gpt-image2-ppt-skills/blob/2d57ef8127b83e8232a1be4e9515f0b3cc9fc91e/SKILL.md",
+      "repository": "JuneYaooo/gpt-image2-ppt-skills",
+      "stars": 1353,
+      "forks": 77,
+      "updatedAt": "2026-08-22T23:07:51Z",
+      "score": 154.8
+    },
+    {
+      "rank": 9,
+      "title": "Codex 懶人包 — AI Agent 自動安裝入口",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：mcp、agent、github、api；skill 信号：skill.md、mcp；GitHub 76 stars",
+      "url": "https://github.com/mathruffian-dot/codex-lazy-packs/blob/574818e2d80b31807b74fcf62dd5b90b9e46ef3f/SKILL.md",
+      "repository": "mathruffian-dot/codex-lazy-packs",
+      "stars": 76,
+      "forks": 101,
+      "updatedAt": "2026-09-03T23:51:14Z",
+      "score": 153.6
+    },
+    {
       "rank": 10,
-      "title": "UI Skill Shim",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于自动浏览网页、检查页面状态或执行浏览器操作。",
-      "reason": "主题/能力命中：mcp、agent、browser；skill 信号：skill.md、codex skill、mcp；GitHub 79 stars；近期有更新",
-      "url": "https://github.com/NVIDIA-AI-Blueprints/Retail-Agentic-Commerce/blob/6fae849ed50407dfc2e8d49bff517b068b49e8ff/.agents/skills/ui/SKILL.md",
-      "repository": "NVIDIA-AI-Blueprints/Retail-Agentic-Commerce",
-      "stars": 79,
-      "forks": 41,
-      "updatedAt": "2026-09-29T20:10:34Z",
-      "score": 169.6
+      "title": "Skill Scout",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、automation、workflow、github；skill 信号：skill.md、codex skill；GitHub 86 stars",
+      "url": "https://github.com/mturac/everything-openai-codex/blob/b5057da5f42ed6b12cd3a59e89af0ccd12cff7c2/skills/skill-scout/SKILL.md",
+      "repository": "mturac/everything-openai-codex",
+      "stars": 86,
+      "forks": 2,
+      "updatedAt": "2026-08-24T12:57:16Z",
+      "score": 152.9
     }
   ]
 }
