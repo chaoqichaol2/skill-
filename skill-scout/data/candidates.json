@@ -1,67 +1,67 @@
 {
-  "generatedAt": "2026-11-16T07:40:19.157Z",
+  "generatedAt": "2026-11-17T08:49:47.198Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
     {
       "rank": 1,
-      "title": "ai-research-skills",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于做资料检索、信息汇总和研究简报。",
-      "reason": "主题/能力命中：agent、workflow、research、writing；skill 信号：skill.md；GitHub 667 stars；近期有更新",
-      "url": "https://github.com/WenyuChiou/ai-research-skills",
-      "repository": "WenyuChiou/ai-research-skills",
-      "stars": 667,
-      "forks": 47,
-      "updatedAt": "2026-11-16T03:25:47Z",
-      "score": 142.7
+      "title": "awesome-skills",
+      "summary": "awesome skills 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
+      "reason": "主题/能力命中：agent；skill 信号：skill.md、agent skill；GitHub 6 stars；近期有更新；近期新建仓库",
+      "url": "https://github.com/Sagargupta16/awesome-skills",
+      "repository": "Sagargupta16/awesome-skills",
+      "stars": 6,
+      "forks": 4,
+      "updatedAt": "2026-11-17T07:59:05Z",
+      "score": 128.9
     },
     {
       "rank": 2,
-      "title": "build-your-harness",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于辅助界面、体验、布局和视觉细节设计。",
-      "reason": "主题/能力命中：agent；skill 信号：skill.md、agent skill；GitHub 64 stars；近期有更新",
-      "url": "https://github.com/SpaceZephyr/build-your-harness",
-      "repository": "SpaceZephyr/build-your-harness",
-      "stars": 64,
-      "forks": 10,
-      "updatedAt": "2026-11-16T06:55:11Z",
-      "score": 132
+      "title": "nova-skill-creator",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于部署应用、检查发布流程或处理运维任务。",
+      "reason": "主题/能力命中：agent、workflow、deploy；skill 信号：skill.md、agent skill；GitHub 1 stars；近期有更新；近期新建仓库",
+      "url": "https://github.com/chuong1224/nova-skill-creator",
+      "repository": "chuong1224/nova-skill-creator",
+      "stars": 1,
+      "forks": 0,
+      "updatedAt": "2026-11-17T05:50:31Z",
+      "score": 128.3
     },
     {
       "rank": 3,
-      "title": "asitis-agent-tools",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github、security；skill 信号：skill.md、mcp、prompt；GitHub 1 stars；近期有更新",
-      "url": "https://github.com/Katta041/asitis-agent-tools",
-      "repository": "Katta041/asitis-agent-tools",
-      "stars": 1,
+      "title": "agent-security-skills",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于检查安全风险、权限配置或代码安全问题。",
+      "reason": "主题/能力命中：mcp、agent、security；skill 信号：skill.md、mcp、prompt；近期有更新；近期新建仓库",
+      "url": "https://github.com/Anne117/agent-security-skills",
+      "repository": "Anne117/agent-security-skills",
+      "stars": 0,
       "forks": 0,
-      "updatedAt": "2026-11-16T06:57:16Z",
-      "score": 127.8
+      "updatedAt": "2026-11-17T08:49:16Z",
+      "score": 126
     },
     {
       "rank": 4,
-      "title": "skills",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、workflow、github；skill 信号：skill.md、agent skill；近期有更新；近期新建仓库",
-      "url": "https://github.com/GravionLabs/skills",
-      "repository": "GravionLabs/skills",
-      "stars": 0,
-      "forks": 0,
-      "updatedAt": "2026-11-16T07:39:41Z",
-      "score": 126.5
+      "title": "ai-driven-development",
+      "summary": "ai driven development 可能是设计相关 MCP/工具集成，但当前公开信息不足，需要点开确认具体用途。",
+      "reason": "主题/能力命中：mcp、agent；skill 信号：agent skill、mcp、prompt；GitHub 186 stars；近期有更新",
+      "url": "https://github.com/CodeAlive-AI/ai-driven-development",
+      "repository": "CodeAlive-AI/ai-driven-development",
+      "stars": 186,
+      "forks": 18,
+      "updatedAt": "2026-11-17T08:46:53Z",
+      "score": 123.2
     },
     {
       "rank": 5,
-      "title": "remy-skill-recipes",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、automation、workflow、github；skill 信号：skill.md、prompt；GitHub 13 stars；近期有更新",
-      "url": "https://github.com/comsky/remy-skill-recipes",
-      "repository": "comsky/remy-skill-recipes",
-      "stars": 13,
-      "forks": 1,
-      "updatedAt": "2026-11-16T07:32:36Z",
-      "score": 125
+      "title": "agtmls",
+      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于检查安全风险、权限配置或代码安全问题。",
+      "reason": "主题/能力命中：mcp、agent、security、python；skill 信号：skill.md、agent skill、mcp；GitHub 1 stars；近期有更新",
+      "url": "https://github.com/sebastienrousseau/agtmls",
+      "repository": "sebastienrousseau/agtmls",
+      "stars": 1,
+      "forks": 0,
+      "updatedAt": "2026-11-17T07:54:32Z",
+      "score": 123
     },
     {
       "rank": 6,
@@ -72,7 +72,7 @@
       "repository": "yanghhu/miragea-voiceover-skills",
       "stars": 0,
       "forks": 0,
-      "updatedAt": "2026-11-16T06:01:55Z",
+      "updatedAt": "2026-11-17T06:03:07Z",
       "score": 120.5
     },
     {
@@ -84,20 +84,20 @@
       "repository": "hqzhon/agent-skills-wiki",
       "stars": 2,
       "forks": 0,
-      "updatedAt": "2026-11-16T06:20:50Z",
+      "updatedAt": "2026-11-17T05:55:03Z",
       "score": 119.3
     },
     {
       "rank": 8,
-      "title": "agent-skills",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：mcp、agent、github；skill 信号：skill.md、agent skill、mcp；近期有更新",
-      "url": "https://github.com/Hefrock/agent-skills",
-      "repository": "Hefrock/agent-skills",
-      "stars": 0,
+      "title": "lingnian-skills",
+      "summary": "lingnian skills 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
+      "reason": "主题/能力命中：agent；skill 信号：skill.md、agent skill；GitHub 2 stars；近期有更新；近期新建仓库",
+      "url": "https://github.com/lingnianjing-lab/lingnian-skills",
+      "repository": "lingnianjing-lab/lingnian-skills",
+      "stars": 2,
       "forks": 0,
-      "updatedAt": "2026-11-16T04:12:37Z",
-      "score": 117.5
+      "updatedAt": "2026-11-17T07:31:12Z",
+      "score": 119.3
     },
     {
       "rank": 9,
@@ -108,20 +108,20 @@
       "repository": "duykhanh01/agent-skills",
       "stars": 0,
       "forks": 0,
-      "updatedAt": "2026-11-16T05:55:32Z",
+      "updatedAt": "2026-11-17T07:44:29Z",
       "score": 117.5
     },
     {
       "rank": 10,
-      "title": "book-skills",
-      "summary": "book skills 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
-      "reason": "主题/能力命中：agent；skill 信号：skill.md、agent skill；近期有更新；近期新建仓库",
-      "url": "https://github.com/maciejszulia/book-skills",
-      "repository": "maciejszulia/book-skills",
-      "stars": 0,
+      "title": "english-reading-analysis",
+      "summary": "english reading analysis 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
+      "reason": "主题/能力命中：agent；skill 信号：skill.md、agent skill；GitHub 1 stars；近期有更新；近期新建仓库",
+      "url": "https://github.com/MelanthaCode/english-reading-analysis",
+      "repository": "MelanthaCode/english-reading-analysis",
+      "stars": 1,
       "forks": 0,
-      "updatedAt": "2026-11-16T07:38:04Z",
-      "score": 113
+      "updatedAt": "2026-11-17T07:32:42Z",
+      "score": 117
     }
   ]
 }
