@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T07:59:59.302Z",
+  "generatedAt": "2026-11-22T07:46:35.143Z",
   "scope": "all",
   "lookbackDays": 30,
   "items": [
@@ -11,8 +11,8 @@
       "url": "https://github.com/Berserk-hub150/skillhawk",
       "repository": "Berserk-hub150/skillhawk",
       "stars": 119,
-      "forks": 55,
-      "updatedAt": "2026-11-21T00:50:50Z",
+      "forks": 56,
+      "updatedAt": "2026-11-21T23:50:35Z",
       "score": 154.5
     },
     {
@@ -24,7 +24,7 @@
       "repository": "ducdg88/ducpt-skills",
       "stars": 8,
       "forks": 2,
-      "updatedAt": "2026-11-21T00:15:41Z",
+      "updatedAt": "2026-11-22T00:16:25Z",
       "score": 140.8
     },
     {
@@ -36,59 +36,35 @@
       "repository": "Phideround/realmarketapi-agent-skills",
       "stars": 0,
       "forks": 0,
-      "updatedAt": "2026-11-21T05:29:46Z",
+      "updatedAt": "2026-11-22T04:43:24Z",
       "score": 131
     },
     {
       "rank": 4,
-      "title": "instagram-edits-agent-skills",
-      "summary": "instagram edits agent skills 可能是设计相关 MCP/工具集成，但当前公开信息不足，需要点开确认具体用途。",
-      "reason": "主题/能力命中：mcp、agent、automation；skill 信号：skill.md、agent skill、mcp；近期有更新；近期新建仓库",
-      "url": "https://github.com/TaricaTarica/instagram-edits-agent-skills",
-      "repository": "TaricaTarica/instagram-edits-agent-skills",
-      "stars": 0,
+      "title": "agent-skills-hub-sync-engine",
+      "summary": "agent skills hub sync engine 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
+      "reason": "主题/能力命中：agent、automation、workflow；skill 信号：skill.md、agent skill；GitHub 1 stars；近期有更新",
+      "url": "https://github.com/MishraShardendu22/agent-skills-hub-sync-engine",
+      "repository": "MishraShardendu22/agent-skills-hub-sync-engine",
+      "stars": 1,
       "forks": 0,
-      "updatedAt": "2026-11-21T00:20:58Z",
-      "score": 131
+      "updatedAt": "2026-11-22T05:38:41Z",
+      "score": 126
     },
     {
       "rank": 5,
-      "title": "agent-os",
-      "summary": "这是一个偏 MCP/工具集成 的 skill，主要用于做资料检索、信息汇总和研究简报。",
-      "reason": "主题/能力命中：mcp、agent、workflow、research；skill 信号：skill.md、mcp；GitHub 1 stars；近期有更新；近期新建仓库",
-      "url": "https://github.com/zaynelovecraft/agent-os",
-      "repository": "zaynelovecraft/agent-os",
-      "stars": 1,
-      "forks": 0,
-      "updatedAt": "2026-11-21T06:05:46Z",
-      "score": 127.5
-    },
-    {
-      "rank": 6,
       "title": "skills",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
-      "reason": "主题/能力命中：agent、workflow、github；skill 信号：skill.md、agent skill；近期有更新；近期新建仓库",
-      "url": "https://github.com/GravionLabs/skills",
-      "repository": "GravionLabs/skills",
-      "stars": 0,
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 Python 脚本、数据处理或自动化任务。",
+      "reason": "主题/能力命中：agent、automation、workflow、python；skill 信号：skill.md；GitHub 10 stars；近期有更新",
+      "url": "https://github.com/ellmos-ai/skills",
+      "repository": "ellmos-ai/skills",
+      "stars": 10,
       "forks": 0,
-      "updatedAt": "2026-11-21T07:48:05Z",
-      "score": 126.5
-    },
-    {
-      "rank": 7,
-      "title": "ai-security-skills",
-      "summary": "这是一个偏 agent 工作流 的 skill，主要用于检查安全风险、权限配置或代码安全问题。",
-      "reason": "主题/能力命中：agent、security；skill 信号：skill.md、agent skill；近期有更新；近期新建仓库",
-      "url": "https://github.com/abdelrhmansilem/ai-security-skills",
-      "repository": "abdelrhmansilem/ai-security-skills",
-      "stars": 0,
-      "forks": 0,
-      "updatedAt": "2026-11-21T00:59:11Z",
+      "updatedAt": "2026-11-22T05:27:05Z",
       "score": 115.3
     },
     {
-      "rank": 8,
+      "rank": 6,
       "title": "skills",
       "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
       "reason": "主题/能力命中：agent、github；skill 信号：skill.md、agent skill；GitHub 1 stars；近期有更新",
@@ -96,32 +72,56 @@
       "repository": "buildpad-ai/skills",
       "stars": 1,
       "forks": 4,
-      "updatedAt": "2026-11-21T06:07:27Z",
+      "updatedAt": "2026-11-22T05:40:54Z",
       "score": 114.1
     },
     {
-      "rank": 9,
-      "title": "village-grocer-deals-skill",
-      "summary": "village grocer deals skill 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
-      "reason": "主题/能力命中：agent；skill 信号：skill.md、agent skill；近期有更新；近期新建仓库",
-      "url": "https://github.com/SalocinDotTEN/village-grocer-deals-skill",
-      "repository": "SalocinDotTEN/village-grocer-deals-skill",
+      "rank": 7,
+      "title": "ai-agent-skills",
+      "summary": "ai agent skills 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
+      "reason": "主题/能力命中：agent、workflow；skill 信号：skill.md、prompt；GitHub 2 stars；近期有更新；近期新建仓库",
+      "url": "https://github.com/YafiTiara/ai-agent-skills",
+      "repository": "YafiTiara/ai-agent-skills",
+      "stars": 2,
+      "forks": 0,
+      "updatedAt": "2026-11-22T05:43:34Z",
+      "score": 112.6
+    },
+    {
+      "rank": 8,
+      "title": "formalize-math-paper",
+      "summary": "这是一个偏 agent 工作流 的 skill，主要用于处理 GitHub 仓库、PR、Issue 或 CI 工作流。",
+      "reason": "主题/能力命中：agent、github；skill 信号：skill.md、agent skill；近期有更新",
+      "url": "https://github.com/vltanh/formalize-math-paper",
+      "repository": "vltanh/formalize-math-paper",
       "stars": 0,
       "forks": 0,
-      "updatedAt": "2026-11-21T02:23:01Z",
-      "score": 113
+      "updatedAt": "2026-11-22T05:07:24Z",
+      "score": 111.5
+    },
+    {
+      "rank": 9,
+      "title": "AI_Skills_Collection",
+      "summary": "这是一个偏 Codex skill 的 skill，主要用于撰写、编辑或校对文档。",
+      "reason": "主题/能力命中：automation、workflow、document、research；skill 信号：skill.md；GitHub 2 stars；近期有更新",
+      "url": "https://github.com/YuukiAS/AI_Skills_Collection",
+      "repository": "YuukiAS/AI_Skills_Collection",
+      "stars": 2,
+      "forks": 0,
+      "updatedAt": "2026-11-22T07:39:50Z",
+      "score": 107.8
     },
     {
       "rank": 10,
-      "title": "add-flareup",
-      "summary": "add flareup 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
-      "reason": "主题/能力命中：agent；skill 信号：skill.md、claude skill；近期有更新；近期新建仓库",
-      "url": "https://github.com/bigryanpark/add-flareup",
-      "repository": "bigryanpark/add-flareup",
-      "stars": 0,
+      "title": "personal-agent-skills",
+      "summary": "personal agent skills 可能是设计相关 agent 工作流，但当前公开信息不足，需要点开确认具体用途。",
+      "reason": "主题/能力命中：agent；skill 信号：skill.md、agent skill；GitHub 1 stars；近期有更新",
+      "url": "https://github.com/YosukeIida/personal-agent-skills",
+      "repository": "YosukeIida/personal-agent-skills",
+      "stars": 1,
       "forks": 0,
-      "updatedAt": "2026-11-21T06:28:32Z",
-      "score": 113
+      "updatedAt": "2026-11-22T04:29:01Z",
+      "score": 105
     }
   ]
 }
